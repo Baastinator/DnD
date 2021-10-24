@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DND_Char_Gen", "DnD_Stuff\DND_Char_Gen.csproj", "{B3DF5ADD-6242-48B5-91FF-D755687236FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedClasses", "SharedClasses\SharedClasses.csproj", "{F1F39DDD-B42B-4257-8431-3AA20859317C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3DF5ADD-6242-48B5-91FF-D755687236FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3DF5ADD-6242-48B5-91FF-D755687236FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3DF5ADD-6242-48B5-91FF-D755687236FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3DF5ADD-6242-48B5-91FF-D755687236FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F39DDD-B42B-4257-8431-3AA20859317C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F39DDD-B42B-4257-8431-3AA20859317C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F39DDD-B42B-4257-8431-3AA20859317C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F39DDD-B42B-4257-8431-3AA20859317C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6223901-BA3F-491C-B2E3-481DABF3AC55}
+	EndGlobalSection
+EndGlobal
