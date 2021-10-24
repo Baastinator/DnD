@@ -4,8 +4,10 @@ using System.Text;
 
 namespace DND
 {
-    class Inventory
+    class Weapon
     {
-        private ItemSlot[] items = new ItemSlot[40];
+        private int _diceNum, _diceSize;
+        private string _name;
+
     }
 }
