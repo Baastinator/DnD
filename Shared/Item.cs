@@ -4,10 +4,8 @@ using System.Text;
 
 namespace DND
 {
-    class Weapon
+    class Item
     {
-        private int _diceNum, _diceSize;
-        private string _name;
-
+        int amount;
     }
 }

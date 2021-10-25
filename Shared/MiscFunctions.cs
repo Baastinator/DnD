@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DND
 {
-    class Inventory
+    static class MiscFunctions
     {
-        private ItemSlot[] items = new ItemSlot[40];
+
     }
 }

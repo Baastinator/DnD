@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using 
 using System.Threading.Tasks;
 
 namespace DND_Char_Gen
@@ -10,6 +11,7 @@ namespace DND_Char_Gen
     {
         static void Main(string[] args)
         {
+            public Character test;
         }
     }
 }
