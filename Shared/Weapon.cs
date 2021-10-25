@@ -4,8 +4,11 @@ using System.Text;
 
 namespace DND
 {
-    class Weapon
+    public class Weapon
     {
+        private uint _id;
+        public int ID { get => (int)_id; }
+
         private int _diceN, _diceS;
         private string _name;
         public int DiceNumber { get => _diceN; set { _diceN = value; } }
