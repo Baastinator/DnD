@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DND.Character;
 
-namespace DND
+namespace DND_Character
 {
     public class Character
     {
-        private Statblock stats;
-        private Inventory inventory;
-        private Psychology psychology;
-
-        public Statblock Stats { get => stats;  set { stats = value; } }
-        public Inventory Inventory { get => inventory; set { inventory = value; } }
-        public Psychology Psychology { get => psychology; set { psychology = value; } }
+        public Statblock Stats { get; set; }
+        public Inventory Inventory { get; set; }
+        public Psychology Psychology { get; set; }
+        public Appearance Appearance { get; set; }
 
         public Character()
         {
             Stats = new Statblock();
+            Inventory = new Inventory();
+            Psychology = new Psychology();
+            Appearance = new Appearance();
         }
     }
 }

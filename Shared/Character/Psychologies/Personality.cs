@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DND
+namespace DND.Character.Psychologies
 {
-    public class Psychology
+    public class Personality
     {
 
     }

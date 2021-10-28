@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DND
+namespace DND.Character.Stats
 {
     public class Stat
     {
         static Random rng = new Random();
-        private int val;
-        public int Value { get { return val; } set { val = value; } }
+        public int Value { get; set; }
         public Stat(int value = 0)
         {
-            val = value;
+            Value = value;
         }
         static public Stat MakeStat()
         {

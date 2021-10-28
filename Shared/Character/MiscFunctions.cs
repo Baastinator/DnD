@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DND
+namespace DND.Character
 {
     static class MiscFunctions
     {

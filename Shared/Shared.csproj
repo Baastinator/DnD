@@ -5,4 +5,16 @@
     <RootNamespace>DND</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="Character\Inventories\Armors.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Character\Inventories\Items.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Character\Inventories\Weapons.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

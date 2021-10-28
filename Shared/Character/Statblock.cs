@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DND.Character.Stats;
 
 
-namespace DND
+namespace DND.Character
 {
     public class Statblock
     {
@@ -74,7 +75,7 @@ namespace DND
             {
                 Cha.Value = value;
             }
-        }
+        } 
         public int[] IntArray
         {
             get
@@ -121,7 +122,7 @@ namespace DND
             Cha = new Stat();
         }
 
-        public static Statblock makeStats(uint config, int[]? content = null)
+        public static Statblock MakeStats(uint config, int[]? content = null)
         {
             Statblock output = new Statblock();
             if (config == STATS_RANDOM)

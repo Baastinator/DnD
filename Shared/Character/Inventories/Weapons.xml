@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfWeapon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Weapon>
+		<Id>1</Id>
+		<DiceSize>6</DiceSize>
+		<DiceAmount>2</DiceAmount>
+		<Name>Sword</Name>
+	</Weapon>
+	<Weapon>
+		<Id>2</Id>
+		<DiceSize>6</DiceSize>
+		<DiceAmount>2</DiceAmount>
+		<Name>Axe</Name>
+	</Weapon>
+</ArrayOfWeapon>
