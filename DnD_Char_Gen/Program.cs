@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using DND;
 using DND.Character;
-using DND.Character.Inventories;
 
 namespace DnD_Char_Gen
 {
@@ -12,7 +11,6 @@ namespace DnD_Char_Gen
         static void Main(string[] args)
         {
             
-            Adder.ItemAdder("Rope", debugMode);
 
 
             Console.ReadLine();

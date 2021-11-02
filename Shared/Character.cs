@@ -8,14 +8,12 @@ namespace DND_Character
     public class Character
     {
         public Statblock Stats { get; set; }
-        public Inventory Inventory { get; set; }
         public Psychology Psychology { get; set; }
         public Appearance Appearance { get; set; }
 
         public Character()
         {
-            Stats = new Statblock();
-            Inventory = new Inventory();
+            Stats = new Statblock(); 
             Psychology = new Psychology();
             Appearance = new Appearance();
         }
