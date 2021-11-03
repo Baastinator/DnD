@@ -8,24 +8,20 @@ namespace DND.Character
     {
         public string Name { get; set; }
         public int ID { get; set; }
-        public static Profession[] Professions
-        {
-            get => new Profession[]
-            {
-                Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
-                Artist, Butcher, Weaver, Winemaker, Shoemaker,
-                Steelwright, Roofer, Locksmith, Tanner, Cook,
-                Beltmaker, Barrister, Banker, Mayor, Manager,
+        public static Profession[] Professions = new Profession[] {
+            Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
+            Artist, Butcher, Weaver, Winemaker, Shoemaker,
+            Steelwright, Roofer, Locksmith, Tanner, Cook,
+            Beltmaker, Barrister, Banker, Mayor, Manager,
 
-                GuardCaptain, Admiral, Captain, Shiphand, Servant, 
-                WaitStaff, TaxCollector, Minister, Secretary, Judge,
-                Merchant, Barkeep, Librarian, Alchemist, CharcoalBurner,
-                Nurse, Labourer, Doctor, General, Soldier,
+            GuardCaptain, Admiral, Captain, Shiphand, Servant, 
+            WaitStaff, TaxCollector, Minister, Secretary, Judge,
+            Merchant, Barkeep, Librarian, Alchemist, CharcoalBurner,
+            Nurse, Labourer, Doctor, General, Soldier,
 
-                Guard, Miller, Farmer, Carpenter, Smith,
-                Tailor, Mason, Herder, Teacher, Miner
-            };
-        }
+            Guard, Miller, Farmer, Carpenter, Smith,
+            Tailor, Mason, Herder, Teacher, Miner
+        };
         #region WeightLists
         public static int[] Peasant = new int[]
         {
