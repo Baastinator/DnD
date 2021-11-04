@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DND.Character.Stats
+namespace DND.Characters.Stats
 {
     public class Stat
     {
@@ -12,7 +10,7 @@ namespace DND.Character.Stats
         {
             Value = value;
         }
-        static public Stat MakeStat()
+        public static Stat MakeStat()
         {
             int[] group4 = { rng.Next(1, 7), rng.Next(1, 7), rng.Next(1, 7), rng.Next(1, 7) };
             int min = Math.Min(Math.Min(group4[0], group4[1]), Math.Min(group4[2], group4[3]));

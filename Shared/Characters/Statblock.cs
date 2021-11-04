@@ -1,86 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DND.Character.Stats;
+using DND.Characters.Stats;
 
 
-namespace DND.Character
+namespace DND.Characters
 {
     public class Statblock
     {
-        static Random rng = new Random();
         private Stat Str, Dex, Con, Int, Wis, Cha;
         public int STR
         {
-            get
-            {
-                return Str.Value;
-            }
-            set
-            {
-                Str.Value = value;
-            }
+            get => Str.Value;
+            set => Str.Value = value;
         }
         public int DEX
         {
-            get
-            {
-                return Dex.Value;
-            }
-            set
-            {
-                Dex.Value = value;
-            }
+            get => Dex.Value;
+            set => Dex.Value = value;
         }
         public int CON
         {
-            get
-            {
-                return Con.Value;
-            }
-            set
-            {
-                Con.Value = value;
-            }
+            get => Con.Value;
+            set => Con.Value = value;
         }
         public int INT
         {
-            get
-            {
-                return Int.Value;
-            }
-            set
-            {
-                Int.Value = value;
-            }
+            get => Int.Value;
+            set => Int.Value = value;
         }
         public int WIS
         {
-            get
-            {
-                return Wis.Value;
-            }
-            set
-            {
-                Wis.Value = value;
-            }
+            get => Wis.Value;
+            set => Wis.Value = value;
         }
         public int CHA
         {
-            get
-            {
-                return Cha.Value;
-            }
-            set
-            {
-                Cha.Value = value;
-            }
+            get => Cha.Value;
+            set => Cha.Value = value;
         } 
         public int[] IntArray
         {
             get
             {
-                return new int[] { STR, DEX, CON, INT, WIS, CHA };
+                return new[] { STR, DEX, CON, INT, WIS, CHA };
             }
             set
             {
@@ -96,7 +57,7 @@ namespace DND.Character
         {
             get
             {
-                return new Stat[] { Str, Dex, Con, Int, Wis, Cha };
+                return new[] { Str, Dex, Con, Int, Wis, Cha };
             }
             set
             {
@@ -108,9 +69,17 @@ namespace DND.Character
                 Cha = value[5];
             }
         }
+        public static int getModifier(int stat)
+        {
+            if ((uint)stat > 20)
+            {
+                throw new Exception("bad number in statmodifier");
+            }
+            return (int)Math.Floor((stat - 10d) / 2);
+        }
 
         //CONFIGURATIONS
-        public readonly static uint STATS_RANDOM = 0, STATS_MANUAL = 1;
+        public static readonly byte STATS_RANDOM = 0, STATS_MANUAL = 1;
 
         public Statblock()
         {
@@ -122,12 +91,13 @@ namespace DND.Character
             Cha = new Stat();
         }
 
-        public static Statblock MakeStats(uint config, int[]? content = null)
+#nullable enable
+        public static Statblock MakeStats(byte config, int[] content )
         {
             Statblock output = new Statblock();
             if (config == STATS_RANDOM)
             {
-                output.StatArray = new Stat[] { Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat() };
+                output.StatArray = new[] { Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat() };
             }
             else
             {
@@ -135,5 +105,6 @@ namespace DND.Character
             }
             return output;
         }
+#nullable disable
     }
 }

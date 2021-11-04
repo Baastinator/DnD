@@ -1,20 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using DND;
-using DND.Character;
-using DND.Character.Professions;
+using DND.Characters;
 
 namespace DnD_Char_Gen
 {
-    class Program
+    public class Program
     {
-        static bool debugMode = true;
-        static void Main(string[] args)
+        public static Character character;
+        public static void Main(string[] args)
         {
-            Randomiser ruralpeasant = new Randomiser(ProfessionWeights.RuralPeasant);
-            for (int i = 0; i < 50; i++)
+            Statblock stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
+            Skillblock skills = new Skillblock(10,stats);
+            skills.ApplyProficiencies(new int[] {0,0,0, 0,0,0, 0,0,50, 0,0,0, 0,0,0, 0,0,0});
+            foreach (var stat in stats.StatArray)
             {
-                Console.WriteLine(Profession.Professions[ruralpeasant.Roll()].Name);
+                Console.WriteLine(stat.Value);
+            }
+            Console.WriteLine();
+            foreach (var skill in skills.skills) 
+            {
+                Console.WriteLine(skill.Value);
             }
             Console.ReadLine();
         }

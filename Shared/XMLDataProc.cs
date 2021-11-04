@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using System.IO;
 
 namespace DND
@@ -13,9 +10,7 @@ namespace DND
             var writer = new XmlSerializer(data.GetType());
             var wfile = new StreamWriter(path + ".xml");
             writer.Serialize(wfile, data);
-            writer = null;
             wfile.Close();
-            wfile = null;
         }
         public static object ReadList(string path, object data)
         {

@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DND.Character.Professions
+﻿
+namespace DND.Characters.Professions
 {
+    public static class ProfWeightIDs
+    {
+        //public static readonly byte Ruralpeasant
+    }
     public static class ProfessionWeights
     {
-        static int[] template = new int[]
-        {
+        /*
+        public static int[] template = {
               0,  0,  0,  0,  0,    0,  0,  0,  0,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
               0,  0,  0,  0,  0,    0,  0,  0,  0,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
               0,  0,  0,  0,  0,    0,  0,  0,  0,  0,
         };
+        */
 
-        public static int[] RuralPeasant = new int[]
-        {
+        public static int[] RuralPeasant = {
              80,  0,  0,  0,  0,    0,  0,  0, 10,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
               0,  0,  0,  0, 20,    0,  0,  0,  0,  0,    0, 15,  0,  0,  0,     0,  20,  0,  0,  0,
               0, 80,100,  0,  0,    0,  0, 50,  0, 30,
