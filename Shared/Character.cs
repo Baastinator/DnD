@@ -1,4 +1,6 @@
-﻿using DND.Characters;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using DND.Characters;
 using DND.Characters.Stats;
 
 namespace DND
@@ -8,11 +10,16 @@ namespace DND
 
         public bool Player;
         public int Level;
-        public Skillblock Skills;
+        public Race Race;
         public Statblock Stats;
         public Psychology Psychology;
+        public SocialClass SocialClass;
         public Appearance Appearance;
         public Profession Profession;
+        public Background Background;
+        public Class Class;
+        public SavingThrows SavingThrows;
+        public Skillblock Skills;
         public Character(bool isPlayer, int level = 0)
         {
             Player = isPlayer;
@@ -28,47 +35,65 @@ namespace DND
         // NOTE
         // GENENERATION ORDER: 
         // 
-        // RACE         // ALL
-        // STATS        // ALL
-        // PSYCHOLOGY   // ALL
-        // SOCIAL CLASS // ALL
-        // APPEARANCE   // ALL
-        // PROFESSION   // ALL (adventurers locked on "adventurer" profession, trigger for background and class creation
-        // BACKGROUND   // ADVENTURER
-        // CLASS        // ADVENTURER
-        // SKILLS       // ALL (only adventurers get proficiencies - inherited from class and background
+        // RACE             // ALL 
+        // STATS            // ALL
+        // SOCIAL CLASS     // ALL
+        // APPEARANCE       // ALL
+        // PROFESSION       // ALL (adventurers locked on "adventurer" profession, trigger for background and class creation
+        // BACKGROUND       // ADVENTURER
+        // CLASS            // ADVENTURER
+        // SAVING THROWS    // ADVENTURER
+        // SKILLS           // ALL (only adventurers get proficiencies - inherited from class and background
+        // PSYCHOLOGY       // ALL
         //
-        #region Stats
+        // NOTE
+        #region RACE
+
+        public void GenRace()
+        {
+            var raceRandomiser = new Randomiser(new[] {100,70,60,50,30,20,20,20,15,10,10,5,5,5});
+            Race = Race.Races[raceRandomiser.Roll()];
+        }
+
+        public void SetRace(int ID)
+        {
+            Race = Race.Races[ID];
+        }
+
+        #endregion
+
+        #region STATS
         public void MakeStats(int[] statTable)
         {
-            Stats = Statblock.MakeStats(Statblock.STATS_MANUAL, statTable);
+            var stats = Statblock.MakeStats(Statblock.STATS_MANUAL, statTable);
+            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, Race.StatBonus);
+            Stats = Statblock.AddStats(stats, bonus);
         }
 
         public void MakeStats()
         {
-            Stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
+            var stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
+            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, Race.StatBonus);
+            Stats = Statblock.AddStats(stats, bonus);
         }
 
         #endregion
 
-        #region Skills
-
-        public void MakeSkills(int[] proficiencyTable, Statblock stats, int playerLvl)
-        {
-
-        }
+        #region PSYCHOLOGY
 
         #endregion
 
-        #region Psychology
+        #region SOCIAL CLASS
+
+        
 
         #endregion
 
-        #region Appearance
+        #region APPEARANCE
 
         #endregion
 
-        #region Profession
+        #region PROFESSION
 
         public void GenProfession(int[] weightTable)
         {
@@ -82,7 +107,28 @@ namespace DND
         }
         #endregion
 
-        #region Background
+        #region BACKGROUND
+
+        #endregion
+
+        #region CLASS
+
+
+
+        #endregion
+
+        #region SAVING THROWS
+
+        
+
+        #endregion
+
+        #region SKILLS
+
+        public void MakeSkills(int[] proficiencyTable, Statblock stats, int playerLvl)
+        {
+
+        }
 
         #endregion
     }

@@ -9,18 +9,15 @@ namespace DnD_Char_Gen
         public static Character character;
         public static void Main(string[] args)
         {
-            Statblock stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
-            Skillblock skills = new Skillblock(10,stats);
-            skills.ApplyProficiencies(new int[] {0,0,0, 0,0,0, 0,0,50, 0,0,0, 0,0,0, 0,0,0});
-            foreach (var stat in stats.StatArray)
+            character = new Character(true, 2);
+            character.SetRace(4);
+            character.MakeStats(new[] {5,5,5,5,5,5});
+            Console.WriteLine(character.Race.Name);
+            foreach (var i in character.Stats.IntArray)
             {
-                Console.WriteLine(stat.Value);
+                Console.WriteLine(i);
             }
             Console.WriteLine();
-            foreach (var skill in skills.skills) 
-            {
-                Console.WriteLine(skill.Value);
-            }
             Console.ReadLine();
         }
     }

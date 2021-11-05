@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Emit;
 using DND.Characters.Stats;
 
 
@@ -106,5 +107,14 @@ namespace DND.Characters
             return output;
         }
 #nullable disable
+        public static Statblock AddStats(Statblock s, Statblock o)
+        {
+            var stats = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                stats[i] = s.IntArray[i] + o.IntArray[i];
+            } 
+            return MakeStats(STATS_MANUAL, stats);
+        }
     }
 }

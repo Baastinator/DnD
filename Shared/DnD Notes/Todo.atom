@@ -1,0 +1,60 @@
+TO DO
+
+HIGH PRIORITY
+- CHARACTER
+  - RACE          // FINISHED
+  - STATS         // FINISHED
+  - SOCIAL CLASS
+    - ADD SOCIAL CLASSES                      // TODO
+  - APPEARANCE
+    - CREATE APPEARANCE BASED ON SOCIAL CLASS // TODO
+    - CREATE BODY TYPE FROM STATS             // TODO
+  - PROFESSION
+  - BACKGROUND
+  - CLASS
+  - SAVING THROWS
+  - SKILLS
+  - PSYCHOLOGY
+
+
+MEDIUM PRIORITY
+- CHARACTER
+  - RACE
+  - STATS
+  - SOCIAL CLASS
+  - APPEARANCE
+  - PROFESSIONS
+    - ACTUALLY ADD MORE THAN JUST RURAL PEASANTS // NOTE
+  - BACKGROUNDS
+    - build background class  // NOTE
+    - add backgrounds // NOTE
+  - CLASS
+  - SAVING THROWS
+    - IMPLEMENT THEM // NOTE
+  - SKILLS
+  - PSYCHOLOGY
+    - VALUES        // NOTE //
+    - PERSONALITY   // NOTE //
+
+
+LOW PRIORITY
+- CLEANUP
+- CHARACTER
+  - make non adverturer NPCs possible // TODO //
+    // NOTE //
+    // finished for now, will have to do
+    // some stuff once i finished
+    // race, social class and appearance
+    // NOTE //
+
+
+COMPLETED
+- CHARACTER
+  - STATS
+    - Stat Generation
+    - RACE MODIFIERS
+  - SKILLS
+    - Skill Generation
+  - RACE
+    - IMPLEMENT RACE
+    - IMPLEMENT RACE BONI

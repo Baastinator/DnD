@@ -1,0 +1,9 @@
+bodySize = math.floor((ConMod - DexMod + StrMod/2)*2/5)
+muscleMass = math.floor((StrMod + DexMod/2 + ConMod/2)/2)
+
+
+BODY TYPE => x: size, y: muscle
+MM; BS=> [-5;-3]   [-2; 2]   [ 3; 5]
+[-5;-3]   skinny    plump    chubby
+[-2; 2]   slim     average    stocky
+[ 3; 5]   lean     athletic    bulky
