@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Security;
 using DND.Characters;
 using DND.Characters.Appearances;
 using DND.Characters.Professions;
@@ -27,6 +26,7 @@ namespace DND
             Player = isPlayer;
             Level = level == 0 ? new Random().Next(1,4) : level;
             IsMale = new Random().Next(0,2)==1;
+
         }
         // NOTE
         // GENENERATION ORDER: 
@@ -48,12 +48,12 @@ namespace DND
         public void GenRace()   
         {
             var raceRandomiser = new Randomiser(new[] {100,70,60,50,30,20,20,20,15,10,10,5,5,5});
-            Race = Race.Races[raceRandomiser.Roll()];
+            CRace = Race.Races[raceRandomiser.Roll()];
         }
 
         public void SetRace(int ID)
         {
-            Race = Race.Races[ID];
+            CRace = Race.Races[ID];
         }
 
         #endregion
@@ -62,14 +62,14 @@ namespace DND
         public void MakeStats(int[] statTable)
         {
             var stats = Statblock.MakeStats(Statblock.STATS_MANUAL, statTable);
-            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, Race.StatBonus);
+            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
             Stats = Statblock.AddStats(stats, bonus);
         }
 
         public void MakeStats()
         {
             var stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
-            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, Race.StatBonus);
+            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
             Stats = Statblock.AddStats(stats, bonus);
         }
 
@@ -80,12 +80,12 @@ namespace DND
         public void GenSocialClass(int WeightID)
         {
             var randomiser = new Randomiser(SocialClassWeightTables.ClassWeights[WeightID]);
-            SocialClass = SocialClass.SocialClasses[randomiser.Roll()];
+            CSocialClass = SocialClass.SocialClasses[randomiser.Roll()];
         }
 
         public void GetSocialClass(int ClassID)
         {
-            SocialClass = SocialClass.SocialClasses[ClassID];
+            CSocialClass = SocialClass.SocialClasses[ClassID];
         }
 
         #endregion
@@ -94,6 +94,7 @@ namespace DND
 
         public void GenAppearance()
         {
+            CAppearance = new Appearance();
             int f(int x) { return (int) Math.Floor(x / 5d); }
             CAppearance.ClothingType = CSocialClass.ID switch
             {
@@ -147,6 +148,11 @@ namespace DND
         public void GenProfession(int weightTableID)
         {
             var randomiser = new Randomiser(ProfessionWeights.ProfessionWeightList[weightTableID]);
+            CProfession = Profession.Professions[randomiser.Roll()];
+        }
+        public void GenProfession()
+        {
+            var randomiser = new Randomiser(CSocialClass.JobWeightTable);
             CProfession = Profession.Professions[randomiser.Roll()];
         }
 

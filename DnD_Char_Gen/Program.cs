@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Immutable;
 using DND;
 using DND.Characters;
+using DND.Characters.SocialClasses;
 
 namespace DnD_Char_Gen
 {
@@ -10,14 +12,20 @@ namespace DnD_Char_Gen
         public static void Main(string[] args)
         {
             character = new Character(true, 2);
-            character.SetRace(4);
-            character.MakeStats(new[] {5,5,5,5,5,5});
-            Console.WriteLine(character.Race.Name);
-            foreach (var i in character.Stats.IntArray)
+            character.GenRace();
+            character.MakeStats();
+            character.GenSocialClass(1);
+            character.GenAppearance();
+            character.GenProfession();
+            Console.WriteLine(character.CRace.Name+"\n");
+            foreach (var num in character.Stats.IntArray)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(num);
             }
-            Console.WriteLine();
+            Console.WriteLine("\n"+character.CSocialClass.Name);
+            Console.WriteLine(character.CAppearance.BodyType.Name);
+            Console.WriteLine(character.CAppearance.ClothingType.Name);
+            Console.WriteLine(character.CProfession.Name);
             Console.ReadLine();
         }
     }
