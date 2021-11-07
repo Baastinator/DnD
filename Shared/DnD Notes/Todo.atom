@@ -4,12 +4,9 @@ HIGH PRIORITY
 - CHARACTER
   - RACE          // FINISHED
   - STATS         // FINISHED
-  - SOCIAL CLASS
-    - ADD SOCIAL CLASSES                      // TODO
-  - APPEARANCE
-    - CREATE APPEARANCE BASED ON SOCIAL CLASS // TODO
-    - CREATE BODY TYPE FROM STATS             // TODO
-  - PROFESSION
+  - SOCIAL CLASS  // FINISHED
+  - APPEARANCE    // FINISHED
+  - PROFESSION    // FINISHED
   - BACKGROUND
   - CLASS
   - SAVING THROWS
@@ -19,28 +16,28 @@ HIGH PRIORITY
 
 MEDIUM PRIORITY
 - CHARACTER
-  - RACE
-  - STATS
-  - SOCIAL CLASS
-  - APPEARANCE
-  - PROFESSIONS
-    - ACTUALLY ADD MORE THAN JUST RURAL PEASANTS // NOTE
-  - BACKGROUNDS
-    - build background class  // NOTE
-    - add backgrounds // NOTE
-  - CLASS
-  - SAVING THROWS
-    - IMPLEMENT THEM // NOTE
-  - SKILLS
-  - PSYCHOLOGY
-    - VALUES        // NOTE //
-    - PERSONALITY   // NOTE //
+    - RACE
+    - STATS
+    - SOCIAL CLASS
+    - APPEARANCE
+    - PROFESSIONS
+    - BACKGROUNDS
+        - build background class  // NOTE
+        - add backgrounds // NOTE
+    - CLASS
+        - IMPLEMENT THEM
+    - SAVING THROWS
+        - IMPLEMENT THEM // NOTE
+    - SKILLS
+    - PSYCHOLOGY
+        - VALUES        // NOTE //
+        - PERSONALITY   // NOTE //
 
 
 LOW PRIORITY
 - CLEANUP
 - CHARACTER
-  - make non adverturer NPCs possible // TODO //
+    - make non adventurer NPCs possible // TODO //
     // NOTE //
     // finished for now, will have to do
     // some stuff once i finished
@@ -50,11 +47,19 @@ LOW PRIORITY
 
 COMPLETED
 - CHARACTER
-  - STATS
-    - Stat Generation
-    - RACE MODIFIERS
-  - SKILLS
-    - Skill Generation
-  - RACE
-    - IMPLEMENT RACE
-    - IMPLEMENT RACE BONI
+    - STATS
+        - Stat Generation
+        - RACE MODIFIERS
+    - SKILLS
+        - Skill Generation
+    - RACE
+        - IMPLEMENT RACE
+        - IMPLEMENT RACE BONI
+    - SOCIAL CLASS
+        - ADD SOCIAL CLASSES
+    - APPEARANCE
+        - CREATE APPEARANCE BASED ON SOCIAL CLASS
+        - CREATE BODY TYPE FROM STATS
+    - PROFESSIONS
+        -
+        - ACTUALLY ADD MORE THAN JUST RURAL PEASANTS

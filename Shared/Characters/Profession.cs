@@ -30,13 +30,13 @@ namespace DND.Characters
         public static Profession Manager = new Profession { Name = "Manager", ID = 19 };
         #endregion
         #region JOBS 20-39
-        public static Profession GuardCaptain = new Profession { Name = "GuardCaptain", ID = 20 }; // 20
+        public static Profession GuardCaptain = new Profession { Name = "Guard Captain", ID = 20 }; // 20
         public static Profession Admiral = new Profession { Name = "Admiral", ID = 21 };
         public static Profession Captain = new Profession { Name = "Captain", ID = 22 };
         public static Profession Shiphand = new Profession { Name = "Shiphand", ID = 23 };
         public static Profession Servant = new Profession { Name = "Servant", ID = 24 };
-        public static Profession WaitStaff = new Profession { Name = "WaitStaff", ID = 25 };       // 25
-        public static Profession TaxCollector = new Profession { Name = "TaxCollector", ID = 26 };
+        public static Profession WaitStaff = new Profession { Name = "Wait Staff", ID = 25 };       // 25
+        public static Profession TaxCollector = new Profession { Name = "Tax Collector", ID = 26 };
         public static Profession Minister = new Profession { Name = "Minister", ID = 27 };
         public static Profession Secretary = new Profession { Name = "Secretary", ID = 28 };
         public static Profession Judge = new Profession { Name = "Judge", ID = 29 };
@@ -44,7 +44,7 @@ namespace DND.Characters
         public static Profession Barkeep = new Profession { Name = "Barkeep", ID = 31 };
         public static Profession Librarian = new Profession { Name = "Librarian", ID = 32 };
         public static Profession Alchemist = new Profession { Name = "Alchemist", ID = 33 };
-        public static Profession CharcoalBurner = new Profession { Name = "CharcoalBurner", ID = 34 }; 
+        public static Profession CharcoalBurner = new Profession { Name = "Charcoal Burner", ID = 34 }; 
         public static Profession Nurse = new Profession { Name = "Nurse", ID = 35 };               // 35
         public static Profession Labourer = new Profession { Name = "Labourer", ID = 36 };
         public static Profession Doctor = new Profession { Name = "Doctor", ID = 37 };

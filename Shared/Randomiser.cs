@@ -5,25 +5,25 @@ namespace DND
 {
     public class Randomiser
     {
-        static Random rng = new Random();
+        private static readonly Random rng = new Random();
         public List<int> WeightTable;
-        public int TotalWeight { get { int sum = 0; foreach (int item in WeightTable) { sum += item; } return sum; } }
+        public int TotalWeight { get { var sum = 0; foreach (var item in WeightTable) { sum += item; } return sum; } }
         public Randomiser(List<int> weightTable)
         {
             WeightTable = weightTable;
         }
-        public Randomiser(int[] weightTable)
+        public Randomiser(IEnumerable<int> weightTable)
         {
             WeightTable = new List<int>();
-            for (int i = 0; i < weightTable.Length; i++)
+            foreach (var t in weightTable)
             {
-                WeightTable.Add(weightTable[i]);
+                WeightTable.Add(t);
             }
         }
         public int Roll()
         {
-            int num = rng.Next(0, TotalWeight + 1);
-            for (int i = 0; i < WeightTable.Count; i++)
+            var num = rng.Next(0, TotalWeight + 1);
+            for (var i = 0; i < WeightTable.Count; i++)
             {
                 if (num <= WeightTable[i])
                 {

@@ -8,6 +8,8 @@ namespace DND.Characters
     public class Statblock
     {
         private Stat Str, Dex, Con, Int, Wis, Cha;
+
+        #region STATVALUES
         public int STR
         {
             get => Str.Value;
@@ -37,7 +39,16 @@ namespace DND.Characters
         {
             get => Cha.Value;
             set => Cha.Value = value;
-        } 
+        }
+
+        public int StrMod => getModifier(STR);
+        public int DexMod => getModifier(DEX);
+        public int ConMod => getModifier(CON);
+        public int IntMod => getModifier(INT);
+        public int WisMod => getModifier(WIS);
+        public int ChaMod => getModifier(CHA);
+
+        #endregion
         public int[] IntArray
         {
             get
