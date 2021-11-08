@@ -17,7 +17,7 @@ namespace DND
         public SocialClass CSocialClass;
         public Appearance CAppearance;
         public Profession CProfession;
-        public Background CBackground;
+       //public Background CBackground;
         public Class CClass;
         public SavingThrows CSavingThrows;
         public Skillblock CSkills;

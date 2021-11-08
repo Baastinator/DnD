@@ -8,30 +8,7 @@ namespace DND.Characters.Skills
         public string Name { get; set; }
         public byte BaseStat { get; set; }
         public byte proficiency = 0;
-        public static Skill[] Skills { 
-            get => skills; 
-            set
-            {
-                Acrobatics = value[0];
-                AnimalHandling = value[1];
-                Arcana = value[2];
-                Athletics = value[3];
-                Deception = value[4];
-                History = value[5];
-                Insight = value[6];
-                Intimidation = value[7];
-                Investigation = value[8];
-                Medicine = value[9];
-                Nature = value[10];
-                Perception = value[11];
-                Performance = value[12];
-                Persuation = value[13];
-                Religion = value[14];
-                SleightOfHand = value[15];
-                Stealth = value[16];
-                Survival = value[17];
-            } 
-        }
+        public static Skill[] Skills => skills;
 
         public static readonly byte STR = 0, DEX = 1, CON = 2, INT = 3, WIS = 4, CHA = 5;
 

@@ -8,48 +8,38 @@ namespace DND.Characters
         public Skill[] skills;
         public Skill[] noProficienciesSkills;
         public int ProficiencyBonus;
-        
-        public Skillblock(int lvl, Statblock stats)
+
+        public Skillblock(int lvl, Statblock stats, int[] proficiencyBonus)
         {
             skills = Skill.Skills;
-            byte[] STATS = { Skill.STR, Skill.DEX, Skill.CON, Skill.INT, Skill.WIS, Skill.CHA };
-            ProficiencyBonus = (int)Math.Floor(2+(lvl-1)/4d);
+            ProficiencyBonus = (int) Math.Floor(2 + (lvl - 1) / 4d);
             foreach (var skill in skills)
             {
                 switch (skill.BaseStat)
                 {
                     case 0:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.STR);
+                        skills[skill.ID].Value = stats.StrMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     case 1:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.DEX);
+                        skills[skill.ID].Value = stats.DexMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     case 2:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.CON);
+                        skills[skill.ID].Value = stats.ConMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     case 3:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.INT);
+                        skills[skill.ID].Value = stats.IntMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     case 4:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.WIS);
+                        skills[skill.ID].Value = stats.WisMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     case 5:
-                        skills[skill.ID].Value = Statblock.getModifier(stats.CHA);
+                        skills[skill.ID].Value = stats.ChaMod + (proficiencyBonus[skill.ID] * 3);
                         break;
                     default:
                         throw new Exception("Skillblock ctor: the fuck is going on here? ");
                 }
             }
-
             noProficienciesSkills = skills;
-        }
-
-        public void ApplyProficiencies(int[] proficiencyTable)
-        {
-            foreach (var skill in skills)
-            {
-                skills[skill.ID].Value = noProficienciesSkills[skill.ID].Value + proficiencyTable[skill.ID] * ProficiencyBonus;
-            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Globalization;
 using DND;
 using DND.Characters;
 using DND.Characters.SocialClasses;
