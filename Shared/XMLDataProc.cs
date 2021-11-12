@@ -1,5 +1,5 @@
-﻿using System.Xml.Serialization;
-using System.IO;
+﻿using System.IO;
+using System.Xml.Serialization;
 
 namespace DND
 {
@@ -14,9 +14,9 @@ namespace DND
         }
         public static object ReadList(string path, object data)
         {
-            XmlSerializer reader = new XmlSerializer(data.GetType());
-            StreamReader file = new StreamReader(path + ".xml");
-            object output = reader.Deserialize(file);
+            var reader = new XmlSerializer(data.GetType());
+            var file = new StreamReader(path + ".xml");
+            var output = reader.Deserialize(file);
             file.Close();
             return output;
         }

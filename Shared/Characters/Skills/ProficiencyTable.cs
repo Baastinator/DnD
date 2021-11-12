@@ -8,8 +8,8 @@ namespace DND.Characters.Skills
         {
             if (t1.Length == t2.Length)
             {
-                int[] t3 = new int[t1.Length];
-                for (int i = 0; i < t1.Length; i++)
+                var t3 = new int[t1.Length];
+                for (var i = 0; i < t1.Length; i++)
                 {
                     t3[i] = t1[i] + t2[i];
                 }

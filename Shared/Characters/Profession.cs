@@ -9,13 +9,13 @@ namespace DND.Characters
 
         #region JOBS 0-19
         public static Profession Lumberjack = new Profession { Name = "Lumberjack", ID = 0 };     // 0
-        public static Profession Armorer = new Profession { Name = "Armorer", ID = 1};           
+        public static Profession Armorer = new Profession { Name = "Armorer", ID = 1 };
         public static Profession Minstrel = new Profession { Name = "Minstrel", ID = 2 };
         public static Profession Baker = new Profession { Name = "Baker", ID = 3 };
         public static Profession Candlemaker = new Profession { Name = "Candlemaker", ID = 4 };
         public static Profession Artist = new Profession { Name = "Artist", ID = 5 };          // 5
         public static Profession Butcher = new Profession { Name = "Butcher", ID = 6 };
-        public static Profession Weaver = new Profession { Name = "Weaver", ID = 7 };      
+        public static Profession Weaver = new Profession { Name = "Weaver", ID = 7 };
         public static Profession Winemaker = new Profession { Name = "Winemaker", ID = 8 };
         public static Profession Shoemaker = new Profession { Name = "Shoemaker", ID = 9 };
         public static Profession Steelwright = new Profession { Name = "Steelwright", ID = 10 };   // 10
@@ -44,25 +44,25 @@ namespace DND.Characters
         public static Profession Barkeep = new Profession { Name = "Barkeep", ID = 31 };
         public static Profession Librarian = new Profession { Name = "Librarian", ID = 32 };
         public static Profession Alchemist = new Profession { Name = "Alchemist", ID = 33 };
-        public static Profession CharcoalBurner = new Profession { Name = "Charcoal Burner", ID = 34 }; 
+        public static Profession CharcoalBurner = new Profession { Name = "Charcoal Burner", ID = 34 };
         public static Profession Nurse = new Profession { Name = "Nurse", ID = 35 };               // 35
         public static Profession Labourer = new Profession { Name = "Labourer", ID = 36 };
         public static Profession Doctor = new Profession { Name = "Doctor", ID = 37 };
-        public static Profession General = new Profession { Name = "General", ID = 38 }; 
+        public static Profession General = new Profession { Name = "General", ID = 38 };
         public static Profession Soldier = new Profession { Name = "Soldier", ID = 39 };
         #endregion
         #region JOBS 40-59
         public static Profession Guard = new Profession { Name = "Guard", ID = 40 };               // 40
-        public static Profession Miller = new Profession { Name = "Miller", ID = 41 }; 
-        public static Profession Farmer = new Profession { Name = "Farmer", ID = 42 }; 
-        public static Profession Carpenter = new Profession { Name = "Carpenter", ID = 43 }; 
-        public static Profession Smith = new Profession { Name = "Smith", ID = 44 }; 
+        public static Profession Miller = new Profession { Name = "Miller", ID = 41 };
+        public static Profession Farmer = new Profession { Name = "Farmer", ID = 42 };
+        public static Profession Carpenter = new Profession { Name = "Carpenter", ID = 43 };
+        public static Profession Smith = new Profession { Name = "Smith", ID = 44 };
         public static Profession Tailor = new Profession { Name = "Tailor", ID = 45 };             // 45
-        public static Profession Mason = new Profession { Name = "Mason", ID = 46 }; 
-        public static Profession Herder = new Profession { Name = "Herder", ID = 47 }; 
-        public static Profession Teacher = new Profession { Name = "Teacher", ID = 48 }; 
+        public static Profession Mason = new Profession { Name = "Mason", ID = 46 };
+        public static Profession Herder = new Profession { Name = "Herder", ID = 47 };
+        public static Profession Teacher = new Profession { Name = "Teacher", ID = 48 };
         public static Profession Miner = new Profession { Name = "Miner", ID = 49 };               // 49
-        public static Profession Adventurer = new Profession {Name = "Adventurer", ID = 50};
+        public static Profession Adventurer = new Profession { Name = "Adventurer", ID = 50 };
         #endregion
         private static readonly Profession[] professions = {
             Lumberjack, Armorer, Minstrel, Baker, Candlemaker,

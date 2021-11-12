@@ -1,6 +1,5 @@
-﻿using System;
-using System.Reflection.Emit;
-using DND.Characters.Stats;
+﻿using DND.Characters.Stats;
+using System;
 
 
 namespace DND.Characters
@@ -104,7 +103,7 @@ namespace DND.Characters
         }
 
 #nullable enable
-        public static Statblock MakeStats(byte config, int[] content )
+        public static Statblock MakeStats(byte config, int[] content)
         {
             Statblock output = new Statblock();
             if (config == STATS_RANDOM)
@@ -121,10 +120,10 @@ namespace DND.Characters
         public static Statblock AddStats(Statblock s, Statblock o)
         {
             var stats = new int[6];
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 stats[i] = s.IntArray[i] + o.IntArray[i];
-            } 
+            }
             return MakeStats(STATS_MANUAL, stats);
         }
     }

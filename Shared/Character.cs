@@ -1,8 +1,9 @@
-﻿using System;
-using DND.Characters;
+﻿using DND.Characters;
 using DND.Characters.Appearances;
 using DND.Characters.Professions;
 using DND.Characters.SocialClasses;
+using System;
+using System.Collections.Generic;
 
 namespace DND
 {
@@ -12,20 +13,20 @@ namespace DND
         public bool Player, IsMale;
         public int Level;
         public Race CRace;
-        public Statblock Stats;
-        public Psychology CPsychology;
+        public Statblock CStats;
         public SocialClass CSocialClass;
         public Appearance CAppearance;
         public Profession CProfession;
-       //public Background CBackground;
+        public Background CBackground;
         public Class CClass;
         public SavingThrows CSavingThrows;
         public Skillblock CSkills;
+        public Psychology CPsychology;
         public Character(bool isPlayer, int level = 0)
         {
             Player = isPlayer;
-            Level = level == 0 ? new Random().Next(1,4) : level;
-            IsMale = new Random().Next(0,2)==1;
+            Level = level == 0 ? new Random().Next(1, 4) : level;
+            IsMale = new Random().Next(0, 2) == 1;
 
         }
         // NOTE
@@ -45,9 +46,9 @@ namespace DND
         // NOTE
         #region RACE
 
-        public void GenRace()   
+        public void GenRace()
         {
-            var raceRandomiser = new Randomiser(new[] {100,70,60,50,30,20,20,20,15,10,10,5,5,5});
+            var raceRandomiser = new Randomiser(new[] { 100, 70, 60, 50, 30, 20, 20, 20, 15, 10, 10, 5, 5, 5 });
             CRace = Race.Races[raceRandomiser.Roll()];
         }
 
@@ -63,14 +64,14 @@ namespace DND
         {
             var stats = Statblock.MakeStats(Statblock.STATS_MANUAL, statTable);
             var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
-            Stats = Statblock.AddStats(stats, bonus);
+            CStats = Statblock.AddStats(stats, bonus);
         }
 
         public void MakeStats()
         {
             var stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
             var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
-            Stats = Statblock.AddStats(stats, bonus);
+            CStats = Statblock.AddStats(stats, bonus);
         }
 
         #endregion
@@ -95,12 +96,12 @@ namespace DND
         public void GenAppearance()
         {
             CAppearance = new Appearance();
-            int f(int x) { return (int) Math.Floor(x / 5d); }
+            int f(int x) { return (int)Math.Floor(x / 5d); }
             CAppearance.ClothingType = CSocialClass.ID switch
             {
                 0 => ClothingType.Clothing[new Random().Next(0, 2)],
                 1 => ClothingType.Clothing[new Random().Next(1, 3)],
-                2 => ClothingType.Clothing[new Randomiser(new[] {30, 70}).Roll()],
+                2 => ClothingType.Clothing[new Randomiser(new[] { 30, 70 }).Roll()],
                 3 => ClothingType.Standard,
                 4 => ClothingType.Clothing[new Random().Next(1, 3)],
                 5 => ClothingType.Fine,
@@ -110,8 +111,8 @@ namespace DND
                 9 => ClothingType.Standard,
                 _ => throw new Exception("ClothingType: bad social class input")
             };
-            CAppearance.BodySize = (int) Math.Floor((Stats.ConMod - Stats.DexMod + Stats.StrMod / 2) * 2 / 5d);
-            CAppearance.MuscleMass = (int) Math.Floor((Stats.StrMod + Stats.DexMod / 2 + Stats.ConMod / 2) / 2d);
+            CAppearance.BodySize = (int)Math.Floor((CStats.ConMod - CStats.DexMod + CStats.StrMod / 2) * 2 / 5d);
+            CAppearance.MuscleMass = (int)Math.Floor((CStats.StrMod + CStats.DexMod / 2 + CStats.ConMod / 2) / 2d);
             var BS = f(CAppearance.BodySize);
             var MM = f(CAppearance.MuscleMass);
             CAppearance.BodyType = BS switch
@@ -164,31 +165,63 @@ namespace DND
 
         #region BACKGROUND
 
+        public void GenBackground()
+        {
+            var a = new List<int>();
+            for (var i = 0; i < Background.Backgrounds.Length; i++)
+            {
+                a.Add(10);
+            }
+            var randomiser = new Randomiser(a);
+            CBackground = Background.Backgrounds[randomiser.Roll()];
+        }
+
+        public void SetBackground(int ID)
+        {
+            CBackground = Background.Backgrounds[ID];
+        }
+
         #endregion
 
         #region CLASS
 
+        public void GenClass()
+        {
+            CClass = Class.Classes[new Random().Next(0, 13)];
+        }
 
+        public void SetClass(int ID)
+        {
+            CClass = Class.Classes[ID];
+        }
 
         #endregion
 
         #region SAVING THROWS
 
-        
+        public void MakeSavingThrows()
+        {
+            CSavingThrows = new SavingThrows(CStats, CClass.SavingThrowProficiencies);
+        }
 
         #endregion
 
         #region SKILLS
 
-        public void MakeSkills(int[] proficiencyTable, Statblock stats, int playerLvl)
+        public void MakeSkills()
         {
-
+            CSkills = new Skillblock(Level, CStats,
+                Proficiencies.AddTables(CClass.SkillProficiencies, CBackground.proficiencyTable));
         }
 
         #endregion
 
         #region PSYCHOLOGY
 
+        public void GenPsychology()
+        {
+            CPsychology = new Psychology();
+        }
         #endregion
     }
 }

@@ -1,16 +1,12 @@
-﻿
-using System.Net.Http.Headers;
-
-namespace DND.Characters
+﻿namespace DND.Characters
 {
     public class Background
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public int[] proficiencyTable { get; set; }
+        public static Background[] Backgrounds => backgrounds;
 
-        
-        
         private static readonly int[] WAcolyte =
         {
             0,  0,  0,  0,  0,  0,  1,  0,  0,
@@ -183,7 +179,7 @@ namespace DND.Characters
         public static Background Spy = new Background
         { ID = 25, Name = "Spy", proficiencyTable = WSpy };
         public static Background Urchin = new Background
-        { ID = 26, Name = "Urchin", proficiencyTable = WUrchin }; 
+        { ID = 26, Name = "Urchin", proficiencyTable = WUrchin };
         private static readonly Background[] backgrounds = {
             Acolyte, Anthropologist, Athlete, Charlatan, CityWatch, ClanCrafter, Courtier, Criminal,
             Entertainer, Faceless, Fisher, FolkHero, Gladiator, GuildArtisan, GuildMerchant, HauntedOne,

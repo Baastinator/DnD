@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DND.Characters
 {
@@ -8,8 +6,8 @@ namespace DND.Characters
     {
         public static int[] AddTables(int[] s, int[] o)
         {
-            if (s.Length == o.Length && s.Length == 19)
-            { 
+            if (s.Length == o.Length && s.Length == 18)
+            {
                 var output = new int[s.Length];
                 for (var i = 0; i < s.Length; i++)
                 {

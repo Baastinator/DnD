@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Immutable;
-using System.Globalization;
-using DND;
-using DND.Characters;
-using DND.Characters.SocialClasses;
+﻿using DND;
+using System;
 
 namespace DnD_Char_Gen
 {
@@ -18,15 +14,12 @@ namespace DnD_Char_Gen
             character.GenSocialClass(1);
             character.GenAppearance();
             character.GenProfession();
-            Console.WriteLine(character.CRace.Name+"\n");
-            foreach (var num in character.Stats.IntArray)
-            {
-                Console.WriteLine(num);
-            }
-            Console.WriteLine("\n"+character.CSocialClass.Name);
-            Console.WriteLine(character.CAppearance.BodyType.Name);
-            Console.WriteLine(character.CAppearance.ClothingType.Name);
-            Console.WriteLine(character.CProfession.Name);
+            character.GenBackground();
+            character.GenClass();
+            character.MakeSavingThrows();
+            character.MakeSkills();
+            character.GenPsychology();
+            Console.WriteLine(Strings.DisplayPsychology(character.CPsychology));
             Console.ReadLine();
         }
     }

@@ -1,5 +1,5 @@
-﻿using System;
-using DND.Characters.Skills;
+﻿using DND.Characters.Skills;
+using System;
 
 namespace DND.Characters
 {
@@ -12,32 +12,19 @@ namespace DND.Characters
         public Skillblock(int lvl, Statblock stats, int[] proficiencyBonus)
         {
             skills = Skill.Skills;
-            ProficiencyBonus = (int) Math.Floor(2 + (lvl - 1) / 4d);
+            ProficiencyBonus = (int)Math.Floor(2 + (lvl - 1) / 4d);
             foreach (var skill in skills)
             {
-                switch (skill.BaseStat)
+                skills[skill.ID].Value = skill.BaseStat switch
                 {
-                    case 0:
-                        skills[skill.ID].Value = stats.StrMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    case 1:
-                        skills[skill.ID].Value = stats.DexMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    case 2:
-                        skills[skill.ID].Value = stats.ConMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    case 3:
-                        skills[skill.ID].Value = stats.IntMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    case 4:
-                        skills[skill.ID].Value = stats.WisMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    case 5:
-                        skills[skill.ID].Value = stats.ChaMod + (proficiencyBonus[skill.ID] * 3);
-                        break;
-                    default:
-                        throw new Exception("Skillblock ctor: the fuck is going on here? ");
-                }
+                    0 => stats.StrMod + (proficiencyBonus[skill.ID] * 3),
+                    1 => stats.DexMod + (proficiencyBonus[skill.ID] * 3),
+                    2 => stats.ConMod + (proficiencyBonus[skill.ID] * 3),
+                    3 => stats.IntMod + (proficiencyBonus[skill.ID] * 3),
+                    4 => stats.WisMod + (proficiencyBonus[skill.ID] * 3),
+                    5 => stats.ChaMod + (proficiencyBonus[skill.ID] * 3),
+                    _ => throw new Exception("Skillblock ctor: the fuck is going on here? ")
+                };
             }
             noProficienciesSkills = skills;
         }

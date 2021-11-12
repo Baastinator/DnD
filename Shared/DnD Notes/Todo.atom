@@ -2,16 +2,18 @@ TO DO
 
 HIGH PRIORITY
 - CHARACTER
-  - RACE          // FINISHED
-  - STATS         // FINISHED
-  - SOCIAL CLASS  // FINISHED
-  - APPEARANCE    // FINISHED
-  - PROFESSION    // FINISHED
-  - BACKGROUND
-  - CLASS
-  - SAVING THROWS
-  - SKILLS
-  - PSYCHOLOGY
+    - RACE          // FINISHED
+    - STATS         // FINISHED
+    - SOCIAL CLASS  // FINISHED
+    - APPEARANCE    // FINISHED
+    - PROFESSION    // FINISHED
+    - BACKGROUND    // FINISHED
+    - CLASS         // FINISHED
+    - SAVING THROWS // FINISHED
+    - SKILLS        // FINISHED
+    - PSYCHOLOGY
+        - VALUES
+        - PERSONALITY
 
 
 MEDIUM PRIORITY
@@ -22,16 +24,10 @@ MEDIUM PRIORITY
     - APPEARANCE
     - PROFESSIONS
     - BACKGROUNDS
-        - build background class  // NOTE
-        - add backgrounds // NOTE
     - CLASS
-        - IMPLEMENT THEM
     - SAVING THROWS
-        - IMPLEMENT THEM // NOTE
     - SKILLS
     - PSYCHOLOGY
-        - VALUES        // NOTE //
-        - PERSONALITY   // NOTE //
 
 
 LOW PRIORITY

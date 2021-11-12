@@ -1,16 +1,17 @@
-﻿
-namespace DND.Characters
+﻿namespace DND.Characters
 {
     public class SavingThrows
     {
         public Statblock Stats { get; set; }
-        public SavingThrows(int[] proficiencies)
+        public SavingThrows(Statblock stats, int[] proficiencies)
         {
-            for (int i = 0; i < proficiencies.Length; i++)
+            var STtemp = stats.IntArray;
+            for (var i = 0; i < 6; i++)
             {
-                proficiencies[i] *= 3;
+                STtemp[i] = Statblock.getModifier(STtemp[i]) + proficiencies[i] * 3;
             }
-            Stats = Statblock.MakeStats(Statblock.STATS_MANUAL, proficiencies); 
+
+            Stats = Statblock.MakeStats(Statblock.STATS_MANUAL, STtemp);
         }
     }
 }
