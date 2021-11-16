@@ -1,5 +1,7 @@
 ﻿using DND;
 using System;
+using DND.Shared;
+using DND.Shared.Entities;
 
 namespace DnD_Char_Gen
 {

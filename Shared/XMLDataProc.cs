@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace DND
+namespace DND.Shared
 {
     public static class XMLDataProc
     {

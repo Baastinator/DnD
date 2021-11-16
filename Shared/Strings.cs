@@ -1,10 +1,9 @@
-﻿using DND.Characters.Psychologies;
-using System;
-using System.Diagnostics;
-using DND.Characters;
-using DND.Characters.Skills;
+﻿using System;
+using DND.Shared.Entities.Characters;
+using DND.Shared.Entities.Characters.Psychologies;
+using DND.Shared.Entities.Characters.Skills;
 
-namespace DND
+namespace DND.Shared
 {
     public static class Strings
     {
