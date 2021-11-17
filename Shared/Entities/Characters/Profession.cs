@@ -4,14 +4,74 @@ namespace DND.Shared.Entities.Characters
     public class Profession : INameable
     {
         public static Profession[] Professions => professions;
+        public double[] PsychMod { get; set; }
+        #region PsychMods
+
+        private static readonly double[] MEmpty =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+
+        private static readonly double[] MMinstrel =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  0,  0,
+           -1,  0,  0,  1,  0,      0,  0,  0,  0,  0,      1,  0,  0,  0
+        };
+
+        private static readonly double[] MArtist =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  1,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  0
+        };
+
+        private static readonly double[] MBarrister =
+        {
+            2,  0,  0,  0,  0,      1,-.5,  0,  1,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0, .5
+        };
+
+        private static readonly double[] template =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        
+
+        private static readonly double[] template =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        
+
+        private static readonly double[] template =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        
+
+        private static readonly double[] template =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+
+        #endregion
+
+        public Profession()
+        {
+            PsychMod = MEmpty;
+        }
 
         #region JOBS 0-19
         public static Profession Lumberjack = new Profession { Name = "Lumberjack", ID = 0 };     // 0
         public static Profession Armorer = new Profession { Name = "Armorer", ID = 1 };
-        public static Profession Minstrel = new Profession { Name = "Minstrel", ID = 2 };
+        public static Profession Minstrel = new Profession { Name = "Minstrel", ID = 2, PsychMod = MMinstrel};
         public static Profession Baker = new Profession { Name = "Baker", ID = 3 };
         public static Profession Candlemaker = new Profession { Name = "Candlemaker", ID = 4 };
-        public static Profession Artist = new Profession { Name = "Artist", ID = 5 };          // 5
+        public static Profession Artist = new Profession { Name = "Artist", ID = 5, PsychMod = MArtist};          // 5
         public static Profession Butcher = new Profession { Name = "Butcher", ID = 6 };
         public static Profession Weaver = new Profession { Name = "Weaver", ID = 7 };
         public static Profession Winemaker = new Profession { Name = "Winemaker", ID = 8 };
@@ -22,7 +82,7 @@ namespace DND.Shared.Entities.Characters
         public static Profession Tanner = new Profession { Name = "Tanner", ID = 13 };
         public static Profession Cook = new Profession { Name = "Cook", ID = 14 };
         public static Profession Beltmaker = new Profession { Name = "Beltmaker", ID = 15 };      // 15
-        public static Profession Barrister = new Profession { Name = "Barrister", ID = 16 };
+        public static Profession Barrister = new Profession { Name = "Barrister", ID = 16, PsychMod = MBarrister};
         public static Profession Banker = new Profession { Name = "Banker", ID = 17 };
         public static Profession Mayor = new Profession { Name = "Mayor", ID = 18 };
         public static Profession Manager = new Profession { Name = "Manager", ID = 19 };

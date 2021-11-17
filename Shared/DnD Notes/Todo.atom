@@ -12,7 +12,6 @@ HIGH PRIORITY
     - SAVING THROWS // FINISHED
     - SKILLS        // FINISHED
     - PSYCHOLOGY
-        - PERSONALITY // FINISHED
         - VALUES
             - ADD PROFESSION MODIFIERS
             - ADD BACKGROUND MODIFIERS
@@ -42,23 +41,3 @@ LOW PRIORITY
     // some stuff once i finished
     // race, social class and appearance
     // NOTE //
-
-
-COMPLETED
-- CHARACTER
-    - STATS
-        - Stat Generation
-        - RACE MODIFIERS
-    - SKILLS
-        - Skill Generation
-    - RACE
-        - IMPLEMENT RACE
-        - IMPLEMENT RACE BONI
-    - SOCIAL CLASS
-        - ADD SOCIAL CLASSES
-    - APPEARANCE
-        - CREATE APPEARANCE BASED ON SOCIAL CLASS
-        - CREATE BODY TYPE FROM STATS
-    - PROFESSIONS
-        -
-        - ACTUALLY ADD MORE THAN JUST RURAL PEASANTS
