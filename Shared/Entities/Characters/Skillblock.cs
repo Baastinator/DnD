@@ -8,6 +8,24 @@ namespace DND.Shared.Entities.Characters
         public Skill[] skills;
         public Skill[] noProficienciesSkills;
         public int ProficiencyBonus;
+        public string Display { get
+            {
+                var longest = 0;
+                foreach (var t in skills)
+                {
+                    if (t.Name.Length > longest) longest = t.Name.Length;
+                }
+                var output = "";
+                foreach (var item in skills)
+                {
+                    var pos = "";
+                    if (item.Value >= 0) pos = " ";
+                    output += Strings.AddWhitespace(item.Name, longest) + "- " + pos + Strings.RoundNumber(item.Value) + "\n";
+                }
+
+                return output;
+            }
+        }
 
         public Skillblock(int lvl, Statblock stats, int[] proficiencyBonus)
         {

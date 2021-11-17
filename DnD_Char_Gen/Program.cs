@@ -1,9 +1,7 @@
-﻿using DND;
-using System;
-using DND.Shared;
+﻿using System;
 using DND.Shared.Entities;
 
-namespace DnD_Char_Gen
+namespace DnD.Char_Gen
 {
     public class Program
     {
@@ -21,7 +19,7 @@ namespace DnD_Char_Gen
             character.MakeSavingThrows();
             character.MakeSkills();
             character.GenPsychology();
-            Console.WriteLine(Strings.DisplayPsychology(character.CPsychology));
+            Console.WriteLine(character.CPsychology.Display);
             Console.ReadLine();
         }
     }

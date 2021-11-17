@@ -65,7 +65,7 @@ namespace DND.Shared.Entities.Characters.Psychologies
         {
             Law, Loyalty, Family, Friendship, Power, Truth, Cunning, Eloquence, Fairness, Decorum, Tradition,
             Whimsey, Artwork, Cooperation, Preservation, Stoicism, SelfControl, Harmony, Merriment, MartialProwess,
-            Skill, HardWork, Sacrafice, Competition, Perseverance, Perseverance, Romance, Nature, Peace, Knowledge
+            Skill, HardWork, Sacrafice, Competition, Perseverance, Romance, Nature, Peace, Knowledge
         };
     }
 }

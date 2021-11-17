@@ -19,67 +19,6 @@ namespace DND.Shared
 
             return input + WS;
         }
-
-        public static string DisplayPsychology(Psychology input)
-        {
-            var longestV = 0;
-            var longestP = 0;
-            foreach (var attribute in input.Personality.Attributes)
-            {
-                if (longestP < attribute.Name.Length) longestP = attribute.Name.Length;
-            }
-
-            foreach (var value in input.Values.Values)
-            {
-                if (longestV < value.Name.Length) longestV = value.Name.Length;
-            }
-
-            var output = "";
-            output += "┌" + AddWhitespace("", longestP + 15, '-') + "┬" +
-                        AddWhitespace("", longestV + 16, '-') + "┐" + "\n" + 
-                        "| " + AddWhitespace("Personality   ", longestP + 14) + "| " + 
-                        AddWhitespace("Values",longestV+14) + " |" + "\n" +
-                        "├" + AddWhitespace("", longestP + 15, '-')  + "┼" + 
-                        AddWhitespace("",longestV+16,'-') + "┤" + "\n";
-            for (var i = 0; i < input.Personality.Attributes.Length; i++)
-            {
-                var PItem = input.Personality.Attributes[i];
-                var pos = "";
-                var antipos = " ";
-
-                output += "| " + AddWhitespace(PItem.Name, longestP) + "=> " + pos + AddWhitespace(
-                    NumToValue(RoundNumber(PItem.Value)), 9) + antipos + "| " ;
-                if (i < input.Values.Values.Length)
-                {
-                    var VItem = input.Values.Values[i];
-
-                    output += AddWhitespace(VItem.Name, longestV) + "=> " + pos + AddWhitespace(
-                        NumToValue(RoundNumber(VItem.Value)), 9) + antipos + " |";
-                }
-
-                output += "\n";
-            }
-
-            return output;
-        }
-        public static string DisplayArrayBaastiType(PersAttrib[] input)
-        {
-            var longest = 0;
-            foreach (var t in input)
-            {
-                if (t.Name.Length > longest) longest = t.Name.Length;
-            }
-            var output = "";
-            foreach (var item in input)
-            {
-                var pos = "";
-                if (item.Value >= 0) pos = " ";
-                output += AddWhitespace(item.Name, longest) + "- " + pos + RoundNumber(item.Value) + "\n";
-            }
-
-            return output;
-        }
-
         public static string NumToValue(double input)
         {
             var output = "";
@@ -106,42 +45,7 @@ namespace DND.Shared
 
             return output;
         }
-        public static string DisplayArrayBaastiType(PsychValue[] input)
-        {
-            var longest = 0;
-            foreach (var t in input)
-            {
-                if (t.Name.Length > longest) longest = t.Name.Length;
-            }
-            var output = "";
-            foreach (var item in input)
-            {
-                var pos = "";
-                if (item.Value >= 0) pos = " ";
-                output += AddWhitespace(item.Name, longest) + "- " + pos + RoundNumber(item.Value) + "\n";
-            }
-
-            return output;
-        }
-        public static string DisplayArrayBaastiType(Skill[] input)
-        {
-            var longest = 0;
-            foreach (var t in input)
-            {
-                if (t.Name.Length > longest) longest = t.Name.Length;
-            }
-            var output = "";
-            foreach (var item in input)
-            {
-                var pos = "";
-                if (item.Value >= 0) pos = " ";
-                output += AddWhitespace(item.Name, longest) + "- " + pos + RoundNumber(item.Value) + "\n";
-            }
-
-            return output;
-        }
-
-
+        
         public static double RoundNumber(double input)
         {
             double round(double x, int digits)

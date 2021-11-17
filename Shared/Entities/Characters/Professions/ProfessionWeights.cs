@@ -44,7 +44,7 @@ namespace DND.Shared.Entities.Characters.Professions
         public static int[] Knight = {
             0,  0,  0,  0,  0,    0,  0,  0,  0,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
            10,  0,  0,  0,  0,    0,  0,  0,  0,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,100,
-           30,  0,  0,  0,  0,    0,  0,  0,  0,  0,
+           30,  0,  0,  0,  0,    0,  0,  0,  0,  0, 
         };
 
         public static int[] LowAristocracy = {

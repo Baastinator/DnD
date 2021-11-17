@@ -84,7 +84,7 @@ namespace DND.Shared.Entities
             CSocialClass = SocialClass.SocialClasses[randomiser.Roll()];
         }
 
-        public void GetSocialClass(int ClassID)
+        public void SetSocialClass(int ClassID)
         {
             CSocialClass = SocialClass.SocialClasses[ClassID];
         }
@@ -220,7 +220,7 @@ namespace DND.Shared.Entities
 
         public void GenPsychology()
         {
-            CPsychology = new Psychology();
+            CPsychology = new Psychology(CSocialClass.PsychMod);
         }
         #endregion
     }
