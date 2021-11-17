@@ -34,13 +34,13 @@ namespace DND.Shared.Entities.Characters
                     var PItem = Personality.Attributes[i];
 
                     output += "| " + Strings.AddWhitespace(PItem.Name, longestP) + "=> " + Strings.AddWhitespace(
-                        Strings.NumToValue(Strings.RoundNumber(PItem.Value)), 9) + " | ";
+                        Strings.NumToString(Strings.RoundNumber(PItem.Value)), 9) + " | ";
                     if (i < Values.Values.Length)
                     {
                         var VItem = Values.Values[i];
 
                         output += Strings.AddWhitespace(VItem.Name, longestV) + "=> " + Strings.AddWhitespace(
-                            Strings.NumToValue(Strings.RoundNumber(VItem.Value)), 9) + "  |";
+                            Strings.NumToString(Strings.RoundNumber(VItem.Value)), 9) + "  |";
                     }
                     else
                     {

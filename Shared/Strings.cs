@@ -19,7 +19,7 @@ namespace DND.Shared
 
             return input + WS;
         }
-        public static string NumToValue(double input)
+        public static string NumToString(double input)
         {
             var output = "";
             int val = (int) Math.Floor(Math.Abs(input));
@@ -45,7 +45,6 @@ namespace DND.Shared
 
             return output;
         }
-        
         public static double RoundNumber(double input)
         {
             double round(double x, int digits)
