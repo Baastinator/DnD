@@ -61,11 +61,12 @@ namespace DND.Shared.Entities.Characters
         public Psychology(double[] socMod, double[] proMod)
         {
             Personality = new Personality();
-            oValues = new PsychValues(empty);
-            Values = new PsychValues(empty, true);
+            oValues = new PsychValues();
+            Values = new PsychValues(false);
             for (var i = 0; i < Values.Values.Length; i++)
             {
-                //Values.Values[i].Value += socMod[i] + proMod[i];
+                Console.WriteLine(oValues.Values[i].Value);
+                Values.Values[i].Value = oValues.Values[i].Value + socMod[i] + proMod[i];
             }
         }
     }

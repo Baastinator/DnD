@@ -12,14 +12,28 @@
             Values = PsychValue.Values;
             for (int i = 0; i < Values.Length; i++)
             {
-                if (randomise)
-                {
-                    Values[i].Value = Randomiser.NormalDist() + mod[i];
-                }
-                else
-                {
-                    Values[i].Value = mod[i];
-                }
+                Values[i].Value = randomise ? Randomiser.NormalDist() + mod[i] : mod[i];
+            }
+        }
+        public PsychValues(bool randomise)
+        {
+            Values = PsychValue.Values;
+            for (var index = 0; index < Values.Length; index++)
+            {
+                var t = Values[index];
+                t.Value = randomise ? Randomiser.NormalDist() : 0d;
+                Values[index] = t;
+            }
+        }
+
+        public PsychValues()
+        {
+            Values = PsychValue.Values;
+            for (var index = 0; index < Values.Length; index++)
+            {
+                var t = Values[index];
+                t.Value = Randomiser.NormalDist();
+                Values[index] = t;
             }
         }
         public static PsychValues operator +(PsychValues a, PsychValues b)

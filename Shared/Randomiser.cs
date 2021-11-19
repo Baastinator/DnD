@@ -5,6 +5,7 @@ namespace DND.Shared
 {
     public class Randomiser
     {
+        private static readonly Random rand = new Random();
         private static readonly Random rng = new Random();
         public List<int> WeightTable;
         public int TotalWeight { get { var sum = 0; foreach (var item in WeightTable) { sum += item; } return sum; } }
@@ -39,7 +40,6 @@ namespace DND.Shared
 
         public static double NormalDist(double mean = 0, double stdDev = 0.75)
         {
-            var rand = new Random(); //reuse this if you are generating many
             var u1 = 1.0 - rand.NextDouble(); //uniform(0,1] random doubles
             var u2 = 1.0 - rand.NextDouble();
             var randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) *
