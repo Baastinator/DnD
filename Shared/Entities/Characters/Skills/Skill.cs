@@ -1,7 +1,10 @@
 ﻿
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters.Skills
 {
-    public class Skill : INameable
+    public class Skill : Nameable
     {
         public int Value { get; set; }
         public byte BaseStat { get; set; }

@@ -1,6 +1,9 @@
-﻿namespace DND.Shared.Entities.Characters
+﻿using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
+namespace DND.Shared.Entities.Characters
 {
-    public class Class : INameable
+    public class Class : Nameable
     {
         public int[] SavingThrowProficiencies { get; set; }
         public int[] SkillProficiencies { get; set; }

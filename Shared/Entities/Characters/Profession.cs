@@ -1,70 +1,79 @@
 ﻿
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters
 {
-    public class Profession : INameable
+    public class Profession : Nameable
     {
         public static Profession[] Professions => professions;
         public double[] PsychMod { get; set; }
         #region PsychMods
-
         private static readonly double[] MEmpty =
         {
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
         };
-
         private static readonly double[] MMinstrel =
         {
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  0,  0,
            -1,  0,  0,  1,  0,      0,  0,  0,  0,  0,      1,  0,  0,  0
         };
-
         private static readonly double[] MArtist =
         {
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  1,  0,  0,
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  0
         };
-
         private static readonly double[] MBarrister =
         {
             2,  0,  0,  0,  0,      1,-.5,  0,  1,  0,      0,  0,  0,  0,  0,
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0, .5
         };
-
-        private static readonly double[] template =
+        private static readonly double[] MMayor =
         {
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            1,  1,  0,  0,  0,     .5,  0,  0,  0, .5,      0,  0,  0,  0,  0,
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
         };
-        
-
-        private static readonly double[] template =
+        private static readonly double[] MGuardCaptain =
         {
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+            0,  2,  0,  0,  0,      0,  0,  0,  1,  0,      1,  0,  0,  0,  0,
+            0,  0,  0,  0,  2,      0,  0, .5,  0,  0,      0,  0, .5,  0
         };
-        
-
-        private static readonly double[] template =
+        private static readonly double[] MMinister =
         {
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+            2,  0,  0,  0,  1,      0,  1,  1,  0,  2,      1,  0,  0,  0,  0,
+            0,  1,  0,  0,  0,      0,  0,-.5,  0,  1,      0,  0,  0,  0
         };
-        
-
-        private static readonly double[] template =
+        private static readonly double[] MJudge =
         {
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+            2,  0,  0,  0,  0,      1,  0,  0,  0,  1,     .5,  0,  0,  0,  0,
+            0,  2,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
         };
-
+        private static readonly double[] MLibrarian =
+        {
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      1,  0,  0,  0,  2,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  2
+        };
+        private static readonly double[] MAlchemist =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,     -1,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  1
+        };
+        private static readonly double[] MGuard =
+        {
+            1,  1,  0,  0,  0,      0,  0,  0, .5,  0,     .5,  0,  0,  0,  0,
+            0, .5,  1,  0,  1,      0,  0,  1,  0,  0,      0,  0,  1,  0
+        };
+        private static readonly double[] MTeacher =
+        {
+            0,  0,  0,  0,  0,      1,  0, .5,  0,  0,      1,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,     .5,  0,  0,  0,  0,      0,  0,  0,  2
+        };
         #endregion
-
         public Profession()
         {
             PsychMod = MEmpty;
         }
-
         #region JOBS 0-19
         public static Profession Lumberjack = new Profession { Name = "Lumberjack", ID = 0 };     // 0
         public static Profession Armorer = new Profession { Name = "Armorer", ID = 1 };
@@ -84,33 +93,33 @@ namespace DND.Shared.Entities.Characters
         public static Profession Beltmaker = new Profession { Name = "Beltmaker", ID = 15 };      // 15
         public static Profession Barrister = new Profession { Name = "Barrister", ID = 16, PsychMod = MBarrister};
         public static Profession Banker = new Profession { Name = "Banker", ID = 17 };
-        public static Profession Mayor = new Profession { Name = "Mayor", ID = 18 };
+        public static Profession Mayor = new Profession { Name = "Mayor", ID = 18, PsychMod = MMayor };
         public static Profession Manager = new Profession { Name = "Manager", ID = 19 };
         #endregion
         #region JOBS 20-39
-        public static Profession GuardCaptain = new Profession { Name = "Guard Captain", ID = 20 }; // 20
+        public static Profession GuardCaptain = new Profession { Name = "Guard Captain", ID = 20, PsychMod = MGuardCaptain}; // 20
         public static Profession Admiral = new Profession { Name = "Admiral", ID = 21 };
         public static Profession Captain = new Profession { Name = "Captain", ID = 22 };
         public static Profession Shiphand = new Profession { Name = "Shiphand", ID = 23 };
         public static Profession Servant = new Profession { Name = "Servant", ID = 24 };
         public static Profession WaitStaff = new Profession { Name = "Wait Staff", ID = 25 };       // 25
         public static Profession TaxCollector = new Profession { Name = "Tax Collector", ID = 26 };
-        public static Profession Minister = new Profession { Name = "Minister", ID = 27 };
+        public static Profession Minister = new Profession { Name = "Minister", ID = 27, PsychMod = MMinister};
         public static Profession Secretary = new Profession { Name = "Secretary", ID = 28 };
-        public static Profession Judge = new Profession { Name = "Judge", ID = 29 };
+        public static Profession Judge = new Profession { Name = "Judge", ID = 29, PsychMod = MJudge};
         public static Profession Merchant = new Profession { Name = "Merchant", ID = 30 };         // 30
         public static Profession Barkeep = new Profession { Name = "Barkeep", ID = 31 };
-        public static Profession Librarian = new Profession { Name = "Librarian", ID = 32 };
-        public static Profession Alchemist = new Profession { Name = "Alchemist", ID = 33 };
+        public static Profession Librarian = new Profession { Name = "Librarian", ID = 32, PsychMod = MLibrarian};
+        public static Profession Alchemist = new Profession { Name = "Alchemist", ID = 33, PsychMod = MAlchemist};
         public static Profession CharcoalBurner = new Profession { Name = "Charcoal Burner", ID = 34 };
         public static Profession Nurse = new Profession { Name = "Nurse", ID = 35 };               // 35
         public static Profession Labourer = new Profession { Name = "Labourer", ID = 36 };
         public static Profession Doctor = new Profession { Name = "Doctor", ID = 37 };
-        public static Profession General = new Profession { Name = "General", ID = 38 };
+        public static Profession General = new Profession { Name = "General", ID = 38, PsychMod = MGuardCaptain};
         public static Profession Soldier = new Profession { Name = "Soldier", ID = 39 };
         #endregion
         #region JOBS 40-59
-        public static Profession Guard = new Profession { Name = "Guard", ID = 40 };               // 40
+        public static Profession Guard = new Profession { Name = "Guard", ID = 40, PsychMod = MGuard};               // 40
         public static Profession Miller = new Profession { Name = "Miller", ID = 41 };
         public static Profession Farmer = new Profession { Name = "Farmer", ID = 42 };
         public static Profession Carpenter = new Profession { Name = "Carpenter", ID = 43 };

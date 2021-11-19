@@ -1,8 +1,11 @@
 ﻿
 
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters.Psychologies
 {
-    public class PsychValue : INameable
+    public class PsychValue : Nameable
     {
         private double _value;
 

@@ -1,29 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DND.Shared.Entities.Characters.Psychologies
+﻿namespace DND.Shared.Entities.Characters.Psychologies
 {
     public class PsychValues
     {
+        private readonly double[] _mod;
         public PsychValue[] Values { get; set; }
 
-        public PsychValues(IReadOnlyList<double> mod)
+        public static double[] empty =
+            {0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        public PsychValues(double[] mod,bool randomise = true)
         {
             Values = PsychValue.Values;
             for (int i = 0; i < Values.Length; i++)
             {
-                Values[i].Value = Randomiser.NormalDist(mod[i]);
+                if (randomise)
+                {
+                    Values[i].Value = Randomiser.NormalDist() + mod[i];
+                }
+                else
+                {
+                    Values[i].Value = mod[i];
+                }
             }
         }
-
-        public static double[] AddValueModifiers(double[] a, double[] b)
+        public static PsychValues operator +(PsychValues a, PsychValues b)
         {
-            if (a.Length != b.Length) throw new Exception("PsychValues.AddValueModifiers: input length doesn't match");
-            double[] c = new double[a.Length];
-            for (int i = 0; i < c.Length; i++)
+            var c = new PsychValues(empty, false);
+            for (int i = 0; i < a.Values.Length; i++)
             {
-                c[i] = a[i] + b[i];
+                c.Values[i].Value = a.Values[i].Value + b.Values[i].Value;
             }
+
             return c;
         }
     }

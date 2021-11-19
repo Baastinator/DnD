@@ -1,10 +1,13 @@
-﻿using DND.Shared.Entities.Characters.Psychologies;
+﻿using System;
+using DND.Shared.Entities.Characters.Psychologies;
+using static DND.Shared.Entities.Characters.Psychologies.PsychValues;
 
 namespace DND.Shared.Entities.Characters
 {
     public class Psychology
     {
         public Personality Personality { get; set; }
+        public PsychValues oValues { get; set; }
         public PsychValues Values { get; set; }
         public string Display {
             get
@@ -58,7 +61,12 @@ namespace DND.Shared.Entities.Characters
         public Psychology(double[] socMod, double[] proMod)
         {
             Personality = new Personality();
-            Values = new PsychValues((new DoubleArray(socMod)/2+new DoubleArray(proMod)).Array);
+            oValues = new PsychValues(empty);
+            Values = new PsychValues(empty, true);
+            for (var i = 0; i < Values.Values.Length; i++)
+            {
+                //Values.Values[i].Value += socMod[i] + proMod[i];
+            }
         }
     }
 }

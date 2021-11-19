@@ -1,8 +1,11 @@
 ﻿
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters
 
 {
-    public class Background : INameable
+    public class Background : Nameable
     {
         public int[] proficiencyTable { get; set; }
         public static Background[] Backgrounds => backgrounds;

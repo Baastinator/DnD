@@ -1,9 +1,10 @@
-﻿using DND.Shared.Entities.Characters.Professions;
+﻿using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
 using static DND.Shared.Entities.Characters.Professions.ProfessionWeights;
 
 namespace DND.Shared.Entities.Characters
 {
-    public class SocialClass : INameable
+    public class SocialClass : Nameable
     {
         public int[] JobWeightTable { get; set; }
         public double[] PsychMod { get; set; }

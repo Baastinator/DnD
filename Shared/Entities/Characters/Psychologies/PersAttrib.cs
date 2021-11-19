@@ -1,6 +1,9 @@
-﻿namespace DND.Shared.Entities.Characters.Psychologies
+﻿using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
+namespace DND.Shared.Entities.Characters.Psychologies
 {
-    public class PersAttrib : INameable
+    public class PersAttrib : Nameable
     {
         private double _value;
         public string[] Descriptor { get; set; }

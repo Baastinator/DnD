@@ -1,6 +1,9 @@
-﻿namespace DND.Shared.Entities.Characters
+﻿using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
+namespace DND.Shared.Entities.Characters
 {
-    public class Race : INameable
+    public class Race : Nameable
     {
         public int[] StatBonus { get; set; }
         public static Race[] Races => races;

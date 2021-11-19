@@ -1,7 +1,10 @@
 ﻿
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters.Appearances
 {
-    public class ClothingType : INameable
+    public class ClothingType : Nameable
     {
         public static ClothingType[] Clothing => clothing;
 

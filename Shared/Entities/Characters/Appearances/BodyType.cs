@@ -1,7 +1,10 @@
 ﻿
+using DND.Shared.Interfaces;
+using DND.Shared.Interfaces.Implementations;
+
 namespace DND.Shared.Entities.Characters.Appearances
 {
-    public class BodyType : INameable
+    public class BodyType : Nameable
     {
         public static BodyType[] BodyTypes => bodyTypes;
 

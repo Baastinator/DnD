@@ -1,7 +1,4 @@
 ﻿using System;
-using DND.Shared.Entities.Characters;
-using DND.Shared.Entities.Characters.Psychologies;
-using DND.Shared.Entities.Characters.Skills;
 
 namespace DND.Shared
 {
