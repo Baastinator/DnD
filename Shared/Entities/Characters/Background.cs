@@ -1,6 +1,4 @@
-﻿
-using DND.Shared.Interfaces;
-using DND.Shared.Interfaces.Implementations;
+﻿using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters
 
@@ -10,6 +8,7 @@ namespace DND.Shared.Entities.Characters
         public int[] proficiencyTable { get; set; }
         public static Background[] Backgrounds => backgrounds;
 
+        #region Weights
         private static readonly int[] WAcolyte =
         {
             0,  0,  0,  0,  0,  0,  1,  0,  0,
@@ -129,6 +128,8 @@ namespace DND.Shared.Entities.Characters
             0,  0,  0,  0,  0,  0,  0,  0,  0,
             0,  0,  0,  0,  0,  0,  1,  1,  0
         };
+        #endregion
+
         public static Background Acolyte = new Background
         { ID = 0, Name = "Acolyte", proficiencyTable = WAcolyte };
         public static Background Anthropologist = new Background

@@ -11,7 +11,7 @@ namespace DND.Shared.Entities
     {
 
         public bool Player, IsMale;
-        public int Level;
+        public int Level, Age;
         public Race CRace;
         public Statblock CStats;
         public SocialClass CSocialClass;
@@ -44,6 +44,27 @@ namespace DND.Shared.Entities
         // PSYCHOLOGY       // ALL
         //
         // NOTE
+
+        #region CHARACTER OBJECT METHODS
+
+        #region MISC
+
+        #region Age
+
+        public void SetAge(int age)
+        {
+            Age = age;
+        }
+
+        public void GenAge(int minInc, int maxInc)
+        {
+            Age = Randomiser.rng.Next(minInc, maxInc + 1);
+        }
+
+        #endregion
+
+        #endregion
+
         #region RACE
 
         public void GenRace()
@@ -98,10 +119,10 @@ namespace DND.Shared.Entities
 
         #region APPEARANCE
 
-        public void GenAppearance()
+        public void GenAppearanceBodyAndClothes()
         {
             CAppearance = new Appearance();
-            int f(int x) { return (int)Math.Floor(x / 5d); }
+            int f(int x) => (int) Math.Floor(x / 5d);
             CAppearance.ClothingType = CSocialClass.ID switch
             {
                 0 => ClothingType.Clothing[new Random().Next(0, 2)],
@@ -145,6 +166,31 @@ namespace DND.Shared.Entities
                 },
                 _ => throw new Exception("")
             };
+        }
+        public void GenHairLength()
+        {
+            CAppearance.HairLength = IsMale switch
+            {
+                true => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 20, 5, 1}).Roll()],
+                false => HairLength.HairLengths[new Randomiser(new[] {5, 1, 10, 50, 50, 30}).Roll()]
+            };
+        }
+
+        public void SetHairLength(int ID) => CAppearance.HairLength = HairLength.HairLengths[ID];
+
+        public void GenHairColor()
+        {
+            // REMEMBER TO MAKE OLD FUCKS MORE GRAY
+        }
+
+        public void GenEyes()
+        {
+
+        }
+
+        public void GenSkin()
+        {
+
         }
 
         #endregion
@@ -204,36 +250,31 @@ namespace DND.Shared.Entities
 
         #region SAVING THROWS
 
-        public void MakeSavingThrows()
-        {
+        public void MakeSavingThrows() => 
             CSavingThrows = new SavingThrows(CStats, CClass.SavingThrowProficiencies);
-        }
 
         #endregion
 
         #region SKILLS
 
-        public void MakeSkills()
-        {
-            CSkills = new Skillblock(Level, CStats,
-                Proficiencies.AddTables(CClass.SkillProficiencies, CBackground.proficiencyTable));
-        }
+        public void MakeSkills() => CSkills = new Skillblock(Level, CStats,
+            Proficiencies.AddTables(CClass.SkillProficiencies, CBackground.proficiencyTable));
 
         #endregion
 
         #region PSYCHOLOGY
 
-        public void GenPsychology()
-        {
+        public void GenPsychology() =>
+            CPsychology = new Psychology(new[] {CSocialClass.PsychMod, CProfession.PsychMod});
 
-            CPsychology = new Psychology(CSocialClass.PsychMod, CProfession.PsychMod);
-        }
         #endregion
 
+        #endregion
 
         #region DISPLAY STRINGS
 
-        public string PsychModString
+        #region DEBUG
+        public string PsychModString 
         {
             get
             {
@@ -249,6 +290,14 @@ namespace DND.Shared.Entities
                 return a;
             }
         }
+
+        #endregion
+
+        #region NOT DEBUG
+
+        
+
+        #endregion
 
         #endregion
     }

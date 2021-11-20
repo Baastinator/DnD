@@ -1,0 +1,55 @@
+Character.cs Tree
+
+example: Datatype object1, object2
+
+if it's followed by ": Nameable", it has an int ID and string Name
+if a Datatype is followed by [], it's a list (="Array") of objects
+
+CHARACTER
+- bool Player, isMale
+- int Level, Age
+- Race CRace : Nameable
+    - int[] Statbonus
+    - int[] SkinColorWeights
+    - int[] HairColorWeights
+    - int[] EyeColorWeights
+- Statblock CStats
+    - Stat Str, Dex, Con, Int, Wis, Cha
+        - int Value
+    - int STR, DEX, CON, INT, WIS, CHA (takes stat's values on demand)
+- SocialClass CSocialClass
+    - int[] JobWeightTable
+    - double[] PsychMod
+- Appearance CAppearance
+    - int MuscleMass, BodySize
+    - BodyType BodyType : Nameable
+    - ClothingType ClothingType : Nameable
+    - HairLength HairLength : Nameable
+    - SkinColor SkinColor : Nameable
+    - HairColor HairColor : Nameable
+    - EyeColor EyeColor : Nameable
+- Profession CProfession : Nameable
+    - int[] PsychMod
+- Background CBackground : Nameable
+    - int[] PsychMod
+    - int[] SkillProficiencyTable
+- Class CClass : Nameable
+    - int[] PsychMod
+    - int[] SavingThrowProficiencies
+- SavingThrows CSavingThrows
+    - Statblock Stats
+    - int STR, DEX, CON, INT, WIS, CHA (takes stat's values on demand)
+- SkillBlock CSkills : Nameable
+    - Skill[] Skills : Nameable
+        - int Value
+        - byte BaseStat
+    - Skill[] noProficiencySkills : Nameable (skills without proficiencies applied)
+    - int ProficiencyBonus
+- Psychology CPsychology
+    - Personality Personality
+        - PersAttrib[] Attributes : Nameable
+            - double Value (clamped at -10;10)
+    - PsychValues Values
+        - PsychValue[] Values : Nameable
+            - double Value (clamped at -10;10)
+    - string Display (dynamically created awesome psychology GUI)

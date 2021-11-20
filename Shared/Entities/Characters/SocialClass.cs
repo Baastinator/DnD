@@ -1,5 +1,4 @@
-﻿using DND.Shared.Interfaces;
-using DND.Shared.Interfaces.Implementations;
+﻿using DND.Shared.Interfaces.Implementations;
 using static DND.Shared.Entities.Characters.Professions.ProfessionWeights;
 
 namespace DND.Shared.Entities.Characters

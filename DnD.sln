@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Shared", "Shared\DnD.Shared.csproj", "{01A09651-A3C2-4A63-9AA0-EF8C0F09B38C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen", "DnD_Char_Gen\DnD.Char_Gen.csproj", "{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen_Test", "DnD_Char_Gen\DnD.Char_Gen_Test.csproj", "{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen", "..\DnD\DnD.Char_Gen\DnD.Char_Gen.csproj", "{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

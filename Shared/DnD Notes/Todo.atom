@@ -5,14 +5,16 @@ HIGH PRIORITY
     - RACE          // FINISHED
     - STATS         // FINISHED
     - SOCIAL CLASS  // FINISHED
-    - APPEARANCE    // FINISHED
+    - APPEARANCE
+        - Hair Color
+        - Eyes
     - PROFESSION    // FINISHED
     - BACKGROUND    // FINISHED
     - CLASS         // FINISHED
     - SAVING THROWS // FINISHED
     - SKILLS        // FINISHED
     - PSYCHOLOGY
-        - VALUES
+        - VALUES     // ON HOLD UNTIL BACK AT WORKPLACE
             - ADD BACKGROUND MODIFIERS
             - ADD CLASS MODIFIERS
 

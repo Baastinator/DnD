@@ -1,6 +1,4 @@
-﻿
-using DND.Shared.Interfaces;
-using DND.Shared.Interfaces.Implementations;
+﻿using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters.Skills
 {
@@ -8,12 +6,11 @@ namespace DND.Shared.Entities.Characters.Skills
     {
         public int Value { get; set; }
         public byte BaseStat { get; set; }
-        public byte proficiency = 0;
         public static Skill[] Skills => skills;
 
 
 
-        public static readonly byte STR = 0, DEX = 1, CON = 2, INT = 3, WIS = 4, CHA = 5;
+        public static readonly byte STR = 0, DEX = 1, INT = 3, WIS = 4, CHA = 5;
         public static Skill Acrobatics = new Skill { ID = 0, Name = "Acrobatics", Value = 0, BaseStat = DEX };
         public static Skill AnimalHandling = new Skill { ID = 1, Name = "AnimalHandling", Value = 0, BaseStat = WIS };
         public static Skill Arcana = new Skill { ID = 2, Name = "Arcana", Value = 0, BaseStat = INT };

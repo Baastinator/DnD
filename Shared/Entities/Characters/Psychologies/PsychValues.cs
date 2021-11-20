@@ -2,7 +2,6 @@
 {
     public class PsychValues
     {
-        private readonly double[] _mod;
         public PsychValue[] Values { get; set; }
 
         public static double[] empty =
@@ -35,16 +34,6 @@
                 t.Value = Randomiser.NormalDist();
                 Values[index] = t;
             }
-        }
-        public static PsychValues operator +(PsychValues a, PsychValues b)
-        {
-            var c = new PsychValues(empty, false);
-            for (var i = 0; i < a.Values.Length; i++)
-            {
-                c.Values[i].Value = a.Values[i].Value + b.Values[i].Value;
-            }
-
-            return c;
         }
     }
 }

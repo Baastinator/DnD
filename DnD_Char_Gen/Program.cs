@@ -1,7 +1,7 @@
 ﻿using System;
 using DND.Shared.Entities;
 
-namespace DnD.Char_Gen
+namespace DnD.Char_Gen_Test
 {
     public class Program
     {
@@ -24,7 +24,7 @@ namespace DnD.Char_Gen
             character.GenRace();    
             character.MakeStats();
             character.GenSocialClass();
-            character.GenAppearance();
+            character.GenAppearanceBodyAndClothes();
             character.GenProfession();
             character.GenBackground();
             character.GenClass();

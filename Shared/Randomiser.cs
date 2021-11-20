@@ -6,7 +6,7 @@ namespace DND.Shared
     public class Randomiser
     {
         private static readonly Random rand = new Random();
-        private static readonly Random rng = new Random();
+        public static readonly Random rng = new Random();
         public List<int> WeightTable;
         public int TotalWeight { get { var sum = 0; foreach (var item in WeightTable) { sum += item; } return sum; } }
         public Randomiser(List<int> weightTable)
