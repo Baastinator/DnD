@@ -229,5 +229,27 @@ namespace DND.Shared.Entities
             CPsychology = new Psychology(CSocialClass.PsychMod, CProfession.PsychMod);
         }
         #endregion
+
+
+        #region DISPLAY STRINGS
+
+        public string PsychModString
+        {
+            get
+            {
+                var a = "\n\n" + CSocialClass.Name + " - " + CProfession.Name +
+                                  "\nValue:  full = original + SoCl mod + Pro mod\n";
+                for (var i = 0; i < CPsychology.Values.Values.Length; i++)
+                {
+                    a += CPsychology.Values.Values[i].Name + ":  " +
+                         CPsychology.Values.Values[i].Value + " = oValue + " +
+                         CSocialClass.PsychMod[i] / 2 + " + " +
+                         CProfession.PsychMod[i] + "\n";
+                }
+                return a;
+            }
+        }
+
+        #endregion
     }
 }

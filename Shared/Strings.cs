@@ -19,7 +19,7 @@ namespace DND.Shared
         public static string NumToString(double input)
         {
             var output = "";
-            int val = (int) Math.Floor(Math.Abs(input));
+            var val = (int) Math.Floor(Math.Abs(input));
             if (input < 0) val *= -1;
             if (val == 0)
             {
@@ -27,7 +27,7 @@ namespace DND.Shared
             } 
             if (val > 0)
             {
-                for (int i = 0; i < val; i++)
+                for (var i = 0; i < val; i++)
                 {
                     output += "+";
                 }
@@ -35,7 +35,7 @@ namespace DND.Shared
                 return output;
             }
 
-            for (int i = 0; i < (int)Math.Abs(val); i++)
+            for (var i = 0; i < (int)Math.Abs(val); i++)
             {
                 output += "-";
             }

@@ -31,18 +31,8 @@ namespace DnD.Char_Gen
             character.MakeSavingThrows();
             character.MakeSkills();
             character.GenPsychology();
-            //Console.WriteLine(character.CPsychology.Display);
-            Console.WriteLine("\n\n" + character.CSocialClass.Name + " - " + character.CProfession.Name +
-                              "\nValue:  full = original + SoCl mod + Pro mod\n");
-            for (int i = 0; i < character.CPsychology.Values.Values.Length; i++)
-            {
-                Console.WriteLine(
-                    character.CPsychology.Values.Values[i].Name + ":  " + 
-                    character.CPsychology.Values.Values[i].Value + " = " + 
-                    character.CPsychology.oValues.Values[i].Value + " + " + 
-                   (character.CSocialClass.PsychMod[i] / 2) + " + " + 
-                    character.CProfession.PsychMod[i]);
-            }
+            Console.WriteLine(character.CPsychology.Display);
+            Console.WriteLine(character.PsychModString);
             Console.ReadLine();
         }
     }

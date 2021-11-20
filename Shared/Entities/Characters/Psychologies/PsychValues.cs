@@ -10,7 +10,7 @@
         public PsychValues(double[] mod,bool randomise = true)
         {
             Values = PsychValue.Values;
-            for (int i = 0; i < Values.Length; i++)
+            for (var i = 0; i < Values.Length; i++)
             {
                 Values[i].Value = randomise ? Randomiser.NormalDist() + mod[i] : mod[i];
             }
@@ -39,7 +39,7 @@
         public static PsychValues operator +(PsychValues a, PsychValues b)
         {
             var c = new PsychValues(empty, false);
-            for (int i = 0; i < a.Values.Length; i++)
+            for (var i = 0; i < a.Values.Length; i++)
             {
                 c.Values[i].Value = a.Values[i].Value + b.Values[i].Value;
             }

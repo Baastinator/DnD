@@ -7,7 +7,12 @@ namespace DND.Shared.Entities.Characters
     public class Psychology
     {
         public Personality Personality { get; set; }
-        public PsychValues oValues { get; set; }
+        public PsychValues oValues
+        {
+            get => _oValues;
+            set => _oValues ??= value;
+        }
+        public PsychValues _oValues;
         public PsychValues Values { get; set; }
         public string Display {
             get
@@ -58,15 +63,14 @@ namespace DND.Shared.Entities.Characters
                 return output;
             }
         }
-        public Psychology(double[] socMod, double[] proMod)
+        public Psychology(double[][] mods)
         {
             Personality = new Personality();
-            oValues = new PsychValues();
-            Values = new PsychValues(false);
+            oValues = new PsychValues(true);
+            Values = new PsychValues();
             for (var i = 0; i < Values.Values.Length; i++)
             {
-                Console.WriteLine(oValues.Values[i].Value);
-                Values.Values[i].Value = oValues.Values[i].Value + socMod[i] + proMod[i];
+                Values.Values[i].Value = oValues.Values[i].Value + mods[0][i]/2 + mods[1][i];
             }
         }
     }
