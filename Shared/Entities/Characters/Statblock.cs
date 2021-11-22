@@ -49,10 +49,7 @@ namespace DND.Shared.Entities.Characters
         #endregion
         public int[] IntArray
         {
-            get
-            {
-                return new[] { STR, DEX, CON, INT, WIS, CHA };
-            }
+            get => new[]{ STR, DEX, CON, INT, WIS, CHA };
             set
             {
                 STR = value[0];
@@ -101,21 +98,24 @@ namespace DND.Shared.Entities.Characters
             Cha = new Stat();
         }
 
-#nullable enable
         public static Statblock MakeStats(byte config, int[] content)
         {
-            Statblock output = new Statblock();
-            if (config == STATS_RANDOM)
-            {
-                output.StatArray = new[] { Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat() };
-            }
-            else
-            {
-                output.IntArray = content;
-            }
+            var output = new Statblock();
+            if (config == STATS_RANDOM) throw new Exception("");
+
+            output.IntArray = content;
             return output;
         }
-#nullable disable
+        public static Statblock MakeStats(byte config)
+        {
+            var output = new Statblock();
+            if (config == STATS_MANUAL)
+            {
+                throw new Exception("");
+            }
+            output.StatArray = new[] { Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat() };
+            return output;
+        }
         public static Statblock AddStats(Statblock s, Statblock o)
         {
             var stats = new int[6];

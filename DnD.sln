@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Shared", "Shared\DnD.Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen_Test", "DnD_Char_Gen\DnD.Char_Gen_Test.csproj", "{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen", "..\DnD\DnD.Char_Gen\DnD.Char_Gen.csproj", "{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnD.Char_Gen", "DnD.Char_Gen\DnD.Char_Gen.csproj", "{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F4FC157-ABF5-48B4-95BB-1A62A6DB1BCA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2AD6F5A-2959-4C66-9ED1-8EA6A9167B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,11 +22,8 @@ namespace DND.Shared.Entities
         public SavingThrows CSavingThrows;
         public Skillblock CSkills;
         public Psychology CPsychology;
-        public Character(bool isPlayer, int level = 0)
+        public Character()
         {
-            Player = isPlayer;
-            Level = level == 0 ? new Random().Next(1, 4) : level;
-            IsMale = new Random().Next(0, 2) == 1;
 
         }
         // NOTE
