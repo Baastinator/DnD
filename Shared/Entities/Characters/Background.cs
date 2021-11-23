@@ -7,7 +7,111 @@ namespace DND.Shared.Entities.Characters
     {
         public int[] proficiencyTable { get; set; }
         public static Background[] Backgrounds => backgrounds;
+        public double[] PsychMod { get; set; }
 
+        #region PsychMods
+        private static readonly double[] MAcolyte =
+        {
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      1,  0, .5,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MAnthropologist =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      1,  0,  1,  0,  1,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  2
+        };
+        private static readonly double[] MAthlete =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  1,  0,  0,  1,      0,  1,  0,  2,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MCharlatan =
+        {
+           -1,  0,  0,  0,  0,     -1,  1,  2,  0,  0,      0,  0,  0,  0,  0,
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MCityWatch =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            1,  0,  0,  0,  1,      0,  1,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MClanCrafter =
+        {
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      1,  1,  0,  0,  0,      0,  0,  0,  1
+        };
+        private static readonly double[] MCourtier =
+        {
+            0,  1,  0,  0, .5,      0,  1,  0,  0,  1,      1,  0,  0,  0,  0,
+            1,  0,  0,  0,  0,      0,  0,  0,  1,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MCriminal =
+        {
+           -1,  0,  0,  0,  0,      0,  1,  0, -1, -1,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MEntertainer =
+        {
+            0,  0,  0,  0,  0,      0,  1,  0,  0,  0,      0,  2,  1,  0,  0,
+            0,  0,  0,  1,  0,      0,  0,  0,  0,  0,      1,  0,  0,  1
+        };
+        private static readonly double[] MFaceless =
+        {
+            0,  0,  0,  0,  0,      0,  1,  1,  0,  0,      0,  0,  0,  0,  0,
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  1
+        };
+        private static readonly double[] MFisher =
+        {
+            0,  0,  1,  0,  0,      0,  0,  0,  1,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  1,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MFolkHero =
+        {
+            0,  0,  0,  0,  1,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  1,      1,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MGuildArtisan =
+        {
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  2,  0,  0,
+            0,  0,  0,  0,  0,      1,  1,  0,  0,  0,      0,  0,  0,  1
+        };
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+        //private static readonly double[] MEmpty =
+        //{
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        //};
+
+        #endregion
         #region Weights
         private static readonly int[] WAcolyte =
         {

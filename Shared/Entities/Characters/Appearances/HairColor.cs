@@ -1,4 +1,5 @@
-﻿using DND.Shared.Interfaces.Implementations;
+﻿using System.Collections.Generic;
+using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters.Appearances
 {
@@ -11,10 +12,18 @@ namespace DND.Shared.Entities.Characters.Appearances
         public static HairColor Purple = new HairColor {ID = 4, Name = "Purple"};
         public static HairColor Ginger = new HairColor {ID = 5, Name = "Ginger"};
         public static HairColor Gray = new HairColor {ID = 6, Name = "Gray"};
+        public static HairColor None = new HairColor {ID = 7, Name = "None"};
 
-        public static HairColor[] HairColors =
+        public static Dictionary<string,HairColor[]> HairColors = new Dictionary<string, HairColor[]>
         {
-            Brown, Blond, Black, Red, Purple, Ginger, Gray
+            {"Humanoid",new []{Brown,Blond,Black,Ginger}},
+            {"Goblinoid",new []{Brown,Black,Gray}},
+            {"Tiefling",new []{Brown,Black,Red,Purple}}
+        };
+
+        public static HairColor[] hairColors =
+        {
+            Brown, Blond, Blond, Red, Purple, Ginger, Gray, None
         };
     }
 }

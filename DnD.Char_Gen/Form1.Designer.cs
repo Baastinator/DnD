@@ -31,11 +31,11 @@ namespace DnD.Char_Gen
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -79,6 +79,13 @@ namespace DnD.Char_Gen
             this.label4.TabIndex = 14;
             this.label4.Text = "CHA";
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 105);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(25, 23);
+            this.textBox4.TabIndex = 9;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -114,13 +121,6 @@ namespace DnD.Char_Gen
             this.label2.Size = new System.Drawing.Size(28, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "DEX";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(87, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(25, 23);
-            this.textBox4.TabIndex = 9;
             // 
             // textBox5
             // 
@@ -203,6 +203,7 @@ namespace DnD.Char_Gen
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

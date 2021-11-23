@@ -4,9 +4,9 @@ namespace DND.Shared.Entities.Characters.Professions
     public static class ProfessionWeights
     {
         public static int[] RuralPeasant = {
-             80,  0,  0,  0,  0,    0,  0,  0, 10,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
-              0,  0,  0,  0, 20,    0,  0,  0,  0,  0,    0, 15,  0,  0, 10,     0,  20,  0,  0,  0,
-              0, 80,100,  0,  0,    0,  0, 50,  0, 30,
+           80,  0,  0,  0,  0,    0,  0,  0, 10,  0,    0,  0,  0,  0,  0,     0,  0,  0,  0,  0,
+            0,  0,  0,  0, 20,    0,  0,  0,  0,  0,    0, 15,  0,  0, 10,     0,  20,  0,  0,  0,
+            0, 80,100,  0,  0,    0,  0, 50,  0, 30,
         };
         public static int[] RuralLandowner = {
             0,  0,  0,  0,  0,    0,  0,  0, 30,  0,    0,  0,  0,  0,  0,     0,  0,  0,  5,  0,

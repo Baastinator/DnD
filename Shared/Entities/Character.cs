@@ -87,7 +87,7 @@ namespace DND.Shared.Entities
 
         public void MakeStats()
         {
-            var stats = Statblock.MakeStats(Statblock.STATS_RANDOM, null!);
+            var stats = Statblock.MakeStats(Statblock.STATS_RANDOM);
             var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
             CStats = Statblock.AddStats(stats, bonus);
         }
@@ -175,20 +175,78 @@ namespace DND.Shared.Entities
 
         public void SetHairLength(int ID) => CAppearance.HairLength = HairLength.HairLengths[ID];
 
+        public void GenSkin()
+        {
+            SkinColor Goblinoid() => SkinColor.SkinColors["Goblinoid"][Randomiser.rng.Next(0, 2)];
+
+            SkinColor Avian() => Randomiser.rng.Next(0, 3) switch
+            {
+                0 => SkinColor.TfRed,
+                1 => SkinColor.TfOrange,
+                2 => SkinColor.TaYellow,
+                _ => throw new Exception("")
+            };
+
+            CAppearance.SkinColor = CRace.Name switch
+            {
+                "Half Orc" => Goblinoid(),
+                "Dragonborn" => SkinColor.SkinColors["Dragonborn"][Randomiser.rng.Next(0, 2)],
+                "Tiefling" => new Randomiser(new[] {20, 50}).Roll() == 1
+                    ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
+                    : SkinColor.SkinColors["Tiefling"][new Randomiser(new[] {40, 50, 10}).Roll()],
+                "Goliath" => SkinColor.Goliath,
+                "Tabaxi" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
+                "Aarakokra" => Avian(),
+                "Kenku" => Avian(),
+                "Tortle" => Goblinoid(),
+                "Bugbear" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
+                "Goblin" => Goblinoid(),
+                "Hobgoblin" => Goblinoid(),
+                "Kobold" => Goblinoid(),
+                "Lizardfolk" => Goblinoid(),
+                "Orc" => Goblinoid(),
+                "Warforged" => SkinColor.Warforged,
+                _ => SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
+            };
+        }
+
+        public void SetSkin(int ID) => CAppearance.SkinColor = SkinColor.skinColors[ID];
+
         public void GenHairColor()
         {
             // REMEMBER TO MAKE OLD FUCKS MORE GRAY
+            HairColor Goblinoid() => HairColor.HairColors["Goblinoid"][Randomiser.rng.Next(0,3)];
+            HairColor Tiefling() => HairColor.HairColors["Tiefling"][Randomiser.rng.Next(0, 4)];
+            int f(int age) => (int) Math.Max(0d, Math.Min(100d,5.821*Math.Pow(1.05859,age-50)-0.338));
+            CAppearance.HairColor = new Randomiser(new[] {f(Age), 100 - f(Age)}).Roll() == 0
+                ? HairColor.Gray
+                : CRace.Name switch
+                {
+                    "Half Orc" => Goblinoid(),
+                    "Dragonborn" => HairColor.None,
+                    "Tiefling" => Tiefling(),
+                    "Goliath" => HairColor.None,
+                    "Tabaxi" => HairColor.None,
+                    "Aarakocra" => HairColor.None,
+                    "Kenku" => HairColor.None,
+                    "Bugbear" => HairColor.None,
+                    "Tortle" => Goblinoid(),
+                    "Goblin" => Goblinoid(),
+                    "Hobgoblin" => Goblinoid(),
+                    "Kobold" => Goblinoid(),
+                    "Lizardfolk" => Goblinoid(),
+                    "Orc" => Goblinoid(),
+                    "Warforged" => HairColor.None,
+                    _ => HairColor.HairColors["Humanoid"][Randomiser.rng.Next(0,4)]
+                };
         }
 
-        public void GenEyes()
-        {
+        public void SetHairColor(int ID) => CAppearance.HairColor = HairColor.hairColors[ID];
 
-        }
+        public void GenEyes() => CAppearance.EyeColor =
+            EyeColor.EyeColors[new Randomiser(new[] {10, 10, 10, 10, 10, 10, 0}).Roll()];
 
-        public void GenSkin()
-        {
-
-        }
+        public void SetEyes(int ID) => CAppearance.EyeColor = EyeColor.EyeColors[ID];
 
         #endregion
 

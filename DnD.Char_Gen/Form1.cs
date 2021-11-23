@@ -9,6 +9,7 @@ namespace DnD.Char_Gen
         public Form1()
         {
             InitializeComponent();
+
         }
 
         #region STATS
@@ -41,5 +42,10 @@ namespace DnD.Char_Gen
         }
 
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace DnD.Char_Gen_Test
                 Console.WriteLine(d.Value);
             }*/
             
-            character = new Character(true, 2);
+            character = new Character();
             character.GenRace();    
             character.MakeStats();
             character.GenSocialClass();
@@ -32,7 +32,6 @@ namespace DnD.Char_Gen_Test
             character.MakeSkills();
             character.GenPsychology();
             Console.WriteLine(character.CPsychology.Display);
-            Console.WriteLine(character.PsychModString);
             Console.ReadLine();
         }
     }

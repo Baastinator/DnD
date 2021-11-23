@@ -12,3 +12,38 @@ CLOTHING TYPES
 Rags
 Standard
 Fine
+
+Skin Color Schemes
+Humanoid
+    - Light
+    - Pale
+    - Dark
+Goblinoid
+    - Light Green
+    - Dark Green
+Tiefling : Humanoid
+    - Orange
+    - Red
+    - Purple
+Dragonborn
+    - Brass
+    - Bronze
+Goliath
+    - Gray
+Furry
+    - Brown
+    - Yellow
+Avian
+    - Red, Orange, Yellow
+Lizardfolk : Goblinoid
+Steel
+    - Silver
+
+Eye Colors
+- Gray
+- Blue
+- Green
+- Brown
+- Amber
+- Hazel
+- Red
