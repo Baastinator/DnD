@@ -1,7 +1,7 @@
 TO DO
 
 HIGH PRIORITY
-- CHARACTER
+- CHARACTER     // FINISHED //
     - RACE          // FINISHED
     - STATS         // FINISHED
     - SOCIAL CLASS  // FINISHED
@@ -11,11 +11,9 @@ HIGH PRIORITY
     - CLASS         // FINISHED
     - SAVING THROWS // FINISHED
     - SKILLS        // FINISHED
-    - PSYCHOLOGY
-        - VALUES 
-            - ADD BACKGROUND MODIFIERS
-            - ADD CLASS MODIFIERS
+    - PSYCHOLOGY    // FINISHED
 
+    - make UI for in/out-put
 
 MEDIUM PRIORITY
 - CHARACTER
@@ -34,9 +32,3 @@ MEDIUM PRIORITY
 LOW PRIORITY
 - CLEANUP
 - CHARACTER
-    - make non adventurer NPCs possible // TODO //
-    // NOTE //
-    // finished for now, will have to do
-    // some stuff once i finished
-    // race, social class and appearance
-    // NOTE //

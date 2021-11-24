@@ -6,12 +6,12 @@ namespace DND.Shared.Entities.Characters
     {
         public static Profession[] Professions => professions;
         public double[] PsychMod { get; set; }
-        #region PsychMods
-        private static readonly double[] MEmpty =
-        {
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        };
+            #region PsychMods
+            private static readonly double[] MEmpty =
+            {
+                0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+                0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+            };
         private static readonly double[] MMinstrel =
         {
             0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  1,  0,  0,  0,

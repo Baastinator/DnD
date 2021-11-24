@@ -75,41 +75,76 @@ namespace DND.Shared.Entities.Characters
             0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  2,  0,  0,
             0,  0,  0,  0,  0,      1,  1,  0,  0,  0,      0,  0,  0,  1
         };
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
-        //private static readonly double[] MEmpty =
-        //{
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
-        //    0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
-        //};
+        private static readonly double[] MGuildMerchant =
+        {
+            0,  1,  1,  0,  0,      0,  0,  1,  0,  0,      0,  0,  0,  1,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  1,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MHauntedOne =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            1,  0,  0,  0,  0,      0,  0,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MHermit =
+        {
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  1,  1,  0,  0,      0,  0,  0,  0,  0,      0,  1,  1,  1,
+        };
+        private static readonly double[] MInvestigator =
+        {
+           .5,  0,  0,  0,  0,      1,  0,  0,  1,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  1
+        };
+        private static readonly double[] MKnight =
+        {
+            1,  1,  0,  0, .5,      0,  0,  0,  0,  1,      1,  0,  0,  1,  0,
+            0,  0,  0,  0,  0,      0,  1,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MNoble =
+        {
+            1,  0,  0,  0,  1,      0,  1,  1,  0,  1,      1,  0,  0,  0,  0,
+            0,  1,  0,  1,  0,      0,  0,  0,  0,  0,      1,  0,  0,  0
+        };
+        private static readonly double[] MPirate =
+        {
+           -1,  0, .5,  0,  0,      0,  0,  0,  0, -1,      0,  1,  0,  1,  0,
+            0,  0,  0,  1,  0,      1,  0,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MSage =
+        {
+            0,  0,  0,  0,  0,      1,  0,  0,  1,  0,      0,  0,  0,  1,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MSailor =
+        {
+            0,  0, .5,  0,  0,      0,  0,  0,  0, -1,      0,  1,  0,  1,  0,
+            0,  0,  0,  1,  0,      1,  0,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MSmuggler =
+        {
+           -1,  0,  0,  0,  0,      0,  1,  1,  0,  0,      0,  0,  0,  1,  0,
+            1,  1,  0,  0,  0,      1,  0,  0,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MSoldier =
+        {
+            0,  1,  0,  1,  0,      0,  0,  0,  1,  0,      0,  1,  0,  1,  0,
+            0,  0,  0,  1,  1,      0,  1,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MSpy =
+        {
+            0,  0,  0,  0,  0,      1,  1,  2,  0,  1,      0,  0,  0,  0,  0,
+            0,  1,  0,  0,  0,      1,  0,  0,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MUrchin =
+        {
+            0,  0,  0,  0,  0,      0,  1,  0,  0, -1,      0,  1,  0,  1,  1,
+            0,  0,  1,  0,  0,      0,  1,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MEmpty =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
 
         #endregion
         #region Weights
@@ -235,59 +270,59 @@ namespace DND.Shared.Entities.Characters
         #endregion
 
         public static Background Acolyte = new Background
-        { ID = 0, Name = "Acolyte", proficiencyTable = WAcolyte };
+        { ID = 0, Name = "Acolyte", proficiencyTable = WAcolyte, PsychMod = MAcolyte };
         public static Background Anthropologist = new Background
-        { ID = 1, Name = "Anthropologist", proficiencyTable = WAnthropologist };
+        { ID = 1, Name = "Anthropologist", proficiencyTable = WAnthropologist, PsychMod = MAnthropologist};
         public static Background Athlete = new Background
-        { ID = 2, Name = "Athlete", proficiencyTable = WAthlete };
+        { ID = 2, Name = "Athlete", proficiencyTable = WAthlete, PsychMod = MAthlete};
         public static Background Charlatan = new Background
-        { ID = 3, Name = "Charlatan", proficiencyTable = WCharlatan };
+        { ID = 3, Name = "Charlatan", proficiencyTable = WCharlatan, PsychMod = MCharlatan};
         public static Background CityWatch = new Background
-        { ID = 4, Name = "City Watch", proficiencyTable = WCityWatch };
+        { ID = 4, Name = "City Watch", proficiencyTable = WCityWatch, PsychMod = MCityWatch};
         public static Background ClanCrafter = new Background
-        { ID = 5, Name = "Clan Crafter", proficiencyTable = WClanCrafter };
+        { ID = 5, Name = "Clan Crafter", proficiencyTable = WClanCrafter, PsychMod = MClanCrafter};
         public static Background Courtier = new Background
-        { ID = 6, Name = "Courtier", proficiencyTable = WCourtier };
+        { ID = 6, Name = "Courtier", proficiencyTable = WCourtier, PsychMod = MCourtier};
         public static Background Criminal = new Background
-        { ID = 7, Name = "Criminal", proficiencyTable = WCriminal };
+        { ID = 7, Name = "Criminal", proficiencyTable = WCriminal, PsychMod = MCriminal};
         public static Background Entertainer = new Background
-        { ID = 8, Name = "Entertainer", proficiencyTable = WEntertainer };
+        { ID = 8, Name = "Entertainer", proficiencyTable = WEntertainer, PsychMod = MEntertainer};
         public static Background Faceless = new Background
-        { ID = 9, Name = "Faceless", proficiencyTable = WFaceless };
+        { ID = 9, Name = "Faceless", proficiencyTable = WFaceless, PsychMod = MFaceless};
         public static Background Fisher = new Background
-        { ID = 10, Name = "Fisher", proficiencyTable = WFisher };
+        { ID = 10, Name = "Fisher", proficiencyTable = WFisher, PsychMod = MFisher};
         public static Background FolkHero = new Background
-        { ID = 11, Name = "Folk Hero", proficiencyTable = WFolkHero };
+        { ID = 11, Name = "Folk Hero", proficiencyTable = WFolkHero, PsychMod = MFolkHero};
         public static Background Gladiator = new Background
-        { ID = 12, Name = "Gladiator", proficiencyTable = WGladiator };
+        { ID = 12, Name = "Gladiator", proficiencyTable = WGladiator, PsychMod = MSoldier};
         public static Background GuildArtisan = new Background
-        { ID = 13, Name = "Guild Artisan", proficiencyTable = WGuildArtisan };
+            {ID = 13, Name = "Guild Artisan", proficiencyTable = WGuildArtisan, PsychMod = MGuildArtisan};
         public static Background GuildMerchant = new Background
-        { ID = 14, Name = "Guild Merchant", proficiencyTable = WGuildMerchant };
+            {ID = 14, Name = "Guild Merchant", proficiencyTable = WGuildMerchant, PsychMod = MGuildMerchant};
         public static Background HauntedOne = new Background
-        { ID = 15, Name = "Haunted One", proficiencyTable = WHauntedOne };
+        { ID = 15, Name = "Haunted One", proficiencyTable = WHauntedOne, PsychMod = MHauntedOne};
         public static Background Hermit = new Background
-        { ID = 16, Name = "Hermit", proficiencyTable = WHermit };
+        { ID = 16, Name = "Hermit", proficiencyTable = WHermit, PsychMod = MHermit};
         public static Background Investigator = new Background
-        { ID = 17, Name = "Investigator", proficiencyTable = WInvestigator };
+        { ID = 17, Name = "Investigator", proficiencyTable = WInvestigator, PsychMod = MInvestigator};
         public static Background Knight = new Background
-        { ID = 18, Name = "Knight", proficiencyTable = WKnight };
+        { ID = 18, Name = "Knight", proficiencyTable = WKnight, PsychMod = MKnight};
         public static Background Noble = new Background
-        { ID = 19, Name = "Noble", proficiencyTable = WNoble };
+        { ID = 19, Name = "Noble", proficiencyTable = WNoble, PsychMod = MNoble};
         public static Background Pirate = new Background
-        { ID = 20, Name = "Pirate", proficiencyTable = WPirate };
+        { ID = 20, Name = "Pirate", proficiencyTable = WPirate, PsychMod = MPirate};
         public static Background Sage = new Background
-        { ID = 21, Name = "Sage", proficiencyTable = WSage };
+        { ID = 21, Name = "Sage", proficiencyTable = WSage, PsychMod = MSage};
         public static Background Sailor = new Background
-        { ID = 22, Name = "Sailor", proficiencyTable = WSailor };
+        { ID = 22, Name = "Sailor", proficiencyTable = WSailor, PsychMod = MSailor};
         public static Background Smuggler = new Background
-        { ID = 23, Name = "Smuggler", proficiencyTable = WSmuggler };
+        { ID = 23, Name = "Smuggler", proficiencyTable = WSmuggler, PsychMod = MSmuggler};
         public static Background Soldier = new Background
-        { ID = 24, Name = "Soldier", proficiencyTable = WSoldier };
+        { ID = 24, Name = "Soldier", proficiencyTable = WSoldier, PsychMod = MSoldier};
         public static Background Spy = new Background
-        { ID = 25, Name = "Spy", proficiencyTable = WSpy };
+        { ID = 25, Name = "Spy", proficiencyTable = WSpy, PsychMod = MSpy};
         public static Background Urchin = new Background
-        { ID = 26, Name = "Urchin", proficiencyTable = WUrchin };
+        { ID = 26, Name = "Urchin", proficiencyTable = WUrchin, PsychMod = MUrchin};
         private static readonly Background[] backgrounds = {
             Acolyte, Anthropologist, Athlete, Charlatan, CityWatch, ClanCrafter, Courtier, Criminal,
             Entertainer, Faceless, Fisher, FolkHero, Gladiator, GuildArtisan, GuildMerchant, HauntedOne,

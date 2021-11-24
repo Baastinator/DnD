@@ -19,20 +19,22 @@ namespace DnD.Char_Gen_Test
             {
                 Console.WriteLine(d.Value);
             }*/
-            
+
             character = new Character();
+            character.SetName("Cringelord69");
+            character.GenGender();
+            character.SetLevel(3);
             character.GenRace();    
-            character.MakeStats();
+            character.GenStats();
             character.GenSocialClass();
-            character.GenAppearanceBodyAndClothes();
+            character.GenBodyClothes();
+            character.GenAppearance();
             character.GenProfession();
             character.GenBackground();
             character.GenClass();
-            character.MakeSavingThrows();
-            character.MakeSkills();
+            character.GenSavingThrows();
+            character.GenSkills();
             character.GenPsychology();
-            Console.WriteLine(character.CPsychology.Display);
-            Console.ReadLine();
         }
     }
 }

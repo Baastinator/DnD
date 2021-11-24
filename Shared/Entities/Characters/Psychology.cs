@@ -61,7 +61,7 @@ namespace DND.Shared.Entities.Characters
             Values = new PsychValues();
             for (var i = 0; i < Values.Values.Length; i++)
             {
-                Values.Values[i].Value = mods[0][i]/2 + mods[1][i];
+                Values.Values[i].Value += mods[0][i]/2d + mods[1][i] + mods[2][i] + mods[3][i];
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using DND.Shared.Interfaces.Implementations;
+﻿using System.Reflection.Metadata;
+using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters
 {
@@ -6,6 +7,7 @@ namespace DND.Shared.Entities.Characters
     {
         public int[] SavingThrowProficiencies { get; set; }
         public int[] SkillProficiencies { get; set; }
+        public double[] PsychMod { get; set; }
         public static Class[] Classes => classes;
 
         #region SkillProficiencies
@@ -93,20 +95,133 @@ namespace DND.Shared.Entities.Characters
         public static int[] STWarlock = STCleric;
         public static int[] STWizard = STDruid;
         #endregion
+        #region 
+
+        private static readonly double[] MArtificer =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  1,  0,  0,
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  1
+        };
+        private static readonly double[] MBarbarian =
+        {
+            0,  0,  0,  0,  1,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+           -1,  0,  0,  0,  1,      0,  0,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MBard =
+        {
+            0,  0,  0,  1,  0,      0,  0,  1,  1,  0,      0,  1,  1,  0,  0,
+            0,  0,  0,  1,  0,      1,  0,  0,  0,  0,      1,  0,  0,  0
+        };
+        private static readonly double[] MCleric =
+        {
+            1,  1,  0,  0,  0,      0,  0,  1,  0,  0,      1,  0,  0,  1,  0,
+            0,  1,  0,  0,  0,      0,  0,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MDruid =
+        {
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0,  1,
+            0,  0,  1,  0,  0,      0,  0,  0,  0,  0,      0,  2,  1,  0
+        };
+        private static readonly double[] MFighter =
+        {
+            0,  1,  0,  0,  0,      0,  0,  0,  0,  0,      1,  0,  0,  1,  0,
+            0,  0,  0,  0,  1,      1,  0,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MMonk =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  1,  1,  0,  1,      1,  0,  1,  0,  1,      0,  0,  0,  1
+        };
+        private static readonly double[] MPaladin =
+        {
+            1,  0,  0,  0,  0,      0,  0,  1,  1,  0,      1,  0,  0,  1,  0,
+            0,  1,  0,  0,  1,      1,  0,  0,  0,  1,      0,  0,  1,  0
+        };
+        private static readonly double[] MRanger =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  1,
+            0,  0,  1,  0,  0,      0,  0,  0,  0,  0,      0,  2,  0,  0
+        };
+        private static readonly double[] MRogue =
+        {
+           -1,  0,  0,  0,  0,      0,  1,  1, -1,  0,      0,  0,  0,  0,  0,
+            0, -1,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MSorcerer =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  1,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+        private static readonly double[] MWarlock =
+        {
+            0,  1,  1,  0,  1,      0,  0,  0,  0,  0,      0,  0,  0,  1,  0,
+            0,  1,  0,  0,  0,      1,  0,  1,  0,  1,      0,  0,  0,  0
+        };
+        private static readonly double[] MWizard =
+        {
+            0,  0,  0,  0,  0,      1,  0,  0,  0,  0,      0,  0,  0,  0,  1,
+            0,  0,  0,  0,  0,      1,  1,  0,  0,  1,      0,  0,  0,  1
+        };
+        private static readonly double[] MEmpty =
+        {
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,      0,  0,  0,  0,  0,      0,  0,  0,  0
+        };
+
+        #endregion
         #region Classes
-        public static Class Artificer = new Class { ID = 0, Name = "Artificer", SavingThrowProficiencies = STArtificer, SkillProficiencies = PArtificer };
-        public static Class Barbarian = new Class { ID = 1, Name = "Barbarian", SavingThrowProficiencies = STBarbarian, SkillProficiencies = PBarbarian };
-        public static Class Bard = new Class { ID = 2, Name = "Bard", SavingThrowProficiencies = STBard, SkillProficiencies = PBard };
-        public static Class Cleric = new Class { ID = 3, Name = "Cleric", SavingThrowProficiencies = STCleric, SkillProficiencies = PCleric };
-        public static Class Druid = new Class { ID = 4, Name = "Druid", SavingThrowProficiencies = STDruid, SkillProficiencies = PDruid };
-        public static Class Fighter = new Class { ID = 5, Name = "Fighter", SavingThrowProficiencies = STFighter, SkillProficiencies = PFighter };
-        public static Class Monk = new Class { ID = 6, Name = "Monk", SavingThrowProficiencies = STMonk, SkillProficiencies = PMonk };
-        public static Class Paladin = new Class { ID = 7, Name = "Paladin", SavingThrowProficiencies = STPaladin, SkillProficiencies = PPaladin };
-        public static Class Ranger = new Class { ID = 8, Name = "Ranger", SavingThrowProficiencies = STRanger, SkillProficiencies = PRanger };
-        public static Class Rogue = new Class { ID = 9, Name = "Rogue", SavingThrowProficiencies = STRogue, SkillProficiencies = PRogue };
-        public static Class Sorcerer = new Class { ID = 10, Name = "Sorcerer", SavingThrowProficiencies = STSorcerer, SkillProficiencies = PSorcerer };
-        public static Class Warlock = new Class { ID = 11, Name = "Warlock", SavingThrowProficiencies = STWarlock, SkillProficiencies = PWarlock };
-        public static Class Wizard = new Class { ID = 12, Name = "Wizard", SavingThrowProficiencies = STWizard, SkillProficiencies = PWizard };
+        public static Class Artificer = new Class
+        {
+            ID = 0, Name = "Artificer", SavingThrowProficiencies = STArtificer, SkillProficiencies = PArtificer, PsychMod = MArtificer
+        };
+        public static Class Barbarian = new Class
+        {
+            ID = 1, Name = "Barbarian", SavingThrowProficiencies = STBarbarian, SkillProficiencies = PBarbarian, PsychMod = MBarbarian
+        };
+        public static Class Bard = new Class
+        {
+            ID = 2, Name = "Bard", SavingThrowProficiencies = STBard, SkillProficiencies = PBard, PsychMod = MBard
+        };
+        public static Class Cleric = new Class
+        {
+            ID = 3, Name = "Cleric", SavingThrowProficiencies = STCleric, SkillProficiencies = PCleric, PsychMod = MCleric
+        };
+        public static Class Druid = new Class
+        {
+            ID = 4, Name = "Druid", SavingThrowProficiencies = STDruid, SkillProficiencies = PDruid, PsychMod = MDruid
+        };
+        public static Class Fighter = new Class
+        {
+            ID = 5, Name = "Fighter", SavingThrowProficiencies = STFighter, SkillProficiencies = PFighter, PsychMod = MFighter
+        };
+        public static Class Monk = new Class
+        {
+            ID = 6, Name = "Monk", SavingThrowProficiencies = STMonk, SkillProficiencies = PMonk, PsychMod = MMonk
+        };
+        public static Class Paladin = new Class
+        {
+            ID = 7, Name = "Paladin", SavingThrowProficiencies = STPaladin, SkillProficiencies = PPaladin, PsychMod = MPaladin
+        };
+        public static Class Ranger = new Class
+        {
+            ID = 8, Name = "Ranger", SavingThrowProficiencies = STRanger, SkillProficiencies = PRanger, PsychMod = MRanger
+        };
+        public static Class Rogue = new Class
+        {
+            ID = 9, Name = "Rogue", SavingThrowProficiencies = STRogue, SkillProficiencies = PRogue, PsychMod = MRogue
+        };
+        public static Class Sorcerer = new Class
+        {
+            ID = 10, Name = "Sorcerer", SavingThrowProficiencies = STSorcerer, SkillProficiencies = PSorcerer, PsychMod = MSorcerer
+        };
+        public static Class Warlock = new Class
+        {
+            ID = 11, Name = "Warlock", SavingThrowProficiencies = STWarlock, SkillProficiencies = PWarlock, PsychMod = MWarlock
+        };
+        public static Class Wizard = new Class
+        {
+            ID = 12, Name = "Wizard", SavingThrowProficiencies = STWizard, SkillProficiencies = PWizard, PsychMod = MWizard
+        };
         #endregion
         private static readonly Class[] classes =
         {

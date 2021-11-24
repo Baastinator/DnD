@@ -3,6 +3,8 @@
     public class PsychValues
     {
         public PsychValue[] Values { get; set; }
+        private const double rngMean = 0;
+        private const double rngDev = 1;
 
         public static double[] empty =
             {0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -11,7 +13,7 @@
             Values = PsychValue.Values;
             for (var i = 0; i < Values.Length; i++)
             {
-                Values[i].Value = randomise ? Randomiser.NormalDist() + mod[i] : mod[i];
+                Values[i].Value = randomise ? Randomiser.NormalDist(rngMean,rngDev) + mod[i] : mod[i];
             }
         }
         public PsychValues(bool randomise)
@@ -20,7 +22,7 @@
             for (var index = 0; index < Values.Length; index++)
             {
                 var t = Values[index];
-                t.Value = randomise ? Randomiser.NormalDist() : 0d;
+                t.Value = randomise ? Randomiser.NormalDist(rngMean,rngDev) : 0d;
                 Values[index] = t;
             }
         }
@@ -30,9 +32,7 @@
             Values = PsychValue.Values;
             for (var index = 0; index < Values.Length; index++)
             {
-                var t = Values[index];
-                t.Value = Randomiser.NormalDist();
-                Values[index] = t;
+                Values[index].Value = Randomiser.NormalDist(rngMean,rngDev);
             }
         }
     }
