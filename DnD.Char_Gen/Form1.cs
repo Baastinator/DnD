@@ -47,5 +47,21 @@ namespace DnD.Char_Gen
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel4.Enabled = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            comboBox2.Text = "AAASadsa";
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -172,6 +172,10 @@ namespace DND.Shared.Entities
             };
         }
 
+        public void SetBody(int ID) => CAppearance.BodyType = BodyType.BodyTypes[ID];
+
+        public void SetClothes(int ID) => CAppearance.ClothingType = ClothingType.Clothing[ID];
+
         public void GenAppearance()
         {
             GenHairLength();

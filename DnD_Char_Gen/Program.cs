@@ -24,7 +24,8 @@ namespace DnD.Char_Gen_Test
             character.SetName("Cringelord69");
             character.GenGender();
             character.SetLevel(3);
-            character.GenRace();    
+            character.GenAge(20,40);
+            character.GenRace();
             character.GenStats();
             character.GenSocialClass();
             character.GenBodyClothes();
@@ -35,6 +36,8 @@ namespace DnD.Char_Gen_Test
             character.GenSavingThrows();
             character.GenSkills();
             character.GenPsychology();
+            Console.WriteLine(character.CPsychology.Display);
+            Console.ReadLine();
         }
     }
 }
