@@ -107,7 +107,7 @@ namespace DnD.Char_Gen
             this.panel1.Controls.Add(this.StatsSaveBtn);
             this.panel1.Controls.Add(this.StatsMainLabel);
             this.panel1.Controls.Add(this.StatsRollBtn);
-            this.panel1.Location = new System.Drawing.Point(6, 157);
+            this.panel1.Location = new System.Drawing.Point(3, 157);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(122, 174);
             this.panel1.TabIndex = 0;
@@ -252,7 +252,7 @@ namespace DnD.Char_Gen
             this.panel2.Controls.Add(this.label7);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(190, 148);
+            this.panel2.Size = new System.Drawing.Size(177, 148);
             this.panel2.TabIndex = 1;
             // 
             // button3
@@ -310,7 +310,7 @@ namespace DnD.Char_Gen
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 68);
+            this.label9.Location = new System.Drawing.Point(6, 64);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 15);
             this.label9.TabIndex = 5;
@@ -376,7 +376,7 @@ namespace DnD.Char_Gen
             this.panel6.Controls.Add(this.button7);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.label14);
-            this.panel6.Location = new System.Drawing.Point(395, 3);
+            this.panel6.Location = new System.Drawing.Point(387, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(416, 590);
             this.panel6.TabIndex = 18;
@@ -431,7 +431,7 @@ namespace DnD.Char_Gen
             this.panel5.Controls.Add(this.comboBox3);
             this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.label13);
-            this.panel5.Location = new System.Drawing.Point(197, 67);
+            this.panel5.Location = new System.Drawing.Point(186, 67);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(195, 61);
             this.panel5.TabIndex = 17;
@@ -476,7 +476,7 @@ namespace DnD.Char_Gen
             this.panel4.Controls.Add(this.comboBox2);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Location = new System.Drawing.Point(197, 3);
+            this.panel4.Location = new System.Drawing.Point(186, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(195, 61);
             this.panel4.TabIndex = 2;
@@ -533,7 +533,7 @@ namespace DnD.Char_Gen
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(141, 35);
+            this.button9.Location = new System.Drawing.Point(187, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(40, 23);
             this.button9.TabIndex = 18;
@@ -551,7 +551,7 @@ namespace DnD.Char_Gen
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(4, 105);
+            this.label17.Location = new System.Drawing.Point(3, 101);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(61, 15);
             this.label17.TabIndex = 19;
