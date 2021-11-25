@@ -59,6 +59,14 @@ namespace DnD.Char_Gen
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -74,14 +82,6 @@ namespace DnD.Char_Gen
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -381,6 +381,75 @@ namespace DnD.Char_Gen
             this.panel6.Size = new System.Drawing.Size(416, 590);
             this.panel6.TabIndex = 18;
             // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(79, 156);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(118, 23);
+            this.comboBox7.TabIndex = 24;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 159);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(69, 15);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "Hair Length";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(79, 127);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(118, 23);
+            this.comboBox6.TabIndex = 22;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(4, 130);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(69, 15);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Hair Length";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(79, 98);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(118, 23);
+            this.comboBox5.TabIndex = 20;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(61, 15);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Skin Color";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(187, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(40, 23);
+            this.button9.TabIndex = 18;
+            this.button9.Text = "Save";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(60, 35);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(77, 23);
+            this.button8.TabIndex = 18;
+            this.button8.Text = "Randomise";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -521,75 +590,6 @@ namespace DnD.Char_Gen
             this.label12.Size = new System.Drawing.Size(32, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "Race";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(60, 35);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(77, 23);
-            this.button8.TabIndex = 18;
-            this.button8.Text = "Randomise";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(187, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(40, 23);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "Save";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(79, 98);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(118, 23);
-            this.comboBox5.TabIndex = 20;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 101);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(61, 15);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Skin Color";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(79, 127);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(118, 23);
-            this.comboBox6.TabIndex = 22;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 130);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 15);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Hair Length";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(79, 156);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(118, 23);
-            this.comboBox7.TabIndex = 24;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(4, 159);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 15);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Hair Length";
             // 
             // Form1
             // 
