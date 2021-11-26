@@ -1,17 +1,18 @@
 TO DO
 
 HIGH PRIORITY
-- CHARACTER     // FINISHED //
-    - RACE          // FINISHED
-    - STATS         // FINISHED
-    - SOCIAL CLASS  // FINISHED
-    - APPEARANCE    // FINISHED
-    - PROFESSION    // FINISHED
-    - BACKGROUND    // FINISHED
-    - CLASS         // FINISHED
-    - SAVING THROWS // FINISHED
-    - SKILLS        // FINISHED
-    - PSYCHOLOGY    // FINISHED
+FORM
+- CHARACTER
+    - RACE          
+    - STATS
+    - SOCIAL CLASS
+    - APPEARANCE
+    - PROFESSION
+    - BACKGROUND
+    - CLASS
+    - SAVING THROWS
+    - SKILLS
+    - PSYCHOLOGY
 
     - make UI for in/out-put
 
