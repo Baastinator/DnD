@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using DND.Shared;
 using DND.Shared.Entities.Characters;
 
 namespace DnD.Char_Gen
@@ -48,19 +49,47 @@ namespace DnD.Char_Gen
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel4.Enabled = false;
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            comboBox2.Text = "AAASadsa";
+            Program.Character.Name = textBox7.Text;
+            Program.Character.IsMale = comboBox1.Text == "Male";
+            Program.Character.Level = int.Parse(textBox8.Text);
+            textBox9.Text = int.Parse(textBox9.Text) >= 15 ? "" + int.Parse(textBox9.Text) : "15";
+            Program.Character.Age = int.Parse(textBox9.Text);
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                var age = int.Parse(textBox9.Text);
+                if (age < 0) textBox9.Text = "0";
+            }
+            catch (Exception exception)
+            {
+                textBox9.Text = "";
+            }
+        }
 
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var lvl = int.Parse(textBox8.Text);
+                if (lvl < 0) textBox8.Text = "0";
+                if (lvl > 20) textBox8.Text = "20";
+            }
+            catch (Exception exception)
+            {
+                textBox8.Text = "";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            comboBox1.Text = Randomiser.rng.Next(0, 2) == 1 ? "Male" : "Female";
+            textBox8.Text = "" + Randomiser.rng.Next(1, 6);
+            textBox9.Text = "" + (int)(20*Math.Pow(1.01d,Randomiser.rng.Next(0,101)));
         }
 
     }
