@@ -99,6 +99,7 @@ namespace DnD.Char_Gen
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -114,7 +115,6 @@ namespace DnD.Char_Gen
             this.label32 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -385,8 +385,7 @@ namespace DnD.Char_Gen
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            ""});
             this.comboBox1.Location = new System.Drawing.Point(77, 85);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
@@ -855,6 +854,17 @@ namespace DnD.Char_Gen
             this.button9.Text = "Save";
             this.button9.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(90, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(135, 31);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Fully Randomise";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -1020,17 +1030,6 @@ namespace DnD.Char_Gen
             this.label21.TabIndex = 1;
             this.label21.Text = "1 Character\r\n2 Race\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
     "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(90, 4);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(135, 31);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Fully Randomise";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
