@@ -85,9 +85,6 @@ namespace DND.Shared.Entities.Characters
             return (int)Math.Floor((stat - 10d) / 2);
         }
 
-        //CONFIGURATIONS
-        public static readonly byte STATS_RANDOM = 0, STATS_MANUAL = 1;
-
         public Statblock()
         {
             Str = new Stat();
@@ -98,22 +95,17 @@ namespace DND.Shared.Entities.Characters
             Cha = new Stat();
         }
 
-        public static Statblock MakeStats(byte config, int[] content)
+        public static Statblock MakeStats(int[] content)
         {
             var output = new Statblock();
-            if (config == STATS_RANDOM) throw new Exception("");
-
             output.IntArray = content;
             return output;
         }
-        public static Statblock MakeStats(byte config)
+        public static Statblock MakeStats()
         {
             var output = new Statblock();
-            if (config == STATS_MANUAL)
-            {
-                throw new Exception("");
-            }
-            output.StatArray = new[] { Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat() };
+            output.StatArray = new[]
+                {Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat()};
             return output;
         }
         public static Statblock AddStats(Statblock s, Statblock o)
@@ -123,7 +115,7 @@ namespace DND.Shared.Entities.Characters
             {
                 stats[i] = s.IntArray[i] + o.IntArray[i];
             }
-            return MakeStats(STATS_MANUAL, stats);
+            return MakeStats(stats);
         }
     }
 }

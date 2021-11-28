@@ -99,7 +99,6 @@ namespace DnD.Char_Gen
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -115,6 +114,7 @@ namespace DnD.Char_Gen
             this.label32 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -789,6 +789,7 @@ namespace DnD.Char_Gen
             this.button8.TabIndex = 18;
             this.button8.Text = "Randomise";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // comboBox7
             // 
@@ -854,16 +855,6 @@ namespace DnD.Char_Gen
             this.button9.Text = "Save";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(90, 4);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(135, 31);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Fully Randomise";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -896,6 +887,7 @@ namespace DnD.Char_Gen
             this.button5.TabIndex = 16;
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // comboBox3
             // 
@@ -905,6 +897,7 @@ namespace DnD.Char_Gen
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(141, 28);
             this.comboBox3.TabIndex = 16;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -915,6 +908,7 @@ namespace DnD.Char_Gen
             this.button6.TabIndex = 16;
             this.button6.Text = "Roll";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label13
             // 
@@ -1027,6 +1021,17 @@ namespace DnD.Char_Gen
             this.label21.Text = "1 Character\r\n2 Race\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
     "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(90, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(135, 31);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Fully Randomise";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1108,7 +1113,6 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -1154,6 +1158,7 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button button7;
     }
 }
 

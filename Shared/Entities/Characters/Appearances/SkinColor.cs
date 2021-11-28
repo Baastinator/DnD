@@ -47,7 +47,9 @@ namespace DND.Shared.Entities.Characters.Appearances
         {
             {"Humanoid", new[] {HLight, HPale, HDark}},
             {"Tiefling", new[] {TfRed, TfPurple, TfOrange}},
+            {"TieflingFull",new []{HLight,HPale,HDark,TfRed,TfPurple,TfOrange}},
             {"Goblinoid", new[] {GLightGreen, GDarkGreen}},
+            {"Avian",new []{TfRed,TfOrange,TaYellow}},
             {"Dragonborn", new[] {DBrass, DBronze}},
             {"Goliath", new[] {Goliath}},
             {"Tabaxi", new[] {TaBrown, TaYellow}},

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using DND.Shared;
 using DND.Shared.Entities;
 using DND.Shared.Entities.Characters;
+using DND.Shared.Entities.Characters.Appearances;
 
 namespace DnD.Char_Gen
 {
@@ -20,7 +21,7 @@ namespace DnD.Char_Gen
         private Statblock tempStats;
         private void StatsRollBtn_Click(object sender, EventArgs e)
         {
-            tempStats = Statblock.MakeStats(Statblock.STATS_RANDOM);
+            tempStats = Statblock.MakeStats();
             textBox1.Text = tempStats.STR.ToString();
             textBox2.Text = tempStats.DEX.ToString();
             textBox3.Text = tempStats.CON.ToString();
@@ -37,10 +38,10 @@ namespace DnD.Char_Gen
             tempStats.INT = int.Parse(textBox4.Text);
             tempStats.WIS = int.Parse(textBox5.Text);
             tempStats.CHA = int.Parse(textBox6.Text);
-            Program.Character.CStats = tempStats;
+            Program.Character.MakeStats(tempStats.IntArray); 
             foreach (var i in Program.Character.CStats.IntArray)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i +"  "+ Statblock.getModifier(i));
             }
             LoadSocialClass();
         }
@@ -56,13 +57,12 @@ namespace DnD.Char_Gen
         {
             try
             {
-                Program.Character.Name = textBox7.Text;
-                Program.Character.IsMale = comboBox1.Text == "Male";
-
-                Program.Character.Level = int.Parse(textBox8.Text);
+                Program.Character.SetName(textBox7.Text);
+                Program.Character.SetGender(comboBox1.Text == "Male" ? 0 : 1);
+                Program.Character.SetLevel(int.Parse(textBox8.Text));
                 textBox9.Text = int.Parse(textBox9.Text) >= 15 ? "" + int.Parse(textBox9.Text) : "15";
-                Program.Character.Age = int.Parse(textBox9.Text);
-                Console.WriteLine("{0}\n{1}\n{2}\n{3}", Program.Character.Name, Program.Character.IsMale,
+                Program.Character.SetAge(int.Parse(textBox9.Text));
+                Console.WriteLine("{0}\n{1}\n{2}\n{3}", Program.Character.Name, Program.Character.CGender.Name,
                     Program.Character.Level,Program.Character.Age);
                 LoadRace();
             }
@@ -231,7 +231,7 @@ namespace DnD.Char_Gen
         {
             try
             {
-                Program.Character.CRace = Race.Races[Character.FindElement(Race.Races, comboBox2.Text)];
+                Program.Character.SetRace(Character.FindElement(Race.Races, comboBox2.Text));
                 Console.WriteLine(Program.Character.CRace.Name);
                 LoadStats();
             }
@@ -260,11 +260,82 @@ namespace DnD.Char_Gen
         {
 
             panel5.Enabled = true;
+            foreach (var socialClass in SocialClass.SocialClasses)
+            {
+                comboBox3.Items.Add(socialClass.Name);
+            }
             UnloadAppearance();
         }
 
         private void LoadAppearance()
         {
+            foreach (var length in HairLength.HairLengths)
+            {
+                comboBox4.Items.Add(length.Name);
+            }
+
+            var RaceType = Program.Character.CRace.Name switch
+            {
+                "Half Orc" => "Goblinoid",
+                "Dragonborn" => "Dragonborn",
+                "Tiefling" => "Tiefling",
+                "Goliath" => "Goliath",
+                "Tabaxi" => "Tabaxi",
+                "Aarakokra" => "Avian",
+                "Kenku" => "Avian",
+                "Tortle" => "Goblinoid",
+                "Bugbear" => "Tabaxi",
+                "Goblin" => "Goblinoid",
+                "Hobgoblin" => "Goblinoid",
+                "Kobold" => "Goblinoid",
+                "Lizardfolk" => "Goblinoid",
+                "Orc" => "Goblinoid",
+                "Warforged" => "Warforged",
+                _ => "Humanoid"
+            };
+
+            var SkinCollection = RaceType switch
+            {
+                "Tiefling" => SkinColor.SkinColors["TieflingFull"],
+                "Goblinoid" => SkinColor.SkinColors["Goblinoid"],
+                "Dragonborn" => SkinColor.SkinColors["Dragonborn"],
+                "Goliath" => SkinColor.SkinColors["Goliath"],
+                "Tabaxi" => SkinColor.SkinColors["Tabaxi"],
+                "Avian" => SkinColor.SkinColors["Avian"],
+                "Warforged" => SkinColor.SkinColors["Warforged"],
+                _ => SkinColor.SkinColors["Humanoid"]
+            };
+
+            foreach (var skinColor in SkinCollection)
+            {
+                comboBox5.Items.Add(skinColor.Name);
+            }
+
+            var HairCollection = RaceType switch
+            {
+                "Humanoid" => HairColor.HairColors["Humanoid"],
+                "Goblinoid" => HairColor.HairColors["Goblinoid"],
+                "Tiefling" => HairColor.HairColors["Tiefling"],
+                _ => new[] {HairColor.None}
+            };
+
+            foreach (var hairColor in HairCollection)
+            {
+                comboBox6.Items.Add(hairColor.Name);
+            }
+
+            foreach (var eyeColor in EyeColor.EyeColors)
+            {
+                comboBox7.Items.Add(eyeColor.Name);
+            }
+
+            foreach (var clothingType in ClothingType.Clothing)
+            {
+                comboBox8.Items.Add(clothingType.Name);
+            }
+
+            Program.Character.GenBody();
+            label24.Text = "Body Type: " + Program.Character.CAppearance.BodyType.Name;
             panel6.Enabled = true;
             UnloadProfession();
         }
@@ -339,6 +410,66 @@ namespace DnD.Char_Gen
         private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var r = Randomiser.rng.Next(0, SocialClass.SocialClasses.Length);
+            comboBox3.Text = SocialClass.SocialClasses[r].Name;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.Character.SetSocialClass(Character.FindElement(SocialClass.SocialClasses, comboBox3.Text));
+                Console.WriteLine(Program.Character.CSocialClass.Name);
+                LoadAppearance();
+            }
+            catch (Exception exception)
+            {
+                comboBox3.Text = "";
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RandomiseAppFeatures();
+        }
+
+        private void RandomiseAppFeatures()
+        {
+            
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            RandomiseAppFeatures();
+            RandomiseClothing();
+        }
+
+        private void RandomiseClothing()
+        {
+            var clothingType = Program.Character.CSocialClass.ID switch
+            {
+                0 => ClothingType.Clothing[new Random().Next(0, 2)],
+                1 => ClothingType.Clothing[new Random().Next(1, 3)],
+                2 => ClothingType.Clothing[new Randomiser(new[] { 30, 70 }).Roll()],
+                3 => ClothingType.Standard,
+                4 => ClothingType.Clothing[new Random().Next(1, 3)],
+                5 => ClothingType.Fine,
+                6 => ClothingType.Fine,
+                7 => ClothingType.Fine,
+                8 => ClothingType.Standard,
+                9 => ClothingType.Standard,
+                _ => throw new Exception("ClothingType: bad social class input")
+            };
+            comboBox8.Text = clothingType.Name;
         }
     }
 }

@@ -28,7 +28,8 @@ namespace DnD.Char_Gen_Test
             character.GenRace();
             character.GenStats();
             character.GenSocialClass();
-            character.GenBodyClothes();
+            character.GenClothes();
+            character.GenBody();
             character.GenAppearance();
             character.GenProfession();
             character.GenBackground();

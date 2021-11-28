@@ -12,9 +12,10 @@ namespace DND.Shared.Entities
     public class Character
     {
 
-        public bool Player, IsMale;
+        public bool Player;
         public string Name;
         public int Level, Age;
+        public Gender CGender;
         public Race CRace;
         public Statblock CStats;
         public SocialClass CSocialClass;
@@ -45,7 +46,11 @@ namespace DND.Shared.Entities
 
         #region MISC
 
-        #region Age
+        public Character()
+        {
+            CAppearance = new Appearance();
+        }
+
 
         public void SetAge(int age)
         {
@@ -57,9 +62,9 @@ namespace DND.Shared.Entities
             Age = Randomiser.rng.Next(minInc, maxInc + 1);
         }
 
-        public void SetGender(bool isMale) => IsMale = isMale;
+        public void SetGender(int ID) => CGender = Gender.Genders[ID];
 
-        public void GenGender() => IsMale = Randomiser.rng.Next(0, 2) == 1;
+        public void GenGender() => CGender = Gender.Genders[Randomiser.rng.Next(0, 2)];
 
         public void SetLevel(int lvl) => Level = lvl;
         
@@ -79,7 +84,6 @@ namespace DND.Shared.Entities
             throw new Exception();
         }
         
-        #endregion
 
         #region RACE
 
@@ -99,15 +103,15 @@ namespace DND.Shared.Entities
         #region STATS
         public void MakeStats(int[] statTable)
         {
-            var stats = Statblock.MakeStats(Statblock.STATS_MANUAL, statTable);
-            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
+            var stats = Statblock.MakeStats(statTable);
+            var bonus = Statblock.MakeStats(CRace.StatBonus);
             CStats = Statblock.AddStats(stats, bonus);
         }
 
         public void GenStats()
         {
-            var stats = Statblock.MakeStats(Statblock.STATS_RANDOM);
-            var bonus = Statblock.MakeStats(Statblock.STATS_MANUAL, CRace.StatBonus);
+            var stats = Statblock.MakeStats();
+            var bonus = Statblock.MakeStats(CRace.StatBonus);
             CStats = Statblock.AddStats(stats, bonus);
         }
 
@@ -135,10 +139,8 @@ namespace DND.Shared.Entities
 
         #region APPEARANCE
 
-        public void GenBodyClothes()
+        public void GenClothes()
         {
-            CAppearance = new Appearance();
-            int f(int x) => (int) Math.Floor(x / 5d);
             CAppearance.ClothingType = CSocialClass.ID switch
             {
                 0 => ClothingType.Clothing[new Random().Next(0, 2)],
@@ -153,27 +155,33 @@ namespace DND.Shared.Entities
                 9 => ClothingType.Standard,
                 _ => throw new Exception("ClothingType: bad social class input")
             };
-            CAppearance.BodySize = (int)Math.Floor((CStats.ConMod - CStats.DexMod + CStats.StrMod / 2) * 2 / 5d);
-            CAppearance.MuscleMass = (int)Math.Floor((CStats.StrMod + CStats.DexMod / 2 + CStats.ConMod / 2) / 2d);
+        }
+
+        public void GenBody()
+        {
+            int f(int x) => (int)Math.Floor(Math.Atan(x/6d)+.5);
+            CAppearance.BodySize = (int)Math.Floor(CStats.ConMod - CStats.DexMod + CStats.StrMod / 2d);
+            CAppearance.MuscleMass = (int)Math.Floor(CStats.StrMod + CStats.DexMod / 2d + CStats.ConMod / 2d);
             var BS = f(CAppearance.BodySize);
             var MM = f(CAppearance.MuscleMass);
-            CAppearance.BodyType = BS switch
+            Console.WriteLine("MM: {0}\nBS: {1}\nf(MM): {2}\nf(BS): {3}\n",CAppearance.MuscleMass,CAppearance.BodySize,MM,BS);
+            CAppearance.BodyType = MM switch
             {
-                -1 => MM switch
+                -1 => BS switch
                 {
                     -1 => BodyType.Skinny,
                     0 => BodyType.Plump,
                     1 => BodyType.Chubby,
                     _ => throw new Exception("")
                 },
-                0 => MM switch
+                0 => BS switch
                 {
                     -1 => BodyType.Slim,
                     0 => BodyType.Average,
                     1 => BodyType.Stocky,
                     _ => throw new Exception("")
                 },
-                1 => MM switch
+                1 => BS switch
                 {
                     -1 => BodyType.Lean,
                     0 => BodyType.Defined,
@@ -206,10 +214,11 @@ namespace DND.Shared.Entities
 
         public void GenHairLength()
         {
-            CAppearance.HairLength = IsMale switch
+            CAppearance.HairLength = CGender.Name switch
             {
-                true => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 20, 5, 1}).Roll()],
-                false => HairLength.HairLengths[new Randomiser(new[] {5, 1, 10, 50, 50, 30}).Roll()]
+                "Male" => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 20, 5, 1}).Roll()],
+                "Female" => HairLength.HairLengths[new Randomiser(new[] {5, 1, 10, 50, 50, 30}).Roll()],
+                _ => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 100, 50, 20 }).Roll()]
             };
         }
 

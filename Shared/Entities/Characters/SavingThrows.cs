@@ -18,7 +18,7 @@
                 STtemp[i] = Statblock.getModifier(STtemp[i]) + proficiencies[i] * 3;
             }
 
-            Stats = Statblock.MakeStats(Statblock.STATS_MANUAL, STtemp);
+            Stats = Statblock.MakeStats(STtemp);
         }
     }
 }
