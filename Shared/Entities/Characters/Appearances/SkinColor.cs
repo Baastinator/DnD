@@ -43,7 +43,7 @@ namespace DND.Shared.Entities.Characters.Appearances
 
         public static SkinColor Warforged = new SkinColor {ID = 11, Name = "Steel"};
 
-        public static Dictionary<string, SkinColor[]> SkinColors => new Dictionary<string, SkinColor[]>
+        public static Dictionary<string, SkinColor[]> SkinColors = new Dictionary<string, SkinColor[]>
         {
             {"Humanoid", new[] {HLight, HPale, HDark}},
             {"Tiefling", new[] {TfRed, TfPurple, TfOrange}},

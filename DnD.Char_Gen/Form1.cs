@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using DND.Shared;
+using DND.Shared.Entities;
 using DND.Shared.Entities.Characters;
 
 namespace DnD.Char_Gen
@@ -40,22 +42,35 @@ namespace DnD.Char_Gen
             {
                 Console.WriteLine(i);
             }
+            LoadSocialClass();
         }
 
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Program.Character.Name = textBox7.Text;
-            Program.Character.IsMale = comboBox1.Text == "Male";
-            Program.Character.Level = int.Parse(textBox8.Text);
-            textBox9.Text = int.Parse(textBox9.Text) >= 15 ? "" + int.Parse(textBox9.Text) : "15";
-            Program.Character.Age = int.Parse(textBox9.Text);
+            try
+            {
+                Program.Character.Name = textBox7.Text;
+                Program.Character.IsMale = comboBox1.Text == "Male";
+
+                Program.Character.Level = int.Parse(textBox8.Text);
+                textBox9.Text = int.Parse(textBox9.Text) >= 15 ? "" + int.Parse(textBox9.Text) : "15";
+                Program.Character.Age = int.Parse(textBox9.Text);
+                Console.WriteLine("{0}\n{1}\n{2}\n{3}", Program.Character.Name, Program.Character.IsMale,
+                    Program.Character.Level,Program.Character.Age);
+                LoadRace();
+            }
+            catch (Exception exception)
+            {
+                textBox8.Text = "0";
+                textBox9.Text = "" + (int) (20 * Math.Pow(1.01d, Randomiser.rng.Next(0, 101)));
+            }
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -92,5 +107,238 @@ namespace DnD.Char_Gen
             textBox9.Text = "" + (int)(20*Math.Pow(1.01d,Randomiser.rng.Next(0,101)));
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var a = int.Parse(textBox1.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox1.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var a = int.Parse(textBox2.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox2.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox2.Text = "";
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var a = int.Parse(textBox3.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox3.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox3.Text = "";
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var a = int.Parse(textBox4.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox4.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox4.Text = "";
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var a = int.Parse(textBox5.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox5.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox5.Text = "";
+            }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var a = int.Parse(textBox6.Text);
+                a = (a > 20) ? 20 : ((a < 0) ? 0 : a);
+                textBox6.Text = "" + a;
+            }
+            catch (Exception exception)
+            {
+                textBox6.Text = "";
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            comboBox2.Text = Race.Races[Randomiser.rng.Next(0, Race.Races.Length)].Name;
+        }
+
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.Character.CRace = Race.Races[Character.FindElement(Race.Races, comboBox2.Text)];
+                Console.WriteLine(Program.Character.CRace.Name);
+                LoadStats();
+            }
+            catch (Exception exception)
+            {
+                comboBox2.Text = "";
+            }
+        }
+
+        private void LoadRace()
+        {
+            panel4.Enabled = true;
+            foreach (var race in Race.Races)
+            {
+                comboBox2.Items.Add(race.Name);
+            }
+            UnloadStats();
+        }
+        private void LoadStats()
+        {
+            panel1.Enabled = true;
+            UnloadSocialClass();
+        }
+
+        private void LoadSocialClass()
+        {
+
+            panel5.Enabled = true;
+            UnloadAppearance();
+        }
+
+        private void LoadAppearance()
+        {
+            panel6.Enabled = true;
+            UnloadProfession();
+        }
+
+        private void LoadProfession()
+        {
+            panel10.Enabled = true;
+            UnloadBackground();
+        }
+
+        private void LoadBackground()
+        {
+            panel11.Enabled = true;
+            UnloadClass();
+        }
+
+        private void LoadClass()
+        {
+            panel12.Enabled = true;
+        }
+
+        private void UnloadClass()
+        {
+            panel12.Enabled = false;
+            comboBox11.Text = "";
+        }
+
+        private void UnloadBackground()
+        {
+            panel11.Enabled = false;
+            comboBox10.Text = "";
+            UnloadClass();
+        }
+
+        private void UnloadProfession()
+        {
+            panel10.Enabled = false;
+            comboBox9.Text = "";
+            UnloadBackground();
+        }
+
+        private void UnloadAppearance()
+        {
+            panel6.Enabled = false;
+            comboBox8.Text = "";
+            comboBox7.Text = "";
+            comboBox6.Text = "";
+            comboBox5.Text = "";
+            comboBox4.Text = "";
+            UnloadProfession();
+        }
+
+        private void UnloadSocialClass()
+        {
+            panel5.Enabled = false;
+            comboBox4.Text = "";
+            UnloadAppearance();
+        }
+
+        private void UnloadStats()
+        {
+            panel1.Enabled = false;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            UnloadSocialClass();
+        }
+
+        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

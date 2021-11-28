@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
 using DND.Shared.Entities.Characters.Professions;
 using DND.Shared.Entities.Characters.SocialClasses;
+using DND.Shared.Interfaces;
 
 namespace DND.Shared.Entities
 {
@@ -67,6 +69,16 @@ namespace DND.Shared.Entities
 
         #endregion
 
+        public static int FindElement(INameable[] list, string element)
+        {
+            foreach (var t in list)
+            {
+                if (t.Name == element) return t.ID;
+            }
+
+            throw new Exception();
+        }
+        
         #endregion
 
         #region RACE

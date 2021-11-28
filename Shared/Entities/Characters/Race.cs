@@ -63,5 +63,6 @@ namespace DND.Shared.Entities.Characters
             Human, Elf, Dwarf, HalfElf, Gnome, HalfOrc, Halfling, Dragonborn, Tiefling, Goliath, Tabaxi, Aarakocra,
             Kenku, Tortle, Triton, Bugbear, Goblin, Hobgoblin, Kobold, Lizardfolk, Orc, YuanTi, Changeling, Warforged
         };
+
     }
 }
