@@ -60,7 +60,7 @@ namespace DND.Shared.Entities
 
         public void GenAge(int minInc, int maxInc)
         {
-            Age = Randomiser.rng.Next(minInc, maxInc + 1);
+            Age = (int) (20 * Math.Pow(1.01d, Randomiser.rng.Next(0, 101)));
         }
 
         public void SetGender(int ID) => CGender = Gender.Genders[ID];
