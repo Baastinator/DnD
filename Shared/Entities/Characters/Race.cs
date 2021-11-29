@@ -16,7 +16,7 @@ namespace DND.Shared.Entities.Characters
 
         public static Race Dwarf = new Race {ID = 2, Name = "Dwarf", StatBonus = new[] {0, 0, 2, 0, 0, 0}};
 
-        public static Race HalfElf = new Race {ID = 3, Name = "HalfElf", StatBonus = new[] {0, 1, 0, 0, 1, 2}};
+        public static Race HalfElf = new Race {ID = 3, Name = "Half-Elf", StatBonus = new[] {0, 1, 0, 0, 1, 2}};
 
         public static Race Gnome = new Race {ID = 4, Name = "Gnome", StatBonus = new[] {0, 0, 1, 2, 0, 0}};
 

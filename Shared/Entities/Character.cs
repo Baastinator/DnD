@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using System.Linq;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
 using DND.Shared.Entities.Characters.Professions;
 using DND.Shared.Entities.Characters.SocialClasses;
 using DND.Shared.Interfaces;
+using static DND.Shared.Strings;
 
 namespace DND.Shared.Entities
 {
     public class Character
     {
 
-        public bool Player;
         public string Name;
         public int Level, Age;
         public Gender CGender;
@@ -64,7 +65,7 @@ namespace DND.Shared.Entities
 
         public void SetGender(int ID) => CGender = Gender.Genders[ID];
 
-        public void GenGender() => CGender = Gender.Genders[Randomiser.rng.Next(0, 2)];
+        public void GenGender() => CGender = Gender.Genders[Randomiser.rng.Next(0, Gender.Genders.Length)];
 
         public void SetLevel(int lvl) => Level = lvl;
         
@@ -83,7 +84,7 @@ namespace DND.Shared.Entities
 
             throw new Exception();
         }
-        
+
 
         #region RACE
 
@@ -164,7 +165,6 @@ namespace DND.Shared.Entities
             CAppearance.MuscleMass = (int)Math.Floor(CStats.StrMod + CStats.DexMod / 2d + CStats.ConMod / 2d);
             var BS = f(CAppearance.BodySize);
             var MM = f(CAppearance.MuscleMass);
-            Console.WriteLine("MM: {0}\nBS: {1}\nf(MM): {2}\nf(BS): {3}\n",CAppearance.MuscleMass,CAppearance.BodySize,MM,BS);
             CAppearance.BodyType = MM switch
             {
                 -1 => BS switch
@@ -214,11 +214,21 @@ namespace DND.Shared.Entities
 
         public void GenHairLength()
         {
-            CAppearance.HairLength = CGender.Name switch
+            CAppearance.HairLength = CRace.Name switch
             {
-                "Male" => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 20, 5, 1}).Roll()],
-                "Female" => HairLength.HairLengths[new Randomiser(new[] {5, 1, 10, 50, 50, 30}).Roll()],
-                _ => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 100, 50, 20 }).Roll()]
+                "Dragonborn" => HairLength.None,
+                "Goliath" => HairLength.None,
+                "Tabaxi" => HairLength.None,
+                "Aarakocra" => HairLength.None,
+                "Kenku" => HairLength.None,
+                "Bugbear" => HairLength.None,
+                "Warforged" => HairLength.None,
+                _ => CGender.Name switch
+                {
+                    "Male" => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 20, 5, 1 }).Roll()],
+                    "Female" => HairLength.HairLengths[new Randomiser(new[] { 5, 1, 10, 50, 50, 30 }).Roll()],
+                    _ => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 100, 50, 20 }).Roll()]
+                }
             };
         }
 
@@ -238,7 +248,7 @@ namespace DND.Shared.Entities
 
             CAppearance.SkinColor = CRace.Name switch
             {
-                "Half Orc" => Goblinoid(),
+                "Half-Orc" => Goblinoid(),
                 "Dragonborn" => SkinColor.SkinColors["Dragonborn"][Randomiser.rng.Next(0, 2)],
                 "Tiefling" => new Randomiser(new[] {20, 50}).Roll() == 1
                     ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
@@ -271,7 +281,7 @@ namespace DND.Shared.Entities
                 ? HairColor.Gray
                 : CRace.Name switch
                 {
-                    "Half Orc" => Goblinoid(),
+                    "Half-Orc" => Goblinoid(),
                     "Dragonborn" => HairColor.None,
                     "Tiefling" => Tiefling(),
                     "Goliath" => HairColor.None,
@@ -314,7 +324,7 @@ namespace DND.Shared.Entities
 
         public void SetProfession(int ID)
         {
-            CProfession = Profession.Professions[ID];
+            CProfession = Profession.professions[ID];
         }
         #endregion
 
@@ -399,7 +409,115 @@ namespace DND.Shared.Entities
 
         #region NOT DEBUG
 
-        
+        public string Display
+        {
+            get
+            {
+                int Max(int[] a)
+                {
+                    int max = 0;
+                    for (int i = 0; i < a.Length; i++)
+                    {
+                        if (max < a[i]) max = a[i];
+                    }
+
+                    return max;
+                }
+
+                var CharValLongest = Max(new[]
+                {
+                    Name.Length, Age.ToString().Length, Level.ToString().Length, CGender.Name.Length, CRace.Name.Length,
+                    CSocialClass.Name.Length, CProfession.Name.Length, CBackground.Name.Length, CClass.Name.Length
+                });
+                var CharNameLongest = Max(new[]
+                {
+                    "Name".Length, "Age".Length, "Level".Length, "Gender".Length, "Race".Length, "Social Class".Length,
+                    "Profession".Length, "Background".Length, "Class".Length
+                });
+                var longestChar = CharValLongest + CharNameLongest;
+                var longestSC = Math.Max(CSkills.Longest, longestChar);
+                var output = "";
+                output += "┌" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┬" +
+                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┬" + 
+                                AddWhitespace("", longestSC + 8, '─') + "┐" + "\n" +
+                          "│" + AddWhitespace(" Personality", CPsychology.Personality.Longest + 15) + "│" +
+                                AddWhitespace(" Values", CPsychology.Values.Longest + 16) + "│" +
+                                AddWhitespace(" Skills", longestSC + 8) + "│" + "\n" +
+                          "├" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┼" + 
+                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┼" +
+                                AddWhitespace("", longestSC + 8, '─') + "┤" + "\n";
+                for (var i = 0; i < CPsychology.Personality.Attributes.Length + 1; i++)
+                {
+                    if (i < CPsychology.Personality.Attributes.Length) {
+                        var PItem = CPsychology.Personality.Attributes[i];
+                        output += "│ " + AddWhitespace(PItem.Name, CPsychology.Personality.Longest) + "=> " + AddWhitespace(
+                            NumToString(RoundNumber(PItem.Value)), 9) + " │ ";
+                    }
+                    else
+                    {
+                        output += "│ " + AddWhitespace("", CPsychology.Personality.Longest + 13) + " │ ";
+                    }
+                    if (i < CPsychology.Values.Values.Length)
+                    {
+                        var VItem = CPsychology.Values.Values[i];
+
+                        output += AddWhitespace(VItem.Name, CPsychology.Values.Longest) + "=> " +
+                                  AddWhitespace(
+                                      NumToString(RoundNumber(VItem.Value)), 9) +
+                                  (i == 18 || i == 20 ? "  ├" : "  │");
+                    }
+                    else
+                    {
+                        output += AddWhitespace("", CPsychology.Values.Longest + 15) + "│";
+                    }
+                    if (i < CSkills.skills.Length)
+                    {
+                        var SItem = CSkills.skills[i];
+                        output += " " + AddWhitespace(SItem.Name, CSkills.Longest) + "=> " +
+                                  AddWhitespace((SItem.Value < 0 ? "" : " ") + SItem.Value, longestSC-CSkills.Longest+3) + "│";
+                    }
+
+                    output += i switch
+                    {
+                        18 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                        19 => AddWhitespace(" Character", longestSC + 8) + "│",
+                        20 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                        21 => AddWhitespace(" Name", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(Name, CharValLongest + 2) + "│",
+                        22 => AddWhitespace(" Level", CharNameLongest + 2) + "=> " +
+                              AddWhitespace("" + Level, CharValLongest + 2) + "│",
+                        23 => AddWhitespace(" Gender", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CGender.Name, CharValLongest + 2) + "│",
+                        24 => AddWhitespace(" Age", CharNameLongest + 2) + "=> " +
+                              AddWhitespace("" + Age, CharValLongest + 2) + "│",
+                        25 => AddWhitespace("", longestSC + 8) + "│",
+                        26 => AddWhitespace(" Race", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CRace.Name, CharValLongest + 2) + "│",
+                        27 => AddWhitespace(" Social Class", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CSocialClass.Name, CharValLongest + 2) + "│",
+                        28 => AddWhitespace(" Profession", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CProfession.Name, CharValLongest + 2) + "│",
+                        29 => AddWhitespace(" Background", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CBackground.Name, CharValLongest + 2) + "│",
+                        30 => AddWhitespace(" Class", CharNameLongest + 2) + "=> " +
+                              AddWhitespace(CClass.Name, CharValLongest + 2) + "│",
+                        31 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                        _ => ""
+                    };
+
+
+
+
+
+                    output += "\n";
+                }
+
+                output += "└" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┴" +
+                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┘" + "\n";
+
+                return output;
+            }
+        }
 
         #endregion
 

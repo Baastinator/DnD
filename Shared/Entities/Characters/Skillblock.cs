@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using DND.Shared.Entities.Characters.Skills;
 
 namespace DND.Shared.Entities.Characters
@@ -8,22 +9,18 @@ namespace DND.Shared.Entities.Characters
         public Skill[] skills;
         public Skill[] noProficienciesSkills;
         public int ProficiencyBonus;
-        public string Display { get
+        public int Longest
+        {
+            get
             {
                 var longest = 0;
                 foreach (var t in skills)
                 {
                     if (t.Name.Length > longest) longest = t.Name.Length;
                 }
-                var output = "";
-                foreach (var item in skills)
-                {
-                    var pos = "";
-                    if (item.Value >= 0) pos = " ";
-                    output += Strings.AddWhitespace(item.Name, longest) + "- " + pos + Strings.RoundNumber(item.Value) + "\n";
-                }
 
-                return output;
+                return longest + 1;
+
             }
         }
 
@@ -36,12 +33,12 @@ namespace DND.Shared.Entities.Characters
             {
                 skills[skill.ID].Value = skill.BaseStat switch
                 {
-                    0 => stats.StrMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
-                    1 => stats.DexMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
-                    2 => stats.ConMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
-                    3 => stats.IntMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
-                    4 => stats.WisMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
-                    5 => stats.ChaMod + (proficiencyBonus[skill.ID] * ProficiencyBonus),
+                    0 => stats.StrMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
+                    1 => stats.DexMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
+                    2 => stats.ConMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
+                    3 => stats.IntMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
+                    4 => stats.WisMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
+                    5 => stats.ChaMod + proficiencyBonus[skill.ID] * ProficiencyBonus,
                     _ => throw new Exception("Skillblock ctor: the fuck is going on here? ")
                 };
             }

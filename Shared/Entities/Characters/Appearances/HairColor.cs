@@ -23,7 +23,7 @@ namespace DND.Shared.Entities.Characters.Appearances
 
         public static HairColor[] hairColors =
         {
-            Brown, Blond, Blond, Red, Purple, Ginger, Gray, None
+            Brown, Blond, Black, Red, Purple, Ginger, Gray, None
         };
     }
 }

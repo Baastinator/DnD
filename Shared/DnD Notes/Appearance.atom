@@ -1,5 +1,5 @@
-bodySize = math.floor((ConMod - DexMod + StrMod/2)*2/5)
-muscleMass = math.floor((StrMod + DexMod/2 + ConMod/2)/2)
+bodySize = math.floor(ConMod - DexMod + StrMod/2)
+muscleMass = math.floor(StrMod + DexMod/2 + ConMod/2)
 
 
 BODY TYPE => x: size, y: muscle

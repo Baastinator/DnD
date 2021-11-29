@@ -4,7 +4,6 @@ namespace DND.Shared.Entities.Characters
 {
     public class Profession : Nameable
     {
-        public static Profession[] Professions => professions;
         public double[] PsychMod { get; set; }
             #region PsychMods
             private static readonly double[] MEmpty =
@@ -129,7 +128,7 @@ namespace DND.Shared.Entities.Characters
         public static Profession Miner = new Profession { Name = "Miner", ID = 49 };               // 49
         public static Profession Adventurer = new Profession { Name = "Adventurer", ID = 50 };
         #endregion
-        private static readonly Profession[] professions = {
+        public static readonly Profession[] Professions = {
             Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
             Artist, Butcher, Weaver, Winemaker, Shoemaker,
             Steelwright, Roofer, Locksmith, Tanner, Cook,
@@ -142,6 +141,21 @@ namespace DND.Shared.Entities.Characters
 
             Guard, Miller, Farmer, Carpenter, Smith,
             Tailor, Mason, Herder, Teacher, Miner
+        };
+        public static readonly Profession[] professions = {
+            
+            Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
+            Artist, Butcher, Weaver, Winemaker, Shoemaker,
+            Steelwright, Roofer, Locksmith, Tanner, Cook,
+            Beltmaker, Barrister, Banker, Mayor, Manager,
+
+            GuardCaptain, Admiral, Captain, Shiphand, Servant,
+            WaitStaff, TaxCollector, Minister, Secretary, Judge,
+            Merchant, Barkeep, Librarian, Alchemist, CharcoalBurner,
+            Nurse, Labourer, Doctor, General, Soldier,
+
+            Guard, Miller, Farmer, Carpenter, Smith,
+            Tailor, Mason, Herder, Teacher, Miner, Adventurer
         };
     }
 }

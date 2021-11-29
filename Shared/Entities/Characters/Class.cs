@@ -63,6 +63,11 @@ namespace DND.Shared.Entities.Characters
             0, 0, 1,   0, 0, 0,   1, 0, 0,
             0, 0, 0,   0, 0, 0,   0, 0, 0,
         };
+        public static int[] PEmpty = {
+            0, 0, 0,   0, 0, 0,   0, 0, 0,
+            0, 0, 0,   0, 0, 0,   0, 0, 0,
+        };
+
         #endregion
         #region SAVING THROWS
         public static int[] STArtificer = {
@@ -94,8 +99,11 @@ namespace DND.Shared.Entities.Characters
         };
         public static int[] STWarlock = STCleric;
         public static int[] STWizard = STDruid;
+        public static int[] STEmpty = {
+            0, 0, 0, 0, 0, 0
+        };
         #endregion
-        #region 
+        #region PsychMods
 
         private static readonly double[] MArtificer =
         {
@@ -221,6 +229,10 @@ namespace DND.Shared.Entities.Characters
         public static Class Wizard = new Class
         {
             ID = 12, Name = "Wizard", SavingThrowProficiencies = STWizard, SkillProficiencies = PWizard, PsychMod = MWizard
+        };
+        public static Class None = new Class
+        {
+            ID = 13, Name = "None", SavingThrowProficiencies = STEmpty, SkillProficiencies = PEmpty, PsychMod = MEmpty
         };
         #endregion
         private static readonly Class[] classes =

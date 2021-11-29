@@ -10,10 +10,11 @@ namespace DND.Shared.Entities.Characters.Appearances
         public static HairLength NeckLength = new HairLength {ID = 3, Name = "Neck Length"};
         public static HairLength ShoulderLength = new HairLength {ID = 4, Name = "Shoulder Length"};
         public static HairLength ChestLength = new HairLength {ID = 5, Name = "Chest Length"};
+        public static HairLength None = new HairLength {ID = 6, Name = "None"};
 
         public static HairLength[] HairLengths =
         {
-            Bald, BuzzCut, Short, NeckLength, ShoulderLength, ChestLength
+            Bald, BuzzCut, Short, NeckLength, ShoulderLength, ChestLength, None
         };
     }
 }

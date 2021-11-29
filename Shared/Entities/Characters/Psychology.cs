@@ -9,48 +9,36 @@ namespace DND.Shared.Entities.Characters
         public string Display {
             get
             {
-                var longestV = 0;
-                var longestP = 0;
-                foreach (var attribute in Personality.Attributes)
-                {
-                    if (longestP < attribute.Name.Length) longestP = attribute.Name.Length;
-                }
-
-                foreach (var value in Values.Values)
-                {
-                    if (longestV < value.Name.Length) longestV = value.Name.Length;
-                }
-
                 var output = "";
-                output += "┌" + Strings.AddWhitespace("", longestP + 15, '─')        + "┬" +
-                                Strings.AddWhitespace("", longestV + 16, '─')        + "┐" + "\n" +
-                          "│" + Strings.AddWhitespace(" Personality", longestP + 15) + "│" +
-                                Strings.AddWhitespace(" Values", longestV + 16)      + "│" + "\n" +
-                          "├" + Strings.AddWhitespace("", longestP + 15, '─')        + "┼" +
-                                Strings.AddWhitespace("", longestV + 16, '─')        + "┤" + "\n";
+                output += "┌" + Strings.AddWhitespace("", Personality.Longest + 15, '─')        + "┬" +
+                                Strings.AddWhitespace("", Values.Longest + 16, '─')        + "┐" + "\n" +
+                          "│" + Strings.AddWhitespace(" Personality", Personality.Longest + 15) + "│" +
+                                Strings.AddWhitespace(" Values", Values.Longest + 16)      + "│" + "\n" +
+                          "├" + Strings.AddWhitespace("", Personality.Longest + 15, '─')        + "┼" +
+                                Strings.AddWhitespace("", Values.Longest + 16, '─')        + "┤" + "\n";
                 for (var i = 0; i < Personality.Attributes.Length; i++)
                 {
                     var PItem = Personality.Attributes[i];
 
-                    output += "│ " + Strings.AddWhitespace(PItem.Name, longestP) + "=> " + Strings.AddWhitespace(
+                    output += "│ " + Strings.AddWhitespace(PItem.Name, Personality.Longest) + "=> " + Strings.AddWhitespace(
                         Strings.NumToString(Strings.RoundNumber(PItem.Value)), 9) + " │ ";
                     if (i < Values.Values.Length)
                     {
                         var VItem = Values.Values[i];
 
-                        output += Strings.AddWhitespace(VItem.Name, longestV) + "=> " + Strings.AddWhitespace(
+                        output += Strings.AddWhitespace(VItem.Name, Values.Longest) + "=> " + Strings.AddWhitespace(
                             Strings.NumToString(Strings.RoundNumber(VItem.Value)), 9) + "  │";
                     }
                     else
                     {
-                        output += Strings.AddWhitespace("", longestV + 15) + "│";
+                        output += Strings.AddWhitespace("", Values.Longest + 15) + "│";
                     }
 
                     output += "\n";
                 }
 
-                output += "└" + Strings.AddWhitespace("", longestP + 15, '─') + "┴" +
-                                Strings.AddWhitespace("", longestV + 16, '─') + "┘" + "\n";
+                output += "└" + Strings.AddWhitespace("", Personality.Longest + 15, '─') + "┴" +
+                                Strings.AddWhitespace("", Values.Longest + 16, '─') + "┘" + "\n";
 
                 return output;
             }

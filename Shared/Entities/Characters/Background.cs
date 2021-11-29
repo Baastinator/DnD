@@ -267,6 +267,11 @@ namespace DND.Shared.Entities.Characters
             0,  0,  0,  0,  0,  0,  0,  0,  0,
             0,  0,  0,  0,  0,  0,  1,  1,  0
         };
+        private static readonly int[] WEmpty =
+        {
+            0,  0,  0,  0,  0,  0,  0,  0,  0,
+            0,  0,  0,  0,  0,  0,  0,  0,  0
+        };
         #endregion
 
         public static Background Acolyte = new Background
@@ -323,6 +328,8 @@ namespace DND.Shared.Entities.Characters
         { ID = 25, Name = "Spy", proficiencyTable = WSpy, PsychMod = MSpy};
         public static Background Urchin = new Background
         { ID = 26, Name = "Urchin", proficiencyTable = WUrchin, PsychMod = MUrchin};
+        public static Background None = new Background
+            {ID = 27, Name = "None", proficiencyTable = WEmpty, PsychMod = MEmpty};
         private static readonly Background[] backgrounds = {
             Acolyte, Anthropologist, Athlete, Charlatan, CityWatch, ClanCrafter, Courtier, Criminal,
             Entertainer, Faceless, Fisher, FolkHero, Gladiator, GuildArtisan, GuildMerchant, HauntedOne,

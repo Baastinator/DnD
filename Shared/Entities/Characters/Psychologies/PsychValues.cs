@@ -6,6 +6,20 @@
         private const double rngMean = 0;
         private const double rngDev = 1;
 
+        public int Longest
+        {
+            get
+            {
+                var longestV = 0;
+                foreach (var value in Values)
+                {
+                    if (longestV < value.Name.Length) longestV = value.Name.Length;
+                }
+
+                return longestV + 1;
+            }
+        }
+
         public static double[] empty =
             {0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         public PsychValues(double[] mod,bool randomise = true)
