@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Linq;
+using System.Net.Security;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
 using DND.Shared.Entities.Characters.Professions;
@@ -84,7 +85,6 @@ namespace DND.Shared.Entities
 
             throw new Exception();
         }
-
 
         #region RACE
 
@@ -331,14 +331,9 @@ namespace DND.Shared.Entities
         #region BACKGROUND
 
         public void GenBackground()
-        {
-            var a = new List<int>();
-            for (var i = 0; i < Background.Backgrounds.Length; i++)
-            {
-                a.Add(10);
-            }
-            var randomiser = new Randomiser(a);
-            CBackground = Background.Backgrounds[randomiser.Roll()];
+        { 
+            CBackground = Background.Backgrounds[Randomiser.rng.Next(0,Background.Backgrounds.Length)];
+            if (CProfession.ID != 50) {CBackground = Background.None; }
         }
 
         public void SetBackground(int ID)
@@ -353,6 +348,7 @@ namespace DND.Shared.Entities
         public void GenClass()
         {
             CClass = Class.Classes[new Random().Next(0, 13)];
+            if (CProfession.ID != 50) {CClass = Class.None;}
         }
 
         public void SetClass(int ID)
@@ -427,48 +423,98 @@ namespace DND.Shared.Entities
                 var CharValLongest = Max(new[]
                 {
                     Name.Length, Age.ToString().Length, Level.ToString().Length, CGender.Name.Length, CRace.Name.Length,
-                    CSocialClass.Name.Length, CProfession.Name.Length, CBackground.Name.Length, CClass.Name.Length
+                    CSocialClass.Name.Length, CProfession.Name.Length, CBackground.Name.Length, CClass.Name.Length, 
+                    CAppearance.HairColor.Name.Length, CAppearance.HairLength.Name.Length, CAppearance.EyeColor.Name.Length,
+                    CAppearance.SkinColor.Name.Length, CAppearance.ClothingType.Name.Length, CAppearance.BodyType.Name.Length,
                 });
                 var CharNameLongest = Max(new[]
                 {
                     "Name".Length, "Age".Length, "Level".Length, "Gender".Length, "Race".Length, "Social Class".Length,
-                    "Profession".Length, "Background".Length, "Class".Length
+                    "Profession".Length, "Background".Length, "Class".Length, "Hair Color".Length, "Hair Length".Length,
+                    "Eye Color".Length, "Skin Color".Length, "Clothing".Length, "Body Type".Length
                 });
                 var longestChar = CharValLongest + CharNameLongest;
                 var longestSC = Math.Max(CSkills.Longest, longestChar);
                 var output = "";
                 output += "┌" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┬" +
-                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┬" + 
+                                AddWhitespace("", CPsychology.Values.Longest + 19, '─') + "┬" + 
                                 AddWhitespace("", longestSC + 8, '─') + "┐" + "\n" +
                           "│" + AddWhitespace(" Personality", CPsychology.Personality.Longest + 15) + "│" +
-                                AddWhitespace(" Values", CPsychology.Values.Longest + 16) + "│" +
+                                AddWhitespace(" Values", CPsychology.Values.Longest + 19) + "│" + 
                                 AddWhitespace(" Skills", longestSC + 8) + "│" + "\n" +
                           "├" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┼" + 
-                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┼" +
+                                AddWhitespace("", CPsychology.Values.Longest + 19, '─') + "┼" +
                                 AddWhitespace("", longestSC + 8, '─') + "┤" + "\n";
-                for (var i = 0; i < CPsychology.Personality.Attributes.Length + 1; i++)
+                for (var i = 0; i < CPsychology.Personality.Attributes.Length; i++)
                 {
                     if (i < CPsychology.Personality.Attributes.Length) {
                         var PItem = CPsychology.Personality.Attributes[i];
                         output += "│ " + AddWhitespace(PItem.Name, CPsychology.Personality.Longest) + "=> " + AddWhitespace(
-                            NumToString(RoundNumber(PItem.Value)), 9) + " │ ";
+                            NumToString(RoundNumber(PItem.Value)), 9) + " " + 
+                                  (i == 29 || i == 31 || i == 38 ? "├" : "│");
                     }
                     else
                     {
-                        output += "│ " + AddWhitespace("", CPsychology.Personality.Longest + 13) + " │ ";
+                        output += "│ " + AddWhitespace("", CPsychology.Personality.Longest + 13) + " │";
                     }
                     if (i < CPsychology.Values.Values.Length)
                     {
                         var VItem = CPsychology.Values.Values[i];
 
-                        output += AddWhitespace(VItem.Name, CPsychology.Values.Longest) + "=> " +
+                        output += " " + AddWhitespace(VItem.Name, CPsychology.Values.Longest) + "=> " +
                                   AddWhitespace(
-                                      NumToString(RoundNumber(VItem.Value)), 9) +
-                                  (i == 18 || i == 20 ? "  ├" : "  │");
+                                      NumToString(RoundNumber(VItem.Value)), 12) + "  " +
+                                  (i == 18 || i == 20 ? "├" : "│");
                     }
                     else
                     {
-                        output += AddWhitespace("", CPsychology.Values.Longest + 15) + "│";
+                        output += AddWhitespace(i switch
+                        {
+                            29 => AddWhitespace("", CPsychology.Values.Longest + 19, '─'),
+                            30 => " Stats (Stat - Mod - Saving Throws) ",
+                            31 => AddWhitespace("", CPsychology.Values.Longest + 19, '─'),
+                            32 => AddWhitespace(" Strength      => " + (CStats.STR < 10 ? " " : "") + CStats.STR +
+                                                " - " +
+                                                (CStats.StrMod < 0 ? "" : "+") +
+                                                CStats.StrMod + " - " + (CSavingThrows.STR < 0 ? "" : "+") +
+                                                CSavingThrows.STR,
+                                CPsychology.Values.Longest + 19),
+                            33 => AddWhitespace(" Dexterity     => " + (CStats.DEX < 10 ? " " : "") + CStats.DEX +
+                                                " - " +
+                                                (CStats.DexMod < 0 ? "" : "+") +
+                                                CStats.DexMod + " - " + (CSavingThrows.DEX < 0 ? "" : "+") +
+                                                CSavingThrows.DEX, CPsychology.Values.Longest + 19),
+                            34 => AddWhitespace(" Constitution  => " + (CStats.CON < 10 ? " " : "") + CStats.CON +
+                                                " - " +
+                                                (CStats.ConMod < 0 ? "" : "+") +
+                                                CStats.ConMod + " - " + (CSavingThrows.CON < 0 ? "" : "+") +
+                                                CSavingThrows.CON, CPsychology.Values.Longest + 19),
+                            35 => AddWhitespace(" Intelligence  => " + (CStats.INT < 10 ? " " : "") + CStats.INT +
+                                                " - " +
+                                                (CStats.IntMod < 0 ? "" : "+") +
+                                                CStats.IntMod + " - " + (CSavingThrows.INT < 0 ? "" : "+") +
+                                                CSavingThrows.INT, CPsychology.Values.Longest + 19),
+                            36 => AddWhitespace(" Wisdom        => " + (CStats.WIS < 10 ? " " : "") + CStats.WIS +
+                                                " - " +
+                                                (CStats.WisMod < 0 ? "" : "+") +
+                                                CStats.WisMod + " - " + (CSavingThrows.WIS < 0 ? "" : "+") +
+                                                CSavingThrows.WIS, CPsychology.Values.Longest + 19),
+                            37 => AddWhitespace(" Charisma      => " + (CStats.CHA < 10 ? " " : "") + CStats.CHA +
+                                                " - " +
+                                                (CStats.ChaMod < 0 ? "" : "+") +
+                                                CStats.ChaMod + " - " + (CSavingThrows.CHA < 0 ? "" : "+") +
+                                                CSavingThrows.CHA, CPsychology.Values.Longest + 19),
+                            38 => AddWhitespace("", CPsychology.Values.Longest + 19, '─'),
+                            _ => ""
+                        }, CPsychology.Values.Longest + 19) + i switch
+                        {
+                            29 => "┤",
+                            31 => "┼",
+                            33 => "├",
+                            38 => "┤",
+                            40 => "├",
+                            _ => "│"
+                        };
                     }
                     if (i < CSkills.skills.Length)
                     {
@@ -477,43 +523,53 @@ namespace DND.Shared.Entities
                                   AddWhitespace((SItem.Value < 0 ? "" : " ") + SItem.Value, longestSC-CSkills.Longest+3) + "│";
                     }
 
-                    output += i switch
-                    {
-                        18 => AddWhitespace("", longestSC + 8, '─') + "┤",
-                        19 => AddWhitespace(" Character", longestSC + 8) + "│",
-                        20 => AddWhitespace("", longestSC + 8, '─') + "┤",
-                        21 => AddWhitespace(" Name", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(Name, CharValLongest + 2) + "│",
-                        22 => AddWhitespace(" Level", CharNameLongest + 2) + "=> " +
-                              AddWhitespace("" + Level, CharValLongest + 2) + "│",
-                        23 => AddWhitespace(" Gender", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CGender.Name, CharValLongest + 2) + "│",
-                        24 => AddWhitespace(" Age", CharNameLongest + 2) + "=> " +
-                              AddWhitespace("" + Age, CharValLongest + 2) + "│",
-                        25 => AddWhitespace("", longestSC + 8) + "│",
-                        26 => AddWhitespace(" Race", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CRace.Name, CharValLongest + 2) + "│",
-                        27 => AddWhitespace(" Social Class", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CSocialClass.Name, CharValLongest + 2) + "│",
-                        28 => AddWhitespace(" Profession", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CProfession.Name, CharValLongest + 2) + "│",
-                        29 => AddWhitespace(" Background", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CBackground.Name, CharValLongest + 2) + "│",
-                        30 => AddWhitespace(" Class", CharNameLongest + 2) + "=> " +
-                              AddWhitespace(CClass.Name, CharValLongest + 2) + "│",
-                        31 => AddWhitespace("", longestSC + 8, '─') + "┤",
-                        _ => ""
-                    };
-
-
-
+                    output += i >= 18
+                        ? i switch
+                        {
+                            18 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            19 => AddWhitespace(" Character", longestSC + 8) + "│",
+                            20 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            21 => AddWhitespace(" Name", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(Name, CharValLongest + 2) + "│",
+                            22 => AddWhitespace(" Level", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace("" + Level, CharValLongest + 2) + "│",
+                            23 => AddWhitespace(" Gender", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CGender.Name, CharValLongest + 2) + "│",
+                            24 => AddWhitespace(" Age", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace("" + Age, CharValLongest + 2) + "│",
+                            25 => AddWhitespace("", longestSC + 8) + "│",
+                            26 => AddWhitespace(" Race", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CRace.Name, CharValLongest + 2) + "│",
+                            27 => AddWhitespace(" Social Class", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CSocialClass.Name, CharValLongest + 2) + "│",
+                            28 => AddWhitespace(" Profession", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CProfession.Name, CharValLongest + 2) + "│",
+                            29 => AddWhitespace(" Background", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CBackground.Name, CharValLongest + 2) + "│",
+                            30 => AddWhitespace(" Class", CharNameLongest + 2) + "=> " +
+                                  AddWhitespace(CClass.Name, CharValLongest + 2) + "│",
+                            31 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            32 => AddWhitespace(" Appearance", longestSC + 8) + "│",
+                            33 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            34 => AddWhitespace(" Hair Color   => " + CAppearance.HairColor.Name, longestSC + 8) + "│",
+                            35 => AddWhitespace(" Hair Length  => " + CAppearance.HairLength.Name, longestSC + 8) + "│",
+                            36 => AddWhitespace(" Eye Color    => " + CAppearance.EyeColor.Name, longestSC + 8) + "│",
+                            37 => AddWhitespace(" Skin Color   => " + CAppearance.SkinColor.Name, longestSC + 8) + "│",
+                            38 => AddWhitespace(" Clothing     => " + CAppearance.ClothingType.Name, longestSC + 8) +
+                                  "│",
+                            39 => AddWhitespace(" Body Type    => " + CAppearance.BodyType.Name, longestSC + 8) + "│",
+                            40 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            _ => AddWhitespace("", longestSC + 8) + "│",
+                        }
+                        : "";
 
 
                     output += "\n";
                 }
 
                 output += "└" + AddWhitespace("", CPsychology.Personality.Longest + 15, '─') + "┴" +
-                                AddWhitespace("", CPsychology.Values.Longest + 16, '─') + "┘" + "\n";
+                                AddWhitespace("", CPsychology.Values.Longest + 19, '─') + "┴" +
+                                AddWhitespace("", longestSC + 8, '─') + "┘" + "\n";
 
                 return output;
             }

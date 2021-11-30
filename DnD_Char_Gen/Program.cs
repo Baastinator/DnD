@@ -31,7 +31,7 @@ namespace DnD.Char_Gen_Test
             character.GenClothes();
             character.GenBody();
             character.GenAppearance();
-            character.GenProfession();
+            character.SetProfession(50);
             character.GenBackground();
             character.GenClass();
             character.GenSavingThrows();

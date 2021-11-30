@@ -54,7 +54,7 @@ namespace DND.Shared.Entities.Characters.Psychologies
         public static PsychValue MartialProwess = new PsychValue {ID = 19, Name = "Martial Prowess"};
         public static PsychValue Skill = new PsychValue {ID = 20, Name = "Skill"};
         public static PsychValue HardWork = new PsychValue {ID = 21, Name = "Hard Work"};
-        public static PsychValue Sacrafice = new PsychValue {ID = 22, Name = "Sacrafice"};
+        public static PsychValue Sacrifice = new PsychValue {ID = 22, Name = "Sacrifice"};
         public static PsychValue Competition = new PsychValue {ID = 23, Name = "Competition"};
         public static PsychValue Perseverance = new PsychValue {ID = 24, Name = "Perseverance"};
         public static PsychValue Romance = new PsychValue {ID = 25, Name = "Romance"};
@@ -65,7 +65,7 @@ namespace DND.Shared.Entities.Characters.Psychologies
         {
             Law, Loyalty, Family, Friendship, Power, Truth, Cunning, Eloquence, Fairness, Decorum, Tradition,
             Whimsey, Artwork, Cooperation, Preservation, Stoicism, SelfControl, Harmony, Merriment, MartialProwess,
-            Skill, HardWork, Sacrafice, Competition, Perseverance, Romance, Nature, Peace, Knowledge
+            Skill, HardWork, Sacrifice, Competition, Perseverance, Romance, Nature, Peace, Knowledge
         };
     }
 }

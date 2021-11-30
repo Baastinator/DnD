@@ -58,7 +58,7 @@ namespace DND.Shared.Entities.Characters.Appearances
 
         public static SkinColor[] skinColors =
         {
-            HLight, HPale, HDark, TfRed, TfPurple, TfOrange, GLightGreen, GDarkGreen, DBrass, DBrass, Goliath, TaBrown,
+            HLight, HPale, HDark, TfRed, TfPurple, TfOrange, GLightGreen, GDarkGreen, DBrass, DBronze, Goliath, TaBrown,
             TaYellow, Warforged
         };
     }

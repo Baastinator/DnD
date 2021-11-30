@@ -298,6 +298,7 @@ namespace DnD.Char_Gen
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBox7);
             this.panel2.Controls.Add(this.label7);
+            this.panel2.Enabled = false;
             this.panel2.Location = new System.Drawing.Point(4, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(199, 148);
@@ -798,6 +799,7 @@ namespace DnD.Char_Gen
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(118, 23);
             this.comboBox5.TabIndex = 20;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // comboBox6
             // 
@@ -902,7 +904,6 @@ namespace DnD.Char_Gen
             this.panel4.Controls.Add(this.comboBox2);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Enabled = false;
             this.panel4.Location = new System.Drawing.Point(208, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(210, 61);
@@ -990,14 +991,14 @@ namespace DnD.Char_Gen
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(153, 202);
             this.label21.TabIndex = 1;
-            this.label21.Text = "1 Character\r\n2 Race\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
+            this.label21.Text = "1 Race\r\n2 Character\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
     "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 462);
+            this.ClientSize = new System.Drawing.Size(713, 462);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.panel3);

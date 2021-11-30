@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using DND.Shared;
 using DND.Shared.Entities;
@@ -57,26 +58,49 @@ namespace DnD.Char_Gen
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadRace();
+        }
+
+        private void LoadCharacter()
+        {
+            panel2.Enabled = true;
             comboBox1.Items.Clear();
             foreach (var gender in Gender.Genders)
             {
                 comboBox1.Items.Add(gender.Name);
             }
+            UnloadStats();
         }
-
+        
 
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
                 Program.Character.SetName(textBox7.Text);
-                Program.Character.SetGender(comboBox1.Text == "Male" ? 0 : 1);
+                try
+                {
+                    Program.Character.SetGender(Character.FindElement(Gender.Genders,comboBox1.Text));
+                }
+                catch
+                {
+                    comboBox1.Text = "";
+                }
+                try
+                {
+                    textBox9.Text = int.Parse(textBox9.Text) >= 15 * (Program.Character.CRace.Name == "Elf" ? 5 : 1)
+                        ? "" + int.Parse(textBox9.Text)
+                        : "" + 15 * (Program.Character.CRace.Name == "Elf" ? 5 : 1);
+                }
+                catch
+                {
+                    textBox9.Text = "";
+                }
                 Program.Character.SetLevel(int.Parse(textBox8.Text));
-                textBox9.Text = int.Parse(textBox9.Text) >= 15 ? "" + int.Parse(textBox9.Text) : "15";
                 Program.Character.SetAge(int.Parse(textBox9.Text));
                 Console.WriteLine("{0}\n{1}\n{2}\n{3}", Program.Character.Name, Program.Character.CGender.Name,
                     Program.Character.Level,Program.Character.Age);
-                LoadRace();
+                LoadStats();
             }
             catch 
             {
@@ -86,15 +110,6 @@ namespace DnD.Char_Gen
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var age = int.Parse(textBox9.Text);
-                if (age < 0) textBox9.Text = "0";
-            }
-            catch
-            {
-                textBox9.Text = "";
-            }
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -113,9 +128,12 @@ namespace DnD.Char_Gen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            comboBox1.Text = Randomiser.rng.Next(0, 2) == 1 ? "Male" : "Female";
+            var Char = new Character();
+            Char.GenGender();
+            comboBox1.Text = Char.CGender.Name;
             textBox8.Text = "" + Randomiser.rng.Next(1, 6);
-            textBox9.Text = "" + (int)(20*Math.Pow(1.01d,Randomiser.rng.Next(0,101)));
+            textBox9.Text = "" + (int) ((Program.Character.CRace.ID == Race.Elf.ID ? 5 : 1) * 20 *
+                                        Math.Pow(1.01d, Randomiser.rng.Next(0, 101)));
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -128,6 +146,7 @@ namespace DnD.Char_Gen
             Program.Character.GenSavingThrows();
             Program.Character.GenSkills();
             Program.Character.GenPsychology();
+            Console.WriteLine(Program.Character.Display);
             LoadFileSave();
         }
 
@@ -247,7 +266,7 @@ namespace DnD.Char_Gen
             {
                 Program.Character.SetRace(Character.FindElement(Race.Races, comboBox2.Text));
                 Console.WriteLine(Program.Character.CRace.Name);
-                LoadStats();
+                LoadCharacter();
             }
             catch
             {
@@ -767,12 +786,22 @@ namespace DnD.Char_Gen
         {
             try
             {
-
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\DnD\\";
+                if (!Directory.Exists(path)) { Directory.CreateDirectory(path);}
+                path += "Characters\\";
+                if (!Directory.Exists(path)) { Directory.CreateDirectory(path);}
+                path += textBox10.Text + ".txt";
+                File.WriteAllText(path, Program.Character.Display);
             }
             catch
             {
                 textBox10.Text = "";
             }
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
