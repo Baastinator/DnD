@@ -50,7 +50,7 @@ namespace DnD.Char_Gen
             }
             catch 
             {
-
+                UnloadSocialClass();
             }
         }
 
@@ -69,7 +69,15 @@ namespace DnD.Char_Gen
             {
                 comboBox1.Items.Add(gender.Name);
             }
+            comboBox1.Text = "";
             UnloadStats();
+        }
+
+        private void UnloadCharacter()
+        {
+            panel2.Enabled = false;
+            comboBox1.Items.Clear();
+            comboBox1.Text = "";
         }
         
 
@@ -85,6 +93,7 @@ namespace DnD.Char_Gen
                 catch
                 {
                     comboBox1.Text = "";
+                    throw;
                 }
                 try
                 {
@@ -95,6 +104,7 @@ namespace DnD.Char_Gen
                 catch
                 {
                     textBox9.Text = "";
+                    throw;
                 }
                 Program.Character.SetLevel(int.Parse(textBox8.Text));
                 Program.Character.SetAge(int.Parse(textBox9.Text));
@@ -104,7 +114,7 @@ namespace DnD.Char_Gen
             }
             catch 
             {
-
+                UnloadStats();
             }
         }
 
@@ -271,6 +281,8 @@ namespace DnD.Char_Gen
             catch
             {
                 comboBox2.Text = "";
+                UnloadCharacter();
+                
             }
         }
 
@@ -491,6 +503,7 @@ namespace DnD.Char_Gen
             catch
             {
                 comboBox3.Text = "";
+                UnloadAppearance();
             }
         }
 
@@ -672,7 +685,7 @@ namespace DnD.Char_Gen
             }
             catch
             {
-                
+                UnloadProfession();
             }
         }
 
@@ -700,6 +713,7 @@ namespace DnD.Char_Gen
             catch
             {
                 comboBox9.Text = "";
+                UnloadBackground();
             }
         }
 
@@ -759,6 +773,7 @@ namespace DnD.Char_Gen
             catch
             {
                 comboBox10.Text = "";
+                UnloadClass();
             }
         }
 
@@ -779,6 +794,7 @@ namespace DnD.Char_Gen
             catch
             {
                 comboBox11.Text = "";
+                UnloadFinalSave();
             }
         }
 

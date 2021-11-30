@@ -149,7 +149,7 @@ namespace DnD.Char_Gen
             this.panel1.Controls.Add(this.StatsMainLabel);
             this.panel1.Controls.Add(this.StatsRollBtn);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(4, 157);
+            this.panel1.Location = new System.Drawing.Point(4, 163);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(141, 183);
             this.panel1.TabIndex = 0;
@@ -301,7 +301,7 @@ namespace DnD.Char_Gen
             this.panel2.Enabled = false;
             this.panel2.Location = new System.Drawing.Point(4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(199, 148);
+            this.panel2.Size = new System.Drawing.Size(199, 154);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -419,7 +419,7 @@ namespace DnD.Char_Gen
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Location = new System.Drawing.Point(10, 8);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(692, 444);
+            this.panel3.Size = new System.Drawing.Size(692, 452);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -444,7 +444,7 @@ namespace DnD.Char_Gen
             this.panel13.Controls.Add(this.label28);
             this.panel13.Controls.Add(this.textBox10);
             this.panel13.Enabled = false;
-            this.panel13.Location = new System.Drawing.Point(4, 345);
+            this.panel13.Location = new System.Drawing.Point(5, 352);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(681, 92);
             this.panel13.TabIndex = 20;
@@ -998,7 +998,7 @@ namespace DnD.Char_Gen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 462);
+            this.ClientSize = new System.Drawing.Size(713, 471);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.panel3);

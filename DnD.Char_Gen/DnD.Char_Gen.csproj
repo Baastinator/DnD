@@ -4,8 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon />
-    <StartupObject />
+    <StartupObject>DnD.Char_Gen.Program</StartupObject>
+    <Nullable>warnings</Nullable>
+    <AssemblyName>DnD_Character_Generator_1.0</AssemblyName>
   </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 	<ItemGroup>
     <ProjectReference Include="..\Shared\DnD.Shared.csproj" />
   </ItemGroup>
