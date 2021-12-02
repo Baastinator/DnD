@@ -225,7 +225,6 @@ namespace DnD.Char_Gen
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(28, 27);
             this.textBox6.TabIndex = 7;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged_1);
             // 
             // textBox3
             // 
