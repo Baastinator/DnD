@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using DND.Shared;
@@ -234,20 +233,6 @@ namespace DnD.Char_Gen
             }
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-                var a = int.Parse(textBox6.Text);
-                a = a > 20 ? 20 : a < 0 ? 0 : a;
-                textBox6.Text = "" + a;
-            }
-            catch 
-            {
-                textBox6.Text = "";
-            }
-        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -819,5 +804,6 @@ namespace DnD.Char_Gen
         {
 
         }
+
     }
 }
