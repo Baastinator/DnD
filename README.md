@@ -3,7 +3,7 @@ solution featuring rewrites of all my previous dnd stuff in higher quality, plus
 
 # DnD Character Generator Documentation
 
-https://youtu.be/OZEWv6PiY08
+[Installation Guide](https://youtu.be/OZEWv6PiY08)
 
 The Order of filling out fields is fairly self explanatory, as the Program opens up new fields as the previous fields get saved.
 Fill out a field, with either one of the entries in the dropbox, or just a value that fits in the respective textbox.
