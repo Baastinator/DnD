@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata;
-using DND.Shared.Interfaces.Implementations;
+﻿using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters
 {

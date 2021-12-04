@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
-using System.Linq;
-using System.Net.Security;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
 using DND.Shared.Entities.Characters.Professions;
@@ -66,7 +62,7 @@ namespace DND.Shared.Entities
 
         public void SetGender(int ID) => CGender = Gender.Genders[ID];
 
-        public void GenGender() => CGender = Gender.Genders[Randomiser.rng.Next(0, Gender.Genders.Length)];
+        public void GenGender() => CGender = Gender.Genders[Randomiser.rng.Next(0,2)];
 
         public void SetLevel(int lvl) => Level = lvl;
         

@@ -1,7 +1,6 @@
 using System;
 using System.Windows.Forms;
 using DND.Shared.Entities;
-using DND.Shared.Entities.Characters;
 
 namespace DnD.Char_Gen
 {
