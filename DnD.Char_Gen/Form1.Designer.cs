@@ -30,6 +30,8 @@ namespace DnD.Char_Gen
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,8 +117,6 @@ namespace DnD.Char_Gen
             this.label32 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label33 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -158,6 +158,26 @@ namespace DnD.Char_Gen
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(161, 243);
             this.panel1.TabIndex = 0;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 120);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(49, 40);
+            this.label33.TabIndex = 16;
+            this.label33.Text = " Race\r\nBonus";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(25, 168);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -1050,24 +1070,6 @@ namespace DnD.Char_Gen
             this.label21.TabIndex = 1;
             this.label21.Text = "1 Race\r\n2 Character\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
     "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(25, 168);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(8, 120);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(49, 40);
-            this.label33.TabIndex = 16;
-            this.label33.Text = "Race\r\nBonus";
             // 
             // Form1
             // 
