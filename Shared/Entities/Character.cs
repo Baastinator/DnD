@@ -574,5 +574,11 @@ namespace DND.Shared.Entities
         #endregion
 
         #endregion
+
+        #region PRESETS
+
+        public static Character Empty = new Character {Name = "None"};
+
+        #endregion
     }
 }

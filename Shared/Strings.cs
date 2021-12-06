@@ -4,6 +4,41 @@ namespace DND.Shared
 {
     public static class Strings
     {
+
+        public static string RemoveWhitespace(string input)
+        {
+            for (var i = 0; i <= input.Length; i++)
+            {
+                if (input[i] != ' ')
+                {
+                    break;
+                }
+
+                if (i == input.Length)
+                {
+                    return "";
+                }
+            }
+            while (true)
+            {
+                if (input.StartsWith(' '))
+                {
+                    input = input[1..];
+                }
+                else break;
+            }
+
+            while (true)
+            {
+                if (input.EndsWith(' '))
+                {
+                    input = input[..^1];
+                }
+                else break;
+            }
+
+            return input;
+        }
         public static string AddWhitespace(string input, int totalSize, char Filler = ' ')
         {
             //if (input.Length > totalSize) throw new Exception("add whitespace: yo wtf you tryna do");

@@ -5,6 +5,7 @@ using DND.Shared;
 using DND.Shared.Entities;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
+using static DND.Shared.Strings;
 
 namespace DnD.Char_Gen
 {
@@ -34,13 +35,20 @@ namespace DnD.Char_Gen
         {
             try
             {
-                tempStats.STR = int.Parse(textBox1.Text);
-                tempStats.DEX = int.Parse(textBox2.Text);
-                tempStats.CON = int.Parse(textBox3.Text);
-                tempStats.INT = int.Parse(textBox4.Text);
-                tempStats.WIS = int.Parse(textBox5.Text);
-                tempStats.CHA = int.Parse(textBox6.Text);
-                Program.Character.MakeStats(tempStats.IntArray);
+                tempStats.STR = int.Parse(RemoveWhitespace(textBox1.Text));
+                tempStats.DEX = int.Parse(RemoveWhitespace(textBox2.Text));
+                tempStats.CON = int.Parse(RemoveWhitespace(textBox3.Text));
+                tempStats.INT = int.Parse(RemoveWhitespace(textBox4.Text));
+                tempStats.WIS = int.Parse(RemoveWhitespace(textBox5.Text));
+                tempStats.CHA = int.Parse(RemoveWhitespace(textBox6.Text));
+                if (checkBox1.Checked)
+                {
+                    Program.Character.MakeStats(tempStats.IntArray);
+                }
+                else
+                {
+                    Program.Character.CStats = Statblock.MakeStats(tempStats.IntArray);
+                }
                 foreach (var i in Program.Character.CStats.IntArray)
                 {
                     Console.WriteLine(i + "  " + Statblock.getModifier(i));

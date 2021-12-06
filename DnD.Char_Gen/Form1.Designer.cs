@@ -115,6 +115,8 @@ namespace DnD.Char_Gen
             this.label32 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -133,6 +135,8 @@ namespace DnD.Char_Gen
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label33);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label5);
@@ -1047,6 +1051,24 @@ namespace DnD.Char_Gen
             this.label21.Text = "1 Race\r\n2 Character\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
     "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(25, 168);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 120);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(49, 40);
+            this.label33.TabIndex = 16;
+            this.label33.Text = "Race\r\nBonus";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1174,6 +1196,8 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

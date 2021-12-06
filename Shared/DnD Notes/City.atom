@@ -1,0 +1,7 @@
+
+- City
+    - Rivers
+    - Terrain
+    - People
+        - Mayor
+        - General (only if town is large enough, be sure to implement "empty" character spots)

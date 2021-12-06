@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Shared", "Shared\DnD.Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.Char_Gen", "DnD.Char_Gen\DnD.Char_Gen.csproj", "{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnD.City_Gen", "DnD.City_Gen\DnD.City_Gen.csproj", "{2E30A02D-CF2B-4984-97DB-B5E92E8F24DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnD.City_Gen_Test", "DnD.City_Gen_Test\DnD.City_Gen_Test.csproj", "{6813B522-B1E6-4167-871B-EB46591768B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EDE1913-DF95-43ED-A6F2-196801CDFAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E30A02D-CF2B-4984-97DB-B5E92E8F24DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E30A02D-CF2B-4984-97DB-B5E92E8F24DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E30A02D-CF2B-4984-97DB-B5E92E8F24DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E30A02D-CF2B-4984-97DB-B5E92E8F24DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6813B522-B1E6-4167-871B-EB46591768B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6813B522-B1E6-4167-871B-EB46591768B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6813B522-B1E6-4167-871B-EB46591768B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6813B522-B1E6-4167-871B-EB46591768B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
