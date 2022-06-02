@@ -145,6 +145,11 @@ namespace DND.Shared.Entities.Characters
         public static Profession Herbalist = new Profession {Name = "Herbalist", ID = 63 };
         public static Profession Author = new Profession {Name = "Author", ID = 64};
         public static Profession Professor = new Profession {Name = "Professor", ID = 65};
+        public static Profession CourtMage = new Profession {Name = "Court Mage", ID = 66};
+        public static Profession Wizard = new Profession {Name = "Wizard", ID = 67};
+        public static Profession Witch = new Profession {Name = "Witch", ID = 68};
+        public static Profession Headmaster = new Profession {Name = "Headmaster", ID = 69};
+        public static Profession Researcher = new Profession {Name = "Researcher", ID = 70};
         #endregion
         public static readonly Profession[] Professions = {
             Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
@@ -163,7 +168,7 @@ namespace DND.Shared.Entities.Characters
             Fencer, Spy, Thief, CrewLeader,
 
             Burglar, Enforcer, Blackmailer, Herbalist, Author,
-
+            Professor, CourtMage, Wizard, Witch, Headmaster
         };
 
         public static Profession[] professions => Professions;
