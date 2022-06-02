@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DND.Shared.Entities.Characters.Stats;
 
 namespace DND.Shared.Entities.Characters
@@ -101,6 +102,17 @@ namespace DND.Shared.Entities.Characters
             output.IntArray = content;
             return output;
         }
+        public static Statblock MakeStats(int min)
+        {
+            var output = new Statblock();
+            while (true){
+                output.StatArray = new[]
+                {Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat(), Stat.MakeStat()};
+                if (output.IntArray.Sum() >= min) break;
+            }
+            return output;
+        }
+
         public static Statblock MakeStats()
         {
             var output = new Statblock();

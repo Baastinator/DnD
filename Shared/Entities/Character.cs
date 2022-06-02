@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DND.Shared.Entities.Characters;
 using DND.Shared.Entities.Characters.Appearances;
 using DND.Shared.Entities.Characters.Professions;
@@ -71,6 +72,7 @@ namespace DND.Shared.Entities
         public void SetName(string name) => Name = name;
 
         #endregion
+
 
         public static int FindElement(INameable[] list, string element)
         {
@@ -198,6 +200,7 @@ namespace DND.Shared.Entities
             GenSkin();
             GenHairColor();
             GenEyes(); 
+            GenHeight();
         }
 
         public void SetAppearance(int[] IDs)
@@ -206,6 +209,7 @@ namespace DND.Shared.Entities
             SetSkin(IDs[1]);
             SetHairColor(IDs[2]);
             SetEyes(IDs[3]);
+            SetHeight(IDs[4]);
         }
 
         public void GenHairLength()
@@ -247,7 +251,7 @@ namespace DND.Shared.Entities
                 "Half-Orc" => Goblinoid(),
                 "Dragonborn" => SkinColor.SkinColors["Dragonborn"][Randomiser.rng.Next(0, 2)],
                 "Tiefling" => new Randomiser(new[] {20, 50}).Roll() == 1
-                    ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
+                    ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 20, 30, 40}).Roll()]
                     : SkinColor.SkinColors["Tiefling"][new Randomiser(new[] {40, 50, 10}).Roll()],
                 "Goliath" => SkinColor.Goliath,
                 "Tabaxi" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
@@ -261,7 +265,7 @@ namespace DND.Shared.Entities
                 "Lizardfolk" => Goblinoid(),
                 "Orc" => Goblinoid(),
                 "Warforged" => SkinColor.Warforged,
-                _ => SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
+                _ => SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 20, 30, 40}).Roll()]
             };
         }
 
@@ -302,6 +306,28 @@ namespace DND.Shared.Entities
             EyeColor.EyeColors[new Randomiser(new[] {10, 10, 10, 10, 10, 10, 0}).Roll()];
 
         public void SetEyes(int ID) => CAppearance.EyeColor = EyeColor.EyeColors[ID];
+
+        public void GenHeight()
+        {
+            var x = Randomiser.rng.Next(0, 101);
+            CAppearance.Height.HeightInch = (int)
+                Math.Floor(
+                    12d * (x * x * x / 400000d + x / 100d +
+                    CGender.Name switch
+                    {
+                    "Male" => 5.75,
+                    "Female" => 5.33333333,
+                    _ => 5.54166666667
+                    })
+                    * CRace.Name switch
+                    {
+                        "Dwarf" => .6d,
+                        "Halfling" => .5d,
+                        "Gnome" => .4d,
+                        _ => 1d
+                    });
+        }
+        public void SetHeight(int inches) => CAppearance.Height.HeightInch = inches;
 
         #endregion
 
@@ -407,13 +433,7 @@ namespace DND.Shared.Entities
             {
                 int Max(int[] a)
                 {
-                    int max = 0;
-                    for (int i = 0; i < a.Length; i++)
-                    {
-                        if (max < a[i]) max = a[i];
-                    }
-
-                    return max;
+                    return a.Prepend(0).Max();
                 }
 
                 var CharValLongest = Max(new[]
@@ -422,12 +442,13 @@ namespace DND.Shared.Entities
                     CSocialClass.Name.Length, CProfession.Name.Length, CBackground.Name.Length, CClass.Name.Length, 
                     CAppearance.HairColor.Name.Length, CAppearance.HairLength.Name.Length, CAppearance.EyeColor.Name.Length,
                     CAppearance.SkinColor.Name.Length, CAppearance.ClothingType.Name.Length, CAppearance.BodyType.Name.Length,
+                    CAppearance.Height.HeightStr.Length
                 });
                 var CharNameLongest = Max(new[]
                 {
                     "Name".Length, "Age".Length, "Level".Length, "Gender".Length, "Race".Length, "Social Class".Length,
                     "Profession".Length, "Background".Length, "Class".Length, "Hair Color".Length, "Hair Length".Length,
-                    "Eye Color".Length, "Skin Color".Length, "Clothing".Length, "Body Type".Length
+                    "Eye Color".Length, "Skin Color".Length, "Clothing".Length, "Body Type".Length, "Height".Length
                 });
                 var longestChar = CharValLongest + CharNameLongest;
                 var longestSC = Math.Max(CSkills.Longest, longestChar);
@@ -508,7 +529,7 @@ namespace DND.Shared.Entities
                             31 => "┼",
                             33 => "├",
                             38 => "┤",
-                            40 => "├",
+                            41 => "├",
                             _ => "│"
                         };
                     }
@@ -554,7 +575,8 @@ namespace DND.Shared.Entities
                             38 => AddWhitespace(" Clothing     => " + CAppearance.ClothingType.Name, longestSC + 8) +
                                   "│",
                             39 => AddWhitespace(" Body Type    => " + CAppearance.BodyType.Name, longestSC + 8) + "│",
-                            40 => AddWhitespace("", longestSC + 8, '─') + "┤",
+                            40 => AddWhitespace(" Height       => " + CAppearance.Height.HeightStr, longestSC + 8) + "│",
+                            41 => AddWhitespace("", longestSC + 8, '─') + "┤",
                             _ => AddWhitespace("", longestSC + 8) + "│",
                         }
                         : "";

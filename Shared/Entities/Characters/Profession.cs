@@ -1,4 +1,5 @@
-﻿using DND.Shared.Interfaces.Implementations;
+﻿using System.Security.Cryptography.X509Certificates;
+using DND.Shared.Interfaces.Implementations;
 
 namespace DND.Shared.Entities.Characters
 {
@@ -125,8 +126,25 @@ namespace DND.Shared.Entities.Characters
         public static Profession Mason = new Profession { Name = "Mason", ID = 46 };
         public static Profession Herder = new Profession { Name = "Herder", ID = 47 };
         public static Profession Teacher = new Profession { Name = "Teacher", ID = 48 };
-        public static Profession Miner = new Profession { Name = "Miner", ID = 49 };               // 49
+        public static Profession Miner = new Profession { Name = "Miner",ID = 49 };               // 49
         public static Profession Adventurer = new Profession { Name = "Adventurer", ID = 50 };
+        public static Profession None = new Profession { Name = "None", ID = 51 };
+        public static Profession Urchin = new Profession { Name = "Urchin", ID = 52 };
+        public static Profession Bandit = new Profession { Name = "Bandit", ID = 53 };
+        public static Profession Pickpocket = new Profession { Name = "Pickpocket", ID = 54 };
+        public static Profession Smuggler = new Profession { Name = "Smuggler", ID = 55 };
+        public static Profession Fencer = new Profession { Name = "Fencer", ID = 56 };
+        public static Profession Spy = new Profession { Name = "Spy", ID = 57 };
+        public static Profession Thief = new Profession { Name = "Thief", ID = 58 };
+        public static Profession CrewLeader = new Profession { Name = "Crew Leader", ID = 59 };
+        #endregion
+        #region JOBS 60-79s
+        public static Profession Burglar = new Profession { Name = "Burglar", ID = 60 };
+        public static Profession Enforcer = new Profession { Name = "Enforcer", ID = 61 };
+        public static Profession Blackmailer = new Profession { Name = "Blackmailer", ID = 62 };
+        public static Profession Herbalist = new Profession {Name = "Herbalist", ID = 63 };
+        public static Profession Author = new Profession {Name = "Author", ID = 64};
+        public static Profession Professor = new Profession {Name = "Professor", ID = 65};
         #endregion
         public static readonly Profession[] Professions = {
             Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
@@ -140,22 +158,29 @@ namespace DND.Shared.Entities.Characters
             Nurse, Labourer, Doctor, General, Soldier,
 
             Guard, Miller, Farmer, Carpenter, Smith,
-            Tailor, Mason, Herder, Teacher, Miner
-        };
-        public static readonly Profession[] professions = {
-            
-            Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
-            Artist, Butcher, Weaver, Winemaker, Shoemaker,
-            Steelwright, Roofer, Locksmith, Tanner, Cook,
-            Beltmaker, Barrister, Banker, Mayor, Manager,
+            Tailor, Mason, Herder, Teacher, Miner,
+            None, Urchin, Bandit, Pickpocket, Smuggler,
+            Fencer, Spy, Thief, CrewLeader,
 
-            GuardCaptain, Admiral, Captain, Shiphand, Servant,
-            WaitStaff, TaxCollector, Minister, Secretary, Judge,
-            Merchant, Barkeep, Librarian, Alchemist, CharcoalBurner,
-            Nurse, Labourer, Doctor, General, Soldier,
+            Burglar, Enforcer, Blackmailer, Herbalist, Author,
 
-            Guard, Miller, Farmer, Carpenter, Smith,
-            Tailor, Mason, Herder, Teacher, Miner, Adventurer
         };
+
+        public static Profession[] professions => Professions;
+        //{
+
+        //    Lumberjack, Armorer, Minstrel, Baker, Candlemaker,
+        //    Artist, Butcher, Weaver, Winemaker, Shoemaker,
+        //    Steelwright, Roofer, Locksmith, Tanner, Cook,
+        //    Beltmaker, Barrister, Banker, Mayor, Manager,
+
+        //    GuardCaptain, Admiral, Captain, Shiphand, Servant,
+        //    WaitStaff, TaxCollector, Minister, Secretary, Judge,
+        //    Merchant, Barkeep, Librarian, Alchemist, CharcoalBurner,
+        //    Nurse, Labourer, Doctor, General, Soldier,
+
+        //    Guard, Miller, Farmer, Carpenter, Smith,
+        //    Tailor, Mason, Herder, Teacher, Miner, Adventurer
+        //};
     }
 }

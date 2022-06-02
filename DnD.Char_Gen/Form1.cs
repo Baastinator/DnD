@@ -22,7 +22,12 @@ namespace DnD.Char_Gen
         private Statblock tempStats;
         private void StatsRollBtn_Click(object sender, EventArgs e)
         {
-            tempStats = Statblock.MakeStats();
+            tempStats = textBox11.Text switch
+            {
+                "" => Statblock.MakeStats(),
+                "0" => Statblock.MakeStats(),
+                _ => Statblock.MakeStats(int.Parse(textBox11.Text))
+            };
             textBox1.Text = tempStats.STR.ToString();
             textBox2.Text = tempStats.DEX.ToString();
             textBox3.Text = tempStats.CON.ToString();
@@ -146,11 +151,15 @@ namespace DnD.Char_Gen
         private void button1_Click(object sender, EventArgs e)
         {
             var Char = new Character();
-            Char.GenGender();
-            comboBox1.Text = Char.CGender.Name;
-            textBox8.Text = "" + Randomiser.rng.Next(1, 6);
-            textBox9.Text = "" + (int) ((Program.Character.CRace.ID == Race.Elf.ID ? 5 : 1) * 20 *
-                                        Math.Pow(1.01d, Randomiser.rng.Next(0, 101)));
+            if (!checkBox6.Checked)
+            { 
+                Char.GenGender();
+                comboBox1.Text = Char.CGender.Name;
+            }
+            if (!checkBox7.Checked) textBox8.Text = "" + Randomiser.rng.Next(1,4);
+            if (!checkBox8.Checked)
+                textBox9.Text = "" + (int) ((Program.Character.CRace.ID == Race.Elf.ID ? 5 : 1) * 20 *
+                                            Math.Pow(1.01d, Randomiser.rng.Next(0, 101)));
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -521,81 +530,99 @@ namespace DnD.Char_Gen
             HairColor HTiefling() => HairColor.HairColors["Tiefling"][Randomiser.rng.Next(0, 4)];
             int f(double age) => (int) Math.Max(0d, Math.Min(100d, 5.821 * Math.Pow(1.05859, age - 50) - 0.338));
 
-            var hairlength = Program.Character.CRace.Name switch
+            if (!checkBox2.Checked)
             {
-                "Dragonborn" => HairLength.None,
-                "Goliath" => HairLength.None,
-                "Tabaxi" => HairLength.None,
-                "Aarakocra" => HairLength.None,
-                "Kenku" => HairLength.None,
-                "Bugbear" => HairLength.None,
-                "Warforged" => HairLength.None,
-                _ => Program.Character.CGender.Name switch
+                var hairlength = Program.Character.CRace.Name switch
                 {
-                    "Male" => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 20, 5, 1 }).Roll()],
-                    "Female" => HairLength.HairLengths[new Randomiser(new[] { 5, 1, 10, 50, 50, 30 }).Roll()],
-                    _ => HairLength.HairLengths[new Randomiser(new[] { 5, 10, 100, 100, 50, 20 }).Roll()]
-                }
-            };
-
-            comboBox4.Text = hairlength.Name;
-
-            var skinColor = Program.Character.CRace.Name switch
-            {
-                "Half-Orc" => SGoblinoid(),
-                "Dragonborn" => SkinColor.SkinColors["Dragonborn"][Randomiser.rng.Next(0, 2)],
-                "Tiefling" => new Randomiser(new[] {20, 50}).Roll() == 1
-                    ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
-                    : SkinColor.SkinColors["Tiefling"][new Randomiser(new[] {40, 50, 10}).Roll()],
-                "Goliath" => SkinColor.Goliath,
-                "Tabaxi" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
-                "Aarakokra" => SAvian(),
-                "Kenku" => SAvian(),
-                "Tortle" => SGoblinoid(),
-                "Bugbear" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
-                "Goblin" => SGoblinoid(),
-                "Hobgoblin" => SGoblinoid(),
-                "Kobold" => SGoblinoid(),
-                "Lizardfolk" => SGoblinoid(),
-                "Orc" => SGoblinoid(),
-                "Warforged" => SkinColor.Warforged,
-                _ => SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 10, 40}).Roll()]
-            };
-
-            comboBox5.Text = skinColor.Name;
-
-            var hairColor = new Randomiser(new[]
-            {
-                f(Program.Character.Age * (Program.Character.CRace.Name == "Elf" ? 0.1 : 1)),
-                100 - f(Program.Character.Age * (Program.Character.CRace.Name == "Elf" ? 0.1 : 1))
-            }).Roll() == 0
-                ? HairColor.Gray
-                : Program.Character.CRace.Name switch
-                {
-                    "Half-Orc" => HGoblinoid(),
-                    "Dragonborn" => HairColor.None,
-                    "Goliath" => HairColor.None,
-                    "Tiefling" => HTiefling(),
-                    "Tabaxi" => HairColor.None,
-                    "Aarakocra" => HairColor.None,
-                    "Kenku" => HairColor.None,
-                    "Bugbear" => HairColor.None,
-                    "Tortle" => HGoblinoid(),
-                    "Goblin" => HGoblinoid(),
-                    "Hobgoblin" => HGoblinoid(),
-                    "Kobold" => HGoblinoid(),
-                    "Lizardfolk" => HGoblinoid(),
-                    "Orc" => HGoblinoid(),
-                    "Warforged" => HairColor.None,
-                    _ => HairColor.HairColors["Humanoid"][Randomiser.rng.Next(0, 4)]
+                    "Dragonborn" => HairLength.None,
+                    "Goliath" => HairLength.None,
+                    "Tabaxi" => HairLength.None,
+                    "Aarakocra" => HairLength.None,
+                    "Kenku" => HairLength.None,
+                    "Bugbear" => HairLength.None,
+                    "Warforged" => HairLength.None,
+                    _ => Program.Character.CGender.Name switch
+                    {
+                        "Male" => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 20, 5, 1}).Roll()],
+                        "Female" => HairLength.HairLengths[new Randomiser(new[] {5, 1, 10, 50, 50, 30}).Roll()],
+                        _ => HairLength.HairLengths[new Randomiser(new[] {5, 10, 100, 100, 50, 20}).Roll()]
+                    }
                 };
 
-            comboBox6.Text = hairColor.Name;
+                comboBox4.Text = hairlength.Name;
+            }
 
-            var eyeColor = EyeColor.EyeColors[new Randomiser(new[] {10, 10, 10, 10, 10, 10, 0}).Roll()];
+            if (!checkBox3.Checked)
+            {
+                var skinColor = Program.Character.CRace.Name switch
+                {
+                    "Half-Orc" => SGoblinoid(),
+                    "Dragonborn" => SkinColor.SkinColors["Dragonborn"][Randomiser.rng.Next(0, 2)],
+                    "Tiefling" => new Randomiser(new[] {20, 50}).Roll() == 1
+                        ? SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 20, 30, 40}).Roll()]
+                        : SkinColor.SkinColors["Tiefling"][new Randomiser(new[] {40, 50, 10}).Roll()],
+                    "Goliath" => SkinColor.Goliath,
+                    "Tabaxi" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
+                    "Aarakokra" => SAvian(),
+                    "Kenku" => SAvian(),
+                    "Tortle" => SGoblinoid(),
+                    "Bugbear" => SkinColor.SkinColors["Tabaxi"][Randomiser.rng.Next(0, 2)],
+                    "Goblin" => SGoblinoid(),
+                    "Hobgoblin" => SGoblinoid(),
+                    "Kobold" => SGoblinoid(),
+                    "Lizardfolk" => SGoblinoid(),
+                    "Orc" => SGoblinoid(),
+                    "Warforged" => SkinColor.Warforged,
+                    _ => SkinColor.SkinColors["Humanoid"][new Randomiser(new[] {50, 20, 30, 40}).Roll()]
+                };
 
-            comboBox7.Text = eyeColor.Name;
+                comboBox5.Text = skinColor.Name;
+            }
 
+            if (!checkBox4.Checked)
+            {
+                var hairColor = new Randomiser(new[]
+                {
+                    f(Program.Character.Age * (Program.Character.CRace.Name == "Elf" ? 0.2 : 1)),
+                    100 - f(Program.Character.Age * (Program.Character.CRace.Name == "Elf" ? 0.2 : 1))
+                }).Roll() == 0
+                    ? HairColor.Gray
+                    : Program.Character.CRace.Name switch
+                    {
+                        "Half-Orc" => HGoblinoid(),
+                        "Dragonborn" => HairColor.None,
+                        "Goliath" => HairColor.None,
+                        "Tiefling" => HTiefling(),
+                        "Tabaxi" => HairColor.None,
+                        "Aarakocra" => HairColor.None,
+                        "Kenku" => HairColor.None,
+                        "Bugbear" => HairColor.None,
+                        "Tortle" => HGoblinoid(),
+                        "Goblin" => HGoblinoid(),
+                        "Hobgoblin" => HGoblinoid(),
+                        "Kobold" => HGoblinoid(),
+                        "Lizardfolk" => HGoblinoid(),
+                        "Orc" => HGoblinoid(),
+                        "Warforged" => HairColor.None,
+                        _ => HairColor.HairColors["Humanoid"][Randomiser.rng.Next(0, 4)]
+                    };
+
+                comboBox6.Text = hairColor.Name;
+            }
+
+            if (!checkBox5.Checked) {
+                var eyeColor = EyeColor.EyeColors[new Randomiser(new[] {10, 10, 10, 10, 10, 10, 0}).Roll()];
+
+                comboBox7.Text = eyeColor.Name;
+            }
+
+            if (!checkBox9.Checked)
+            {
+                var Char = Program.Character;
+                Char.GenHeight();
+                numericUpDown1.Text = "" + Char.CAppearance.Height.HeightInch;
+                UpdateHeightBox();
+            }
 
         }
 
@@ -686,14 +713,15 @@ namespace DnD.Char_Gen
         {
             try
             {
-                Program.Character.SetProfession(Character.FindElement(Profession.professions,comboBox9.Text));
-                if (Program.Character.CProfession.Name.Equals(Profession.Adventurer.Name))
+                if (comboBox9.Text == Profession.Adventurer.Name)
                 {
+                    Program.Character.CProfession = Profession.Adventurer;
                     comboBox10.Text = "";
                     comboBox11.Text = "";
                     LoadBackground();
+                    return;
                 }
-                else
+                Program.Character.SetProfession(Character.FindElement(Profession.professions,comboBox9.Text));
                 {
                     UnloadBackground();
                     Program.Character.CBackground = Background.None;
@@ -813,5 +841,81 @@ namespace DnD.Char_Gen
 
         }
 
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var a = int.Parse(textBox11.Text);
+                a = a > 100 ? 100 : a < 0 ? 0 : a;
+                textBox11.Text = "" + a;
+            }
+            catch
+            {
+                textBox11.Text = "";
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateHeightBox();
+            }
+            catch
+            {
+                numericUpDown1.Text = "64";
+            }
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            UpdateHeightBox();
+        }
+
+        private void UpdateHeightBox()
+        {
+            Program.Character.CAppearance.Height.HeightInch = int.Parse(numericUpDown1.Text);
+            textBox12.Text = Program.Character.CAppearance.Height.HeightStr;
+        }
     }
 }

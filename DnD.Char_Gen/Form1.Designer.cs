@@ -30,7 +30,8 @@ namespace DnD.Char_Gen
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label33 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -48,13 +49,13 @@ namespace DnD.Char_Gen
             this.StatsMainLabel = new System.Windows.Forms.Label();
             this.StatsRollBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@ namespace DnD.Char_Gen
             this.panel3 = new System.Windows.Forms.Panel();
             this.button17 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -90,16 +90,19 @@ namespace DnD.Char_Gen
             this.label22 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button8 = new System.Windows.Forms.Button();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -113,10 +116,6 @@ namespace DnD.Char_Gen
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -127,15 +126,16 @@ namespace DnD.Char_Gen
             this.panel6.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label33);
+            this.panel1.Controls.Add(this.textBox11);
+            this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox4);
@@ -156,41 +156,53 @@ namespace DnD.Char_Gen
             this.panel1.Location = new System.Drawing.Point(5, 217);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 243);
+            this.panel1.Size = new System.Drawing.Size(394, 127);
             this.panel1.TabIndex = 0;
             // 
-            // label33
+            // textBox11
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(8, 120);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(49, 40);
-            this.label33.TabIndex = 16;
-            this.label33.Text = " Race\r\nBonus";
+            this.textBox11.Location = new System.Drawing.Point(125, 84);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(51, 27);
+            this.textBox11.TabIndex = 17;
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(93, 40);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 40);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "Min. Roll Total\r\nempty for none";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(25, 168);
+            this.checkBox1.Location = new System.Drawing.Point(97, 12);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.Size = new System.Drawing.Size(107, 24);
             this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Race Bonus";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 207);
+            this.label4.Location = new System.Drawing.Point(313, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 20);
             this.label4.TabIndex = 14;
             this.label4.Text = "CHA";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 125);
+            this.textBox4.Location = new System.Drawing.Point(356, 9);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(28, 27);
@@ -200,16 +212,17 @@ namespace DnD.Char_Gen
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 168);
+            this.label5.Location = new System.Drawing.Point(313, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "WIS";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(77, 129);
+            this.label6.Location = new System.Drawing.Point(313, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 20);
             this.label6.TabIndex = 12;
@@ -218,7 +231,7 @@ namespace DnD.Char_Gen
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 91);
+            this.label3.Location = new System.Drawing.Point(221, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 20);
             this.label3.TabIndex = 11;
@@ -227,7 +240,7 @@ namespace DnD.Char_Gen
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 52);
+            this.label2.Location = new System.Drawing.Point(221, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.TabIndex = 10;
@@ -235,7 +248,7 @@ namespace DnD.Char_Gen
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(123, 164);
+            this.textBox5.Location = new System.Drawing.Point(356, 48);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(28, 27);
@@ -244,7 +257,7 @@ namespace DnD.Char_Gen
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(123, 203);
+            this.textBox6.Location = new System.Drawing.Point(356, 87);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(28, 27);
@@ -252,7 +265,7 @@ namespace DnD.Char_Gen
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 87);
+            this.textBox3.Location = new System.Drawing.Point(267, 87);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(28, 27);
@@ -261,7 +274,7 @@ namespace DnD.Char_Gen
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 48);
+            this.textBox2.Location = new System.Drawing.Point(267, 48);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(28, 27);
@@ -270,7 +283,7 @@ namespace DnD.Char_Gen
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 9);
+            this.textBox1.Location = new System.Drawing.Point(267, 9);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(28, 27);
@@ -280,7 +293,7 @@ namespace DnD.Char_Gen
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 13);
+            this.label1.Location = new System.Drawing.Point(221, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 20);
             this.label1.TabIndex = 3;
@@ -320,13 +333,13 @@ namespace DnD.Char_Gen
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.checkBox8);
+            this.panel2.Controls.Add(this.checkBox7);
+            this.panel2.Controls.Add(this.checkBox6);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.textBox8);
-            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBox7);
@@ -335,13 +348,43 @@ namespace DnD.Char_Gen
             this.panel2.Location = new System.Drawing.Point(5, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 205);
+            this.panel2.Size = new System.Drawing.Size(394, 205);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(7, 165);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(58, 24);
+            this.checkBox8.TabIndex = 31;
+            this.checkBox8.Text = "Age";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(7, 126);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(65, 24);
+            this.checkBox7.TabIndex = 30;
+            this.checkBox7.Text = "Level";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(8, 84);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(79, 24);
+            this.checkBox6.TabIndex = 29;
+            this.checkBox6.Text = "Gender";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(161, 5);
+            this.button3.Location = new System.Drawing.Point(325, 6);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(59, 31);
@@ -352,7 +395,7 @@ namespace DnD.Char_Gen
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(96, 4);
+            this.button1.Location = new System.Drawing.Point(260, 6);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(59, 31);
@@ -361,60 +404,33 @@ namespace DnD.Char_Gen
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 163);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 20);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Age";
-            // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(77, 163);
+            this.textBox9.Location = new System.Drawing.Point(93, 163);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(143, 27);
+            this.textBox9.Size = new System.Drawing.Size(291, 27);
             this.textBox9.TabIndex = 8;
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 20);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Level";
-            // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(77, 124);
+            this.textBox8.Location = new System.Drawing.Point(93, 124);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(143, 27);
+            this.textBox8.Size = new System.Drawing.Size(291, 27);
             this.textBox8.TabIndex = 6;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 20);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Gender";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             ""});
-            this.comboBox1.Location = new System.Drawing.Point(77, 85);
+            this.comboBox1.Location = new System.Drawing.Point(93, 82);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 28);
+            this.comboBox1.Size = new System.Drawing.Size(291, 28);
             this.comboBox1.TabIndex = 4;
             // 
             // label8
@@ -428,12 +444,13 @@ namespace DnD.Char_Gen
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(77, 45);
+            this.textBox7.Location = new System.Drawing.Point(62, 45);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox7.MaxLength = 17;
+            this.textBox7.MaxLength = 33;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(143, 27);
+            this.textBox7.Size = new System.Drawing.Size(322, 27);
             this.textBox7.TabIndex = 2;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label7
             // 
@@ -460,17 +477,17 @@ namespace DnD.Char_Gen
             this.panel3.Location = new System.Drawing.Point(11, 11);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(791, 602);
+            this.panel3.Size = new System.Drawing.Size(956, 602);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // button17
             // 
             this.button17.Enabled = false;
-            this.button17.Location = new System.Drawing.Point(485, 389);
+            this.button17.Location = new System.Drawing.Point(5, 352);
             this.button17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(299, 63);
+            this.button17.Size = new System.Drawing.Size(394, 109);
             this.button17.TabIndex = 21;
             this.button17.Text = "Finish and Save Character";
             this.button17.UseVisualStyleBackColor = true;
@@ -479,7 +496,6 @@ namespace DnD.Char_Gen
             // panel13
             // 
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.label31);
             this.panel13.Controls.Add(this.button16);
             this.panel13.Controls.Add(this.label30);
             this.panel13.Controls.Add(this.label29);
@@ -489,17 +505,8 @@ namespace DnD.Char_Gen
             this.panel13.Location = new System.Drawing.Point(6, 469);
             this.panel13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(778, 122);
+            this.panel13.Size = new System.Drawing.Size(944, 122);
             this.panel13.TabIndex = 20;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(519, 7);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(247, 20);
-            this.label31.TabIndex = 18;
-            this.label31.Text = "Finish and Save before saving to file";
             // 
             // button16
             // 
@@ -515,11 +522,12 @@ namespace DnD.Char_Gen
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(726, 43);
+            this.label30.Location = new System.Drawing.Point(907, 43);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(29, 20);
             this.label30.TabIndex = 3;
             this.label30.Text = ".txt";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // label29
             // 
@@ -544,7 +552,7 @@ namespace DnD.Char_Gen
             this.textBox10.Location = new System.Drawing.Point(193, 40);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(525, 27);
+            this.textBox10.Size = new System.Drawing.Size(708, 27);
             this.textBox10.TabIndex = 0;
             // 
             // panel12
@@ -555,7 +563,7 @@ namespace DnD.Char_Gen
             this.panel12.Controls.Add(this.button15);
             this.panel12.Controls.Add(this.label27);
             this.panel12.Enabled = false;
-            this.panel12.Location = new System.Drawing.Point(238, 360);
+            this.panel12.Location = new System.Drawing.Point(405, 360);
             this.panel12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(240, 81);
@@ -608,7 +616,7 @@ namespace DnD.Char_Gen
             this.panel11.Controls.Add(this.button13);
             this.panel11.Controls.Add(this.label26);
             this.panel11.Enabled = false;
-            this.panel11.Location = new System.Drawing.Point(238, 271);
+            this.panel11.Location = new System.Drawing.Point(405, 271);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(240, 81);
@@ -662,7 +670,7 @@ namespace DnD.Char_Gen
             this.panel10.Controls.Add(this.button11);
             this.panel10.Controls.Add(this.label25);
             this.panel10.Enabled = false;
-            this.panel10.Location = new System.Drawing.Point(238, 181);
+            this.panel10.Location = new System.Drawing.Point(405, 181);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(240, 81);
@@ -717,10 +725,10 @@ namespace DnD.Char_Gen
             this.panel6.Controls.Add(this.button7);
             this.panel6.Controls.Add(this.label14);
             this.panel6.Enabled = false;
-            this.panel6.Location = new System.Drawing.Point(485, 4);
+            this.panel6.Location = new System.Drawing.Point(651, 4);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(299, 377);
+            this.panel6.Size = new System.Drawing.Size(299, 415);
             this.panel6.TabIndex = 18;
             // 
             // panel9
@@ -730,7 +738,7 @@ namespace DnD.Char_Gen
             this.panel9.Controls.Add(this.label24);
             this.panel9.Controls.Add(this.label22);
             this.panel9.Controls.Add(this.comboBox8);
-            this.panel9.Location = new System.Drawing.Point(6, 263);
+            this.panel9.Location = new System.Drawing.Point(6, 301);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(285, 105);
@@ -775,21 +783,96 @@ namespace DnD.Char_Gen
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.textBox12);
+            this.panel8.Controls.Add(this.numericUpDown1);
+            this.panel8.Controls.Add(this.checkBox9);
+            this.panel8.Controls.Add(this.checkBox5);
+            this.panel8.Controls.Add(this.checkBox4);
+            this.panel8.Controls.Add(this.checkBox3);
+            this.panel8.Controls.Add(this.checkBox2);
             this.panel8.Controls.Add(this.label16);
-            this.panel8.Controls.Add(this.label15);
             this.panel8.Controls.Add(this.comboBox4);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.comboBox7);
-            this.panel8.Controls.Add(this.label17);
-            this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.comboBox5);
             this.panel8.Controls.Add(this.comboBox6);
-            this.panel8.Controls.Add(this.label18);
             this.panel8.Location = new System.Drawing.Point(6, 40);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(285, 214);
+            this.panel8.Size = new System.Drawing.Size(285, 253);
             this.panel8.TabIndex = 29;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(134, 209);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(115, 27);
+            this.textBox12.TabIndex = 34;
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(245, 210);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(23, 27);
+            this.numericUpDown1.TabIndex = 32;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(5, 211);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(76, 24);
+            this.checkBox9.TabIndex = 33;
+            this.checkBox9.Text = "Height";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(5, 173);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(94, 24);
+            this.checkBox5.TabIndex = 28;
+            this.checkBox5.Text = "Eye Color";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(5, 134);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(99, 24);
+            this.checkBox4.TabIndex = 27;
+            this.checkBox4.Text = "Hair Color";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(5, 95);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(98, 24);
+            this.checkBox3.TabIndex = 26;
+            this.checkBox3.Text = "Skin Color";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(5, 55);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(108, 24);
+            this.checkBox2.TabIndex = 25;
+            this.checkBox2.Text = "Hair Length";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -800,19 +883,10 @@ namespace DnD.Char_Gen
             this.label16.TabIndex = 17;
             this.label16.Text = "Features";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 57);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(86, 20);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Hair Length";
-            // 
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(115, 53);
+            this.comboBox4.Location = new System.Drawing.Point(134, 53);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(134, 28);
@@ -832,34 +906,16 @@ namespace DnD.Char_Gen
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(115, 171);
+            this.comboBox7.Location = new System.Drawing.Point(134, 171);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(134, 28);
             this.comboBox7.TabIndex = 24;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 96);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 20);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Skin Color";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 173);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 20);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Eye Color";
-            // 
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(115, 93);
+            this.comboBox5.Location = new System.Drawing.Point(134, 93);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(134, 28);
@@ -869,20 +925,11 @@ namespace DnD.Char_Gen
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(115, 132);
+            this.comboBox6.Location = new System.Drawing.Point(134, 132);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(134, 28);
             this.comboBox6.TabIndex = 22;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(5, 135);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 20);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Hair Color";
             // 
             // button9
             // 
@@ -923,7 +970,7 @@ namespace DnD.Char_Gen
             this.panel5.Controls.Add(this.button6);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Enabled = false;
-            this.panel5.Location = new System.Drawing.Point(238, 93);
+            this.panel5.Location = new System.Drawing.Point(405, 93);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(240, 81);
@@ -976,7 +1023,7 @@ namespace DnD.Char_Gen
             this.panel4.Controls.Add(this.comboBox2);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label12);
-            this.panel4.Location = new System.Drawing.Point(238, 4);
+            this.panel4.Location = new System.Drawing.Point(405, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(240, 81);
@@ -1026,58 +1073,11 @@ namespace DnD.Char_Gen
             this.label12.TabIndex = 0;
             this.label12.Text = "Race";
             // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.label32);
-            this.panel7.Controls.Add(this.label20);
-            this.panel7.Enabled = false;
-            this.panel7.Location = new System.Drawing.Point(14, 667);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(380, 603);
-            this.panel7.TabIndex = 3;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(205, 11);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(185, 150);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "YOU SHOULDN\'T BE \r\nSEEING THIS\r\n\r\nUNMAXIMISE THIS\r\nWINDOW\r\n\r\n";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(5, 11);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(216, 125);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "      - Filling Order -\r\nPlease Follow this order,\r\n or i can\'t promise that \r\nth" +
-    "e program is going to\r\nfunction correctly\r\n";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(873, 203);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(194, 252);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "1 Race\r\n2 Character\r\n3 Stats\r\n4 Social Class\r\n5 Appearance\r\n6 Profession \r\n(set t" +
-    "o Adventurer for\r\n steps 7 and 8)\r\n7 Background\r\n8 Class\r\n";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 628);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.label21);
+            this.ClientSize = new System.Drawing.Size(978, 628);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1100,13 +1100,11 @@ namespace DnD.Char_Gen
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1132,11 +1130,8 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
@@ -1153,20 +1148,13 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -1195,11 +1183,20 @@ namespace DnD.Char_Gen
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBox12;
     }
 }
 

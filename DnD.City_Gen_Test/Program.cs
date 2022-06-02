@@ -1,4 +1,5 @@
 ﻿using System;
+using DND.Shared.Entities.Cities;
 using static DND.Shared.Strings;
 
 namespace DnD.City_Gen_Test
@@ -7,7 +8,10 @@ namespace DnD.City_Gen_Test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("aaa"+RemoveWhitespace("Hello World!    ")+"aaa");
+            foreach (var river in River.Rivers)
+            {
+                Console.WriteLine(river.Name);
+            }
             Console.ReadLine();
         }
     }
