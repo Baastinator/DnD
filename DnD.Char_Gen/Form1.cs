@@ -40,6 +40,7 @@ namespace DnD.Char_Gen
         {
             try
             {
+                tempStats = Statblock.MakeStats(new int[] { 0, 0, 0, 0, 0, 0 });
                 tempStats.STR = int.Parse(RemoveWhitespace(textBox1.Text));
                 tempStats.DEX = int.Parse(RemoveWhitespace(textBox2.Text));
                 tempStats.CON = int.Parse(RemoveWhitespace(textBox3.Text));

@@ -309,7 +309,7 @@ namespace DND.Shared.Entities
 
         public void GenHeight()
         {
-            var x = Randomiser.rng.Next(0, 101);
+            var x = Randomiser.rng.Next(0, 101)-50;
             CAppearance.Height.HeightInch = (int)
                 Math.Floor(
                     12d * (x * x * x / 400000d + x / 100d +

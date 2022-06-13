@@ -168,7 +168,8 @@ namespace DND.Shared.Entities.Characters
             Fencer, Spy, Thief, CrewLeader,
 
             Burglar, Enforcer, Blackmailer, Herbalist, Author,
-            Professor, CourtMage, Wizard, Witch, Headmaster
+            Professor, CourtMage, Wizard, Witch, Headmaster,
+            Researcher
         };
 
         public static Profession[] professions => Professions;
