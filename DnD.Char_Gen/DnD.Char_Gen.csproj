@@ -6,7 +6,7 @@
     <ApplicationIcon />
     <StartupObject>DnD.Char_Gen.Program</StartupObject>
     <Nullable>warnings</Nullable>
-    <AssemblyName>DnD_Character_Generator_pre1.1.0</AssemblyName>
+    <AssemblyName>DnD_Character_Generator_1.1.0</AssemblyName>
   </PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <PlatformTarget>AnyCPU</PlatformTarget>

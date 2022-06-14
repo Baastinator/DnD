@@ -163,9 +163,9 @@ namespace DND.Shared.Entities.Characters
             Nurse, Labourer, Doctor, General, Soldier,
 
             Guard, Miller, Farmer, Carpenter, Smith,
-            Tailor, Mason, Herder, Teacher, Miner,
-            None, Urchin, Bandit, Pickpocket, Smuggler,
-            Fencer, Spy, Thief, CrewLeader,
+            Tailor, Mason, Herder, Teacher, Miner, 
+                    None, Urchin, Bandit, Pickpocket, 
+            Smuggler, Fencer, Spy, Thief, CrewLeader,
 
             Burglar, Enforcer, Blackmailer, Herbalist, Author,
             Professor, CourtMage, Wizard, Witch, Headmaster,
