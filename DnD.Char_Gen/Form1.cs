@@ -38,6 +38,7 @@ namespace DnD.Char_Gen
 
         private void StatsSaveBtn_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(@"Test");
             try
             {
                 tempStats = Statblock.MakeStats(new int[] { 0, 0, 0, 0, 0, 0 });
@@ -57,7 +58,7 @@ namespace DnD.Char_Gen
                 }
                 foreach (var i in Program.Character.CStats.IntArray)
                 {
-                    Console.WriteLine(i + "  " + Statblock.getModifier(i));
+                    Console.WriteLine(i + @"  " + Statblock.getModifier(i));
                 }
                 LoadSocialClass();
             }
